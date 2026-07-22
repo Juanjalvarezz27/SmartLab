@@ -12,10 +12,11 @@ interface ModalPreviewCierrePDFProps {
   dataDiario?: any;
   tasaBCV?: number;
   historialData?: any[];
+  laboratorio?: any;
   onClose: () => void;
 }
 
-export default function ModalPreviewCierrePDF({ tipo, dataDiario, tasaBCV, historialData, onClose }: ModalPreviewCierrePDFProps) {
+export default function ModalPreviewCierrePDF({ tipo, dataDiario, tasaBCV, historialData, laboratorio, onClose }: ModalPreviewCierrePDFProps) {
   const [isMounted, setIsMounted] = useState(false);
   
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function ModalPreviewCierrePDF({ tipo, dataDiario, tasaBCV, histo
     if (tipo === "DIARIO" || tipo === "INDIVIDUAL") {
       return <CierreDiarioPDF data={dataDiario} tasaBCV={tasaBCV || 1} />;
     } else {
-      return <HistorialCierresPDF historial={historialData || []} />;
+      return <HistorialCierresPDF historial={historialData || []} laboratorio={laboratorio} />;
     }
   };
 

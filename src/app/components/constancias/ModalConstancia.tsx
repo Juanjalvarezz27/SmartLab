@@ -44,17 +44,19 @@ export default function ModalConstancia({ orden, onClose }: { orden: any; onClos
       const base64String = Buffer.from(buffer).toString("base64");
 
       // 3. Enviar al endpoint
-      const mensaje = `Hola ${orden.paciente.nombreCompleto},\n\nAdjunto encontrarás la constancia solicitada en el Laboratorio LEYMA C.A.\n\n¡Cualquier consulta estamos a tu orden. Feliz día!`;
+      const labNombre = orden.laboratorio?.nombre || "Laboratorio LEYMA C.A.";
+      const mensaje = `Hola ${orden.paciente.nombreCompleto},\n\nAdjunto encontrarás la constancia solicitada en ${labNombre}.\n\n¡Cualquier consulta estamos a tu orden. Feliz día!`;
 
       const res = await fetch("/api/enviar-correo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: emailInput,
-          subject: `Constancia de Laboratorio LEYMA C.A. - Orden #${orden.id}`,
+          subject: `Constancia de ${labNombre} - Orden #${orden.id}`,
           message: mensaje,
           fileName: nombreArchivo,
           pdfBase64: base64String,
+          labNombre: orden.laboratorio?.nombre
         }),
       });
 

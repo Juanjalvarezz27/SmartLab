@@ -4,11 +4,20 @@ import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
 const gzip = promisify(gzipCallback);
 import { getCaracasTodayBounds, subtractDaysCaracas, getCaracasThisMonthBounds, getCaracasBoundsForDate, formatToCaracasDateString } from "../../../lib/dateUtils";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export const revalidate = 15;
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const periodo = searchParams.get("periodo") || "7DIAS";
     const inicioStr = searchParams.get("inicio");
@@ -47,13 +56,15 @@ export async function GET(req: Request) {
     const [ingresosAgg, gastosAgg, metodosPago] = await Promise.all([
       prisma.orden.aggregate({
         _sum: { totalUSD: true, totalBS: true },
-        where: { fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } }
+        where: { laboratorioId: labId, fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } }
       }),
       prisma.gasto.aggregate({
         _sum: { montoUSD: true, montoBS: true },
-        where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } }
+        where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } }
       }),
-      prisma.metodoPago.findMany()
+      prisma.metodoPago.findMany({
+        where: { laboratorioId: labId }
+      })
     ]);
 
     const totalIngresosUSD = ingresosAgg._sum.totalUSD || 0;
@@ -65,7 +76,7 @@ export async function GET(req: Request) {
     const balanceNetoUSD = totalIngresosUSD - totalGastosUSD;
     const balanceNetoBS = totalIngresosBS - totalGastosBS;
 
-    // 2. TENDENCIA DIARIA (Uso micro-extracción para asegurar compatibilidad de Timezones sin raw complejo)
+    // 2. TENDENCIA DIARIA
     const diferenciaDias = Math.ceil((fechaFin.getTime() - fechaInicio.getTime()) / (1000 * 3600 * 24));
     
     let graficoTendencia: any[] = [];
@@ -73,14 +84,13 @@ export async function GET(req: Request) {
     const diasDelPeriodo: string[] = [];
 
     if (diferenciaDias <= 60) {
-      // Extraemos SOLO fechas y montos (ultra ligero en memoria, soporta 100k+ registros sin problema)
       const [fechasIngresos, fechasGastos] = await Promise.all([
         prisma.orden.findMany({
-          where: { fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } },
+          where: { laboratorioId: labId, fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } },
           select: { fechaCreacion: true, totalUSD: true }
         }),
         prisma.gasto.findMany({
-          where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } },
+          where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } },
           select: { fechaGasto: true, montoUSD: true }
         })
       ]);
@@ -112,14 +122,13 @@ export async function GET(req: Request) {
         };
       });
     } else {
-      // Agrupación mensual para periodos mayores a 60 días
       const [fechasIngresos, fechasGastos] = await Promise.all([
         prisma.orden.findMany({
-          where: { fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } },
+          where: { laboratorioId: labId, fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } },
           select: { fechaCreacion: true, totalUSD: true }
         }),
         prisma.gasto.findMany({
-          where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } },
+          where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } },
           select: { fechaGasto: true, montoUSD: true }
         })
       ]);
@@ -160,12 +169,12 @@ export async function GET(req: Request) {
       prisma.gasto.groupBy({
         by: ['metodoId'],
         _sum: { montoUSD: true },
-        where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } }
+        where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } }
       }),
       prisma.pago.groupBy({
         by: ['metodoId'],
         _sum: { montoUSD: true },
-        where: { orden: { fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } } }
+        where: { laboratorioId: labId, orden: { fechaCreacion: { gte: fechaInicio, lte: fechaFin }, estado: { nombre: "CERRADA" } } }
       })
     ]);
 
@@ -186,7 +195,7 @@ export async function GET(req: Request) {
 
     // 4. HISTORIAL GASTOS (Micro-extracción)
     const gastosRaw = await prisma.gasto.findMany({
-      where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } },
+      where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } },
       select: { id: true, concepto: true, montoUSD: true, montoBS: true, fechaGasto: true, metodo: { select: { nombre: true } }, registradoPor: { select: { nombre: true } } },
       orderBy: { fechaGasto: 'desc' }
     });
@@ -202,9 +211,10 @@ export async function GET(req: Request) {
       responsable: g.registradoPor.nombre
     }));
 
-    // 5. HISTORIAL DESCUENTOS (Solo descargamos las órdenes que de verdad tienen descuentos)
+    // 5. HISTORIAL DESCUENTOS
     const ingresosConDescuento = await prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         fechaCreacion: { gte: fechaInicio, lte: fechaFin },
         estado: { nombre: "CERRADA" },
         OR: [

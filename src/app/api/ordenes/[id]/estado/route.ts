@@ -1,19 +1,22 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../../../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const parseId = (id: any) => isNaN(Number(id)) ? id : Number(id);
 
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user) {
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!session || !session.user || !labId) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
     const resolvedParams = await params;
-    const ordenId = parseId(resolvedParams.id); // <-- CORREGIDO
+    const ordenId = parseInt(resolvedParams.id, 10);
+    if (isNaN(ordenId)) throw new Error("ID de orden inválido");
     const body = await req.json();
 
     const { clave, estadoDestino } = body;
@@ -24,6 +27,14 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       return NextResponse.json({ error: "Clave maestra incorrecta" }, { status: 403 });
     }
 
+    const ordenExistente = await prisma.orden.findFirst({
+      where: { id: ordenId, laboratorioId: labId }
+    });
+
+    if (!ordenExistente) {
+      return NextResponse.json({ error: "No autorizado para modificar esta orden" }, { status: 403 });
+    }
+
     const estadoEnBD = await prisma.estadoOrden.findUnique({ where: { nombre: estadoDestino } });
 
     if (!estadoEnBD) {
@@ -31,7 +42,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     }
 
     const ordenActualizada = await prisma.orden.update({
-      where: { id: ordenId as any },
+      where: { id_laboratorioId: { id: ordenId, laboratorioId: labId } },
       data: { estadoId: estadoEnBD.id }
     });
 

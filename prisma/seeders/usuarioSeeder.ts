@@ -1,81 +1,60 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
-export async function seedUsuarios(prisma: PrismaClient) {
-  // 1. Buscamos los roles necesarios
-  const adminRol = await prisma.rol.findUnique({ where: { nombre: 'ADMIN' } });
-  const usuarioRol = await prisma.rol.findUnique({ where: { nombre: 'USUARIO' } });
-
-  if (!adminRol || !usuarioRol) {
-    throw new Error('Los roles ADMIN y USUARIO deben crearse antes que los usuarios.');
-  }
-
+export async function seedUsuarios(prisma: PrismaClient, laboratorioId: string) {
   const saltRounds = 10;
   const claveHasheada = await bcrypt.hash('1234', saltRounds);
 
-  // 2. Administrador Principal
+  // 1. Administrador Principal (SUPERADMIN - Sin Laboratorio restringido)
   await prisma.usuario.upsert({
     where: { correo: 'admin@admin' },
     update: {
       nombre: 'Administrador Principal',
-      rolId: adminRol.id,
+      rol: 'SUPERADMIN',
     }, 
     create: {
       nombre: 'Administrador Principal',
       correo: 'admin@admin',
       clave: claveHasheada,
-      rolId: adminRol.id,
+      rol: 'SUPERADMIN',
       activo: true,
+      laboratorioId: null, // Superadmin puede ver todo
     },
   });
 
-  // 3. Leslie Alvarez (ADMIN)
+  // 2. Dueño de Laboratorio (LABORATORIO)
   await prisma.usuario.upsert({
     where: { correo: 'hleslieag@gmail.com' },
     update: {
       nombre: 'Dra. Leslie Alvarez',
-      rolId: adminRol.id, // Asegura que mantenga el rol correcto
+      rol: 'LABORATORIO',
+      laboratorioId: laboratorioId
     }, 
     create: {
       nombre: 'Dra. Leslie Alvarez',
       correo: 'hleslieag@gmail.com',
       clave: claveHasheada,
-      rolId: adminRol.id,
+      rol: 'LABORATORIO',
       activo: true,
+      laboratorioId: laboratorioId
     },
   });
 
-  // 4. Mayira (ADMIN)
-  await prisma.usuario.upsert({
-    where: { correo: 'mayira@gmail.com' },
-    update: {
-      nombre: 'Lcda. Mayira Flores',
-      rolId: adminRol.id,
-    }, 
-    create: {
-      nombre: 'Lcda. Mayira Flores', 
-      correo: 'mayira@gmail.com',
-      clave: claveHasheada,
-      rolId: adminRol.id,
-      activo: true,
-    },
-  });
-
-  // 5. Asistente General (USUARIO)
+  // 3. Asistente (ASISTENTE)
   await prisma.usuario.upsert({
     where: { correo: 'asistente@gmail.com' },
     update: {
       nombre: 'Asistente de Laboratorio',
-      rolId: usuarioRol.id,
+      rol: 'ASISTENTE',
+      laboratorioId: laboratorioId
     }, 
     create: {
       nombre: 'Asistente de Laboratorio',
       correo: 'asistente@gmail.com',
       clave: claveHasheada,
-      rolId: usuarioRol.id,
+      rol: 'ASISTENTE',
       activo: true,
+      laboratorioId: laboratorioId
     },
   });
-
-  console.log(' Usuarios semilla creados y actualizados correctamente.');
 }

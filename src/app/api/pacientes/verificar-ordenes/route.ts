@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const pacienteId = searchParams.get("pacienteId");
     const cedula = searchParams.get("cedula");
@@ -18,7 +27,7 @@ export async function GET(req: Request) {
     } else if (cedula) {
       // Buscar el paciente por cédula directamente
       const paciente = await prisma.paciente.findFirst({
-        where: { cedula: cedula.trim() },
+        where: { cedula: cedula.trim(), laboratorioId: labId },
         select: { id: true }
       });
       if (!paciente) {
@@ -26,6 +35,12 @@ export async function GET(req: Request) {
         return NextResponse.json({ tieneOrdenes: false, ordenes: [] });
       }
       finalPacienteId = String(paciente.id);
+    }
+
+    // Asegurarse que finalPacienteId pertenezca al labId (por si pacienteId se proporcionó directamente)
+    if (pacienteId) {
+      const verifica = await prisma.paciente.findFirst({ where: { id: finalPacienteId, laboratorioId: labId }});
+      if (!verifica) return NextResponse.json({ tieneOrdenes: false, ordenes: [] });
     }
 
     // Calcular rangos del día de hoy en Venezuela
@@ -65,6 +80,7 @@ export async function GET(req: Request) {
       prisma.orden.findMany({
         where: {
           pacienteId: finalPacienteId,
+          laboratorioId: labId,
           estado: { nombre: "ABIERTA" }
         },
         include: includeData
@@ -72,6 +88,7 @@ export async function GET(req: Request) {
       prisma.orden.findMany({
         where: {
           pacienteId: finalPacienteId,
+          laboratorioId: labId,
           fechaCreacion: {
             gte: fechaInicio,
             lte: fechaFin

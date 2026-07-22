@@ -2,12 +2,22 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { id } = await params;
     const ordenId = parseInt(id, 10);
     if (isNaN(ordenId)) {
@@ -19,6 +29,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       where: { id: ordenId },
       select: {
         id: true,
+        laboratorioId: true,
         fechaCreacion: true,
         resultadosCompletados: true,
         totalUSD: true,
@@ -32,11 +43,15 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
             fechaNacimiento: true,
             telefono: true,
             correo: true,
+            direccion: true,
             observaciones: true
           }
         },
         estado: { select: { nombre: true } },
         creadoPor: { select: { nombre: true } },
+        laboratorio: {
+          select: { nombre: true, correo: true, telefono: true, logoBase64: true, direccion: true, rif: true }
+        },
         detalles: {
           select: {
             id: true,
@@ -81,8 +96,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       }
     });
 
-    if (!orden) {
-      return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
+    if (!orden || orden.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Orden no encontrada o no autorizada" }, { status: 404 });
     }
 
     const payload = Buffer.from(JSON.stringify(orden));

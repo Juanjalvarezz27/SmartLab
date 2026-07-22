@@ -20,7 +20,7 @@ export default function ConstanciasPage() {
 
   const [ordenSeleccionada, setOrdenSeleccionada] = useState<any | null>(null);
   const [pacienteExpandido, setPacienteExpandido] = useState<string | null>(null);
-  const [whatsAppModalConfig, setWhatsAppModalConfig] = useState<{isOpen: boolean, paciente: any} | null>(null);
+  const [whatsAppModalConfig, setWhatsAppModalConfig] = useState<{isOpen: boolean, paciente: any, labNombre?: string} | null>(null);
 
   const fetchOrdenes = async (b = busqueda, f = fechaFiltro) => {
     setCargando(true);
@@ -111,13 +111,13 @@ export default function ConstanciasPage() {
     setPacienteExpandido(pacienteExpandido === pacienteId ? null : pacienteId);
   };
 
-  const enviarWhatsAppContacto = (e: React.MouseEvent, paciente: any) => {
+  const enviarWhatsAppContacto = (e: React.MouseEvent, paciente: any, labNombre?: string) => {
     e.stopPropagation(); // Evita que se abra/cierre la fila
     if (!paciente.telefono) {
       toast.warning("El paciente no tiene un número de teléfono registrado.");
       return;
     }
-    setWhatsAppModalConfig({ isOpen: true, paciente });
+    setWhatsAppModalConfig({ isOpen: true, paciente, labNombre });
   };
 
   return (
@@ -239,7 +239,7 @@ export default function ConstanciasPage() {
                             {/* BOTÓN WHATSAPP */}
                             <div className="relative group/ws flex flex-col items-center">
                               <button 
-                                onClick={(e) => enviarWhatsAppContacto(e, grupo.paciente)}
+                                onClick={(e) => enviarWhatsAppContacto(e, grupo.paciente, ultimaOrden.laboratorio?.nombre)}
                                 className="flex items-center justify-center w-10 h-10 bg-emerald-50 text-emerald-600 hover:bg-emerald-500 hover:text-white rounded-full transition-all duration-300 hover:shadow-[0_4px_12px_rgba(16,185,129,0.3)] hover:-translate-y-0.5"
                               >
                                 <MessageCircle size={18} strokeWidth={2.5} />
@@ -369,6 +369,7 @@ export default function ConstanciasPage() {
           pacienteNombre={whatsAppModalConfig.paciente.nombreCompleto}
           telefono={whatsAppModalConfig.paciente.telefono || ""}
           tipoMensaje="contacto"
+          labNombre={whatsAppModalConfig.labNombre}
         />
       )}
     </div>

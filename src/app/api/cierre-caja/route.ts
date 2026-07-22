@@ -5,12 +5,19 @@ import { gzip as gzipCallback } from "zlib";
 const gzip = promisify(gzipCallback);
 import { getCaracasTodayBounds, getCaracasBoundsForDate, formatToCaracasDateString, getCaracasDateString } from "../../../lib/dateUtils";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export const revalidate = 15;
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const tasaParam = searchParams.get("tasa");
     const tasaBCV = tasaParam ? parseFloat(tasaParam) : 1;
@@ -32,7 +39,7 @@ export async function GET(req: Request) {
 
     if (cierreId) {
       const cierreEspecifico = await prisma.cierreCaja.findUnique({ where: { id: cierreId } });
-      if (!cierreEspecifico) throw new Error("Cierre no encontrado");
+      if (!cierreEspecifico || cierreEspecifico.laboratorioId !== labId) throw new Error("Cierre no encontrado");
       cierreEspecificoObj = cierreEspecifico;
       fechaInicio = cierreEspecifico.fechaApertura;
       fechaFin = cierreEspecifico.fechaCierre;
@@ -47,11 +54,13 @@ export async function GET(req: Request) {
       fechaTarget = inicioStr;
     } else {
       const ultimoCierre = await prisma.cierreCaja.findFirst({
+        where: { laboratorioId: labId },
         orderBy: { fechaCierre: 'desc' }
       });
       
       oldestPendingOrder = await prisma.orden.findFirst({
         where: {
+          laboratorioId: labId,
           estado: { nombre: { not: "ANULADA" } },
           ...(ultimoCierre ? { fechaCreacion: { gt: ultimoCierre.fechaCierre } } : {})
         },
@@ -86,7 +95,10 @@ export async function GET(req: Request) {
         const todayString = getCaracasDateString();
         fechaTarget = todayString;
         const bounds = getCaracasTodayBounds();
-        const ultimoCierre = await prisma.cierreCaja.findFirst({ orderBy: { fechaCierre: 'desc' } });
+        const ultimoCierre = await prisma.cierreCaja.findFirst({ 
+          where: { laboratorioId: labId },
+          orderBy: { fechaCierre: 'desc' } 
+        });
         fechaInicio = ultimoCierre ? ultimoCierre.fechaCierre : bounds.inicio;
         fechaFin = bounds.fin;
         tituloCaja = "Cierre de Hoy";
@@ -94,7 +106,10 @@ export async function GET(req: Request) {
     }
 
     const cierreDeHoy = await prisma.cierreCaja.findFirst({
-      where: { fechaCierre: { gt: fechaInicio, lte: fechaFin } }
+      where: { 
+        laboratorioId: labId,
+        fechaCierre: { gt: fechaInicio, lte: fechaFin } 
+      }
     });
     const yaCerroHoy = !!cierreDeHoy;
     if (cierreDeHoy && !observacionesCierre) {
@@ -102,6 +117,7 @@ export async function GET(req: Request) {
     }
 
     const historialCierres = await prisma.cierreCaja.findMany({
+      where: { laboratorioId: labId },
       orderBy: { fechaCierre: 'desc' },
       take: 30,
       select: {
@@ -123,13 +139,17 @@ export async function GET(req: Request) {
     } else if (periodo === "CUSTOM" && inicioStr && finStr) {
         orderTimeFilter.gte = fechaInicio;
     } else {
-        const ultimoCierre = await prisma.cierreCaja.findFirst({ orderBy: { fechaCierre: 'desc' } });
+        const ultimoCierre = await prisma.cierreCaja.findFirst({ 
+          where: { laboratorioId: labId },
+          orderBy: { fechaCierre: 'desc' } 
+        });
         if (ultimoCierre) orderTimeFilter.gt = fechaInicio;
         else orderTimeFilter.gte = fechaInicio;
     }
 
     const ordenes = await prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         fechaCreacion: orderTimeFilter,
         estado: { nombre: { not: "ANULADA" } }
       },
@@ -201,12 +221,18 @@ export async function GET(req: Request) {
       };
     });
 
+    const laboratorio = await prisma.laboratorio.findUnique({
+      where: { id: labId },
+      select: { nombre: true, logoBase64: true, direccion: true, telefono: true, rif: true }
+    });
+
     const payload = {
       tituloCaja,
       fechaTarget,
       esAtrasado,
       yaCerroHoy,
       tasaDelDia,
+      laboratorio,
       observaciones: observacionesCierre,
       historialCierres,
       resumen: {
@@ -256,21 +282,28 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user?.email) {
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!session || !session.user?.email || !labId) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
     const usuarioSesion = await prisma.usuario.findUnique({ where: { correo: session.user.email } });
-    if (!usuarioSesion) {
+    if (!usuarioSesion || usuarioSesion.laboratorioId !== labId) {
       return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
     }
 
     const body = await req.json();
     const { totalCalculadoUSD, totalCalculadoBS, totalDeclaradoUSD, totalDeclaradoBS, observaciones, tasaBCV, desglose } = body;
     
-    const ultimoCierre = await prisma.cierreCaja.findFirst({ orderBy: { fechaCierre: 'desc' } });
+    const ultimoCierre = await prisma.cierreCaja.findFirst({ 
+      where: { laboratorioId: labId },
+      orderBy: { fechaCierre: 'desc' } 
+    });
+    
     const oldestPendingOrder = await prisma.orden.findFirst({
       where: {
+        laboratorioId: labId,
         estado: { nombre: { not: "ANULADA" } },
         ...(ultimoCierre ? { fechaCreacion: { gt: ultimoCierre.fechaCierre } } : {})
       },
@@ -301,7 +334,10 @@ export async function POST(req: Request) {
     }
 
     const cierreExistente = await prisma.cierreCaja.findFirst({
-      where: { fechaCierre: { gte: fechaInicioBounds, lte: fechaFinBounds } }
+      where: { 
+        laboratorioId: labId,
+        fechaCierre: { gte: fechaInicioBounds, lte: fechaFinBounds } 
+      }
     });
 
     if (cierreExistente) {
@@ -328,7 +364,8 @@ export async function POST(req: Request) {
         descuadreBS,
         tasaBCV: parseFloat(tasaBCV),
         observaciones,
-        desgloseMetodos: JSON.stringify(desglose)
+        desgloseMetodos: JSON.stringify(desglose),
+        laboratorioId: labId
       }
     });
 
@@ -340,6 +377,13 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
     const clave = searchParams.get("clave");
@@ -350,6 +394,14 @@ export async function DELETE(req: Request) {
 
     if (clave !== process.env.CLAVE_MAESTRA) {
       return NextResponse.json({ error: "Clave maestra incorrecta" }, { status: 401 });
+    }
+
+    const cierreExistente = await prisma.cierreCaja.findFirst({
+      where: { id, laboratorioId: labId }
+    });
+
+    if (!cierreExistente) {
+      return NextResponse.json({ error: "Cierre no encontrado o no autorizado" }, { status: 403 });
     }
 
     await prisma.cierreCaja.delete({

@@ -17,12 +17,18 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  // 3. RUTAS RESTRINGIDAS: Si es un USUARIO normal intentando entrar a módulos de ADMIN
-  if (token && token.rol !== "ADMIN") {
-    const rutasSoloAdmin = ["/home/pruebas", "/home/estadisticas", "/home/monedero"];
+  // 3. RUTAS RESTRINGIDAS: Si es un ASISTENTE intentando entrar a configuración
+  if (token && token.rol !== "LABORATORIO" && token.rol !== "SUPERADMIN") {
+    const rutasRestringidas = [
+      "/home/pruebas", 
+      "/home/estadisticas", 
+      "/home/monedero",
+      "/home/perfil",
+      "/home/costos"
+    ];
     
     // Verificamos si la ruta actual empieza con alguna de las bloqueadas
-    const intentaEntrarRutaAdmin = rutasSoloAdmin.some(ruta => pathname.startsWith(ruta));
+    const intentaEntrarRutaAdmin = rutasRestringidas.some(ruta => pathname.startsWith(ruta));
     
     if (intentaEntrarRutaAdmin) {
       // Lo regresamos al Dashboard por "listillo"

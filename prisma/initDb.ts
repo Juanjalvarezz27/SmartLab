@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { seedRoles } from './seeders/rolSeeder';
 import { seedEstados } from './seeders/estadoSeeder';
 import { seedMetodosPago } from './seeders/metodoPagoSeeder';
 import { seedTiposDescuento } from './seeders/tipoDescuentoSeeder';
@@ -16,34 +15,55 @@ async function main() {
   console.log('Iniciando carga de datos (InitDB)...');
 
   try {
-    await seedRoles(prisma);
-    console.log('Roles cargados correctamente.');
-
+    // 1. Estados y Tipos (Globales)
     await seedEstados(prisma);
     console.log('Estados de orden cargados correctamente.');
-
-    await seedMetodosPago(prisma);
-    console.log('Metodos de pago cargados correctamente.');
 
     await seedTiposDescuento(prisma);
     console.log('Tipos de descuento cargados correctamente.');
 
-    await seedUsuarios(prisma);
+    // 2. Crear Laboratorio Demo (Tenant Principal)
+    let lab = await prisma.laboratorio.findFirst({
+      where: { nombre: 'Laboratorio Leyma C.A.' }
+    });
+
+    if (!lab) {
+      lab = await prisma.laboratorio.create({
+        data: {
+          nombre: 'Laboratorio Leyma C.A.',
+          telefono: '+58 000 0000000',
+          correo: 'info@smartlab.com',
+          direccion: 'C.C. Demo, Local 1',
+        }
+      });
+      console.log('Laboratorio Leyma C.A. creado correctamente.');
+    } else {
+      console.log('Laboratorio Leyma C.A. ya existe.');
+    }
+
+    const labId = lab.id;
+
+    // 3. Crear Usuarios (SUPERADMIN, LABORATORIO, ASISTENTE)
+    await seedUsuarios(prisma, labId);
     console.log('Usuarios base cargados correctamente.');
 
-    await seedCategorias(prisma);
+    // 4. Catálogos dependientes del Laboratorio
+    await seedMetodosPago(prisma, labId);
+    console.log('Metodos de pago cargados correctamente.');
+
+    await seedCategorias(prisma, labId);
     console.log('Categorías de pruebas cargadas correctamente.');
 
-    await seedSubcategorias(prisma);
+    await seedSubcategorias(prisma, labId);
     console.log('Subcategorías de pruebas cargadas correctamente.');
 
-    await seedPruebas(prisma);
+    await seedPruebas(prisma, labId);
     console.log('Pruebas de laboratorio cargadas correctamente.');
 
-    await seedServiciosExtra(prisma);
+    await seedServiciosExtra(prisma, labId);
     console.log('Servicios extra cargados correctamente.');
 
-    await seedCostosFijos(prisma);
+    await seedCostosFijos(prisma, labId);
     console.log('Costos fijos cargados correctamente.');
 
     console.log('Sistema inicializado con exito.');

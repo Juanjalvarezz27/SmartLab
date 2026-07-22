@@ -1,13 +1,28 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // Editar paquete (nombre y/o ítems)
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { id: idParam } = await params;
     const id = parseInt(idParam);
     const body = await req.json();
     const { nombre, items } = body;
+
+    // Verificamos propiedad del paquete
+    const paqueteExistente = await prisma.paqueteInsumo.findFirst({
+      where: { id, laboratorioId: labId }
+    });
+    if (!paqueteExistente) return NextResponse.json({ error: "No autorizado" }, { status: 403 });
 
     // Transacción atómica para evitar inconsistencias
     const actualizado = await prisma.$transaction(async (tx) => {
@@ -21,7 +36,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
       // Reemplazar ítems si vienen
       if (items && Array.isArray(items)) {
-        await tx.paqueteInsumoItem.deleteMany({ where: { paqueteId: id } });
+        await tx.paqueteInsumoItem.deleteMany({ where: { paqueteId: id, laboratorioId: labId } });
 
         if (items.length > 0) {
           await tx.paqueteInsumoItem.createMany({
@@ -29,6 +44,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
               paqueteId: id,
               insumoId: Number(item.insumoId),
               cantidadUsada: Number(item.cantidadUsada),
+              laboratorioId: labId
             })),
           });
         }

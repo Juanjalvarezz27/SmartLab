@@ -20,7 +20,17 @@ export async function GET(req: NextRequest) {
         firmaUrl: true,
         mpps: true,
         col: true,
-        rol: { select: { nombre: true } }
+        rol: true,
+        laboratorio: {
+          select: {
+            nombre: true,
+            direccion: true,
+            telefono: true,
+            correo: true,
+            rif: true,
+            logoBase64: true
+          }
+        }
       }
     });
 

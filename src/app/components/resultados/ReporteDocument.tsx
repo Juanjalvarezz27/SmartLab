@@ -314,11 +314,11 @@ const ReporteDocument = ({ orden, fechaImpresa, qrCodeUrl }: { orden: any, fecha
           </View>
 
           <View style={pdfStyles.topContactRightBox}>
-            <Text style={pdfStyles.topContactText}>DIRECCIÓN: AVENIDA CORO, LOCAL 4-79, SECTOR SANTA ROSA.</Text>
+            <Text style={pdfStyles.topContactText}>DIRECCIÓN: {orden.laboratorio?.direccion || '---'}</Text>
             <View style={pdfStyles.topContactRight}>
-              <Text style={pdfStyles.topContactText}>TELÉFONO: 04220353660</Text>
-              <Text style={pdfStyles.topContactText}>CORREO: LABORATORIOLEYMA@GMAIL.COM</Text>
-              <Text style={pdfStyles.topContactText}>RIF: J - 508463315</Text>
+              <Text style={pdfStyles.topContactText}>TELÉFONO: {orden.laboratorio?.telefono || '---'}</Text>
+              <Text style={pdfStyles.topContactText}>CORREO: {(orden.laboratorio?.correo || '---').toUpperCase()}</Text>
+              <Text style={pdfStyles.topContactText}>RIF: {orden.laboratorio?.rif || '---'}</Text>
             </View>
           </View>
         </View>
@@ -326,9 +326,11 @@ const ReporteDocument = ({ orden, fechaImpresa, qrCodeUrl }: { orden: any, fecha
         {/* HEADER */}
         <View style={pdfStyles.header}>
           <View style={pdfStyles.logoRow}>
-            <Image src={typeof window !== "undefined" ? `${window.location.origin}/Logo2.png` : "/Logo2.png"} style={pdfStyles.logoImage} />
+            {orden.laboratorio?.logoBase64 ? (
+              <Image src={orden.laboratorio.logoBase64} style={pdfStyles.logoImage} />
+            ) : null}
             <View>
-              <Text style={pdfStyles.logoTitle}>LEYMA C.A.</Text>
+              <Text style={pdfStyles.logoTitle}>{orden.laboratorio?.nombre || 'Laboratorio'}</Text>
               <Text style={pdfStyles.logoSubtitle}>LABORATORIO CLÍNICO BACTERIOLÓGICO</Text>
             </View>
           </View>

@@ -9,6 +9,7 @@ interface ModalAsistenteWhatsAppProps {
   pacienteNombre: string;
   telefono: string;
   tipoMensaje: 'resultados' | 'presupuesto' | 'cobro' | 'contacto';
+  labNombre?: string;
   datosAdicionales?: {
     link?: string;
     montoUSD?: number;
@@ -17,7 +18,7 @@ interface ModalAsistenteWhatsAppProps {
   };
 }
 
-export default function ModalAsistenteWhatsApp({ isOpen, onClose, pacienteNombre, telefono, tipoMensaje, datosAdicionales }: ModalAsistenteWhatsAppProps) {
+export default function ModalAsistenteWhatsApp({ isOpen, onClose, pacienteNombre, telefono, tipoMensaje, labNombre, datosAdicionales }: ModalAsistenteWhatsAppProps) {
   const [paso, setPaso] = useState(1);
   const [saludoActual, setSaludoActual] = useState("");
   const [mensajeActual, setMensajeActual] = useState("");
@@ -62,13 +63,14 @@ export default function ModalAsistenteWhatsApp({ isOpen, onClose, pacienteNombre
 
     // 2. Generar Mensaje Principal
     let mensajes: string[] = [];
+    const nombreLab = labNombre || "Laboratorio LEYMA C.A.";
     if (tipoMensaje === 'resultados' && datosAdicionales?.link) {
       mensajes = [
-        `Sus resultados ya están disponibles.\nPuede consultarlos aquí:\n${datosAdicionales.link}\n\nCualquier duda estamos para servirle.\nLaboratorio LEYMA C.A.`,
+        `Sus resultados ya están disponibles.\nPuede consultarlos aquí:\n${datosAdicionales.link}\n\nCualquier duda estamos para servirle.\n${nombreLab}`,
         `Le informamos que sus resultados ya están listos.\nPuede visualizar el informe aquí:\n${datosAdicionales.link}\n\nFeliz día.`,
         `Compartimos el enlace para consultar sus resultados:\n${datosAdicionales.link}\n\nGracias por confiar en nosotros.`,
         `Ya puede consultar el resultado de sus exámenes.\nAcceda mediante el siguiente enlace:\n${datosAdicionales.link}\n\nEstamos a su disposición para cualquier consulta.`,
-        `Adjuntamos el enlace para consultar sus resultados clínicos.\n${datosAdicionales.link}\n\nMuchas gracias por preferir Laboratorio LEYMA.`
+        `Adjuntamos el enlace para consultar sus resultados clínicos.\n${datosAdicionales.link}\n\nMuchas gracias por preferir ${nombreLab}.`
       ];
     } else if (tipoMensaje === 'presupuesto' && datosAdicionales?.link) {
       mensajes = [
@@ -87,8 +89,8 @@ export default function ModalAsistenteWhatsApp({ isOpen, onClose, pacienteNombre
     } else if (tipoMensaje === 'contacto') {
       const idStr = datosAdicionales?.ordenId ? datosAdicionales.ordenId.toString().padStart(5, '0') : "";
       mensajes = [
-        idStr ? `Nos comunicamos referente a su orden N° ${idStr}.` : `Nos comunicamos desde el Laboratorio LEYMA.`,
-        idStr ? `Le escribimos con relación a su orden N° ${idStr}.` : `Le escribimos del Laboratorio LEYMA C.A.`,
+        idStr ? `Nos comunicamos referente a su orden N° ${idStr}.` : `Nos comunicamos desde ${nombreLab}.`,
+        idStr ? `Le escribimos con relación a su orden N° ${idStr}.` : `Le escribimos de ${nombreLab}.`,
       ];
     }
 

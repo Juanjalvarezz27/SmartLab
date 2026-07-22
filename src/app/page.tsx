@@ -33,7 +33,14 @@ export default function LoginPage() {
       toast.error(respuesta.error);
     } else {
       toast.success("¡Bienvenido al sistema!");
-      router.push("/home");
+      // Obtener sesión para chequear rol
+      const { getSession } = await import("next-auth/react");
+      const session = await getSession();
+      if (session?.user?.rol === "SUPERADMIN") {
+        router.push("/superadmin");
+      } else {
+        router.push("/home");
+      }
       router.refresh();
     }
   };
@@ -44,7 +51,7 @@ export default function LoginPage() {
       {/* TARJETA MAESTRA RECTANGULAR Optimizada */}
       <div className="relative w-full max-w-[1100px] flex flex-col lg:flex-row bg-white/60 rounded-[32px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden z-10 border border-white">
         
-        {/* COLUMNA IZQUIERDA: LEYMA C.A. */}
+        {/* COLUMNA IZQUIERDA: SmartLab */}
         <div className="hidden lg:flex w-[45%] flex-col justify-between p-14 bg-white border-r border-slate-100 relative z-20">
           
           <div className="flex flex-col items-start mt-4">
@@ -52,7 +59,7 @@ export default function LoginPage() {
             <div className="relative w-40 h-40 mb-8 drop-shadow-sm filter">
               <Image
                 src="/Logo2.png" 
-                alt="Logo Leyma"
+                alt="Logo SmartLab"
                 fill
                 className="object-contain"
                 priority
@@ -61,11 +68,8 @@ export default function LoginPage() {
             
             <div className="flex items-baseline gap-2 mb-4">
               <h1 className="font-title text-7xl font-black text-[#1D1D1F] tracking-tighter leading-none">
-                LEYMA
+                SmartLab
               </h1>
-              <span className="text-2xl font-black text-[#1D1D1F] tracking-tight">
-                C.A.
-              </span>
             </div>
             
             <h2 className="text-xl font-medium text-[#86868B] leading-relaxed tracking-tight max-w-[300px]">
@@ -162,7 +166,7 @@ export default function LoginPage() {
 
             {/* Footer Integrado */}
             <div className="mt-12 pt-8 border-t border-slate-200/50 flex justify-between items-center">
-              <span className="text-[10px] font-black text-[#1D1D1F]/40 uppercase tracking-[0.3em]">LEYMA</span>
+              <span className="text-[10px] font-black text-[#1D1D1F]/40 uppercase tracking-[0.3em]">SMARTLAB</span>
               <span className="text-[10px] font-bold text-[#1D1D1F]/30 uppercase tracking-[0.3em]">Trujillo, VZLA</span>
             </div>
           </div>

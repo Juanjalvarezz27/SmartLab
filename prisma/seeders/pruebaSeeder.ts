@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { pruebasData } from './pruebasData';
 
-export async function seedPruebas(prisma: PrismaClient) {
+export async function seedPruebas(prisma: PrismaClient, laboratorioId: string) {
   console.log('Sembrando Pruebas de Laboratorio...');
 
   for (const p of pruebasData) {
@@ -10,11 +10,20 @@ export async function seedPruebas(prisma: PrismaClient) {
     const activa = p.activa === 'true';
     const ordenVisual = p.ordenVisual ? parseInt(p.ordenVisual, 10) : 0;
 
+    // Verificar que la subcategoría existe para este laboratorio
+    const sub = await prisma.subcategoriaPrueba.findFirst({
+      where: { id: p.subcategoriaId, laboratorioId }
+    });
+
+    if (!sub) {
+      console.warn(`Saltando prueba ${p.codigo} - Subcategoría no encontrada para este laboratorio.`);
+      continue;
+    }
+
     try {
       await prisma.prueba.upsert({
-        where: { id: p.id },
+        where: { laboratorioId_codigo: { laboratorioId, codigo: p.codigo } },
         update: {
-          codigo: p.codigo,
           nombre: p.nombre,
           precioUSD: precioUSD,
           margenGanancia: margenGanancia,
@@ -37,6 +46,7 @@ export async function seedPruebas(prisma: PrismaClient) {
           activa: activa,
           ordenVisual: ordenVisual,
           subcategoriaId: p.subcategoriaId,
+          laboratorioId: laboratorioId,
         }
       });
     } catch (error) {

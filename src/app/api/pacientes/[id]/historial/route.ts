@@ -2,10 +2,20 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const resolvedParams = await params;
     const pacienteId = resolvedParams.id;
 
@@ -13,10 +23,11 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       return NextResponse.json({ error: "ID de paciente requerido" }, { status: 400 });
     }
 
-    const pacienteHistorial = await prisma.paciente.findUnique({
-      where: { id: pacienteId },
+    const pacienteHistorial = await prisma.paciente.findFirst({
+      where: { id: pacienteId, laboratorioId: labId },
       include: {
         ordenes: {
+          where: { laboratorioId: labId },
           orderBy: {
             fechaCreacion: 'desc' 
           },
@@ -44,7 +55,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     });
 
     if (!pacienteHistorial) {
-      return NextResponse.json({ error: "Paciente no encontrado" }, { status: 404 });
+      return NextResponse.json({ error: "Paciente no encontrado o no autorizado" }, { status: 404 });
     }
 
     const compressedData = await gzip(Buffer.from(JSON.stringify(pacienteHistorial), 'utf-8'));

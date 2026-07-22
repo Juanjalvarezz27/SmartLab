@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
 const gzip = promisify(gzipCallback);
@@ -13,6 +13,13 @@ import { getCaracasTodayBounds, subtractDaysCaracas, getCaracasThisMonthBounds, 
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const periodo = searchParams.get("periodo") || "7DIAS";
     const inicioStr = searchParams.get("inicio");
@@ -51,6 +58,7 @@ export async function GET(req: Request) {
     // 1. OBTENER INGRESOS (Solo órdenes pagadas/CERRADAS)
     const ingresos = await prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         fechaCreacion: { gte: fechaInicio, lte: fechaFin },
         estado: { nombre: "CERRADA" } // Usamos el estado exacto de tu DB
       },
@@ -60,13 +68,15 @@ export async function GET(req: Request) {
 
     // 2. OBTENER GASTOS
     const gastos = await prisma.gasto.findMany({
-      where: { fechaGasto: { gte: fechaInicio, lte: fechaFin } },
+      where: { laboratorioId: labId, fechaGasto: { gte: fechaInicio, lte: fechaFin } },
       include: { registradoPor: { select: { nombre: true } }, metodo: true },
       orderBy: { fechaGasto: 'desc' }
     });
 
     // 3. MÉTODOS DE PAGO
-    const metodosPago = await prisma.metodoPago.findMany();
+    const metodosPago = await prisma.metodoPago.findMany({
+      where: { laboratorioId: labId }
+    });
 
     // TOTALES USD Y BS (Asegurando que sean números)
     let totalIngresosUSD = 0; let totalIngresosBS = 0;
@@ -199,13 +209,15 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user?.email) {
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!session || !session.user?.email || !labId) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
     const usuarioSesion = await prisma.usuario.findUnique({ where: { correo: session.user.email } });
-    if (!usuarioSesion) {
-      return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
+    if (!usuarioSesion || usuarioSesion.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Usuario no encontrado o conflicto de tenant" }, { status: 404 });
     }
 
     const body = await req.json();
@@ -225,7 +237,8 @@ export async function POST(req: Request) {
         montoUSD: parseFloat(montoUSD),
         montoBS: parseFloat(montoBS),
         referencia: referencia || null,
-        fechaGasto: new Date()
+        fechaGasto: new Date(),
+        laboratorioId: labId
       }
     });
 

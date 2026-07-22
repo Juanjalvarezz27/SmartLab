@@ -1,16 +1,25 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // GET: Devuelve el catálogo de servicios extra activos
 export const revalidate = 15;
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const todos = searchParams.get("todos") === "true";
 
     const servicios = await prisma.servicioExtra.findMany({
-      where: todos ? {} : { activo: true },
+      where: todos ? { laboratorioId: labId } : { activo: true, laboratorioId: labId },
       orderBy: { precioUSD: "asc" },
     });
     const response = NextResponse.json(servicios);
@@ -26,6 +35,13 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     const { nombre, precioUSD, activo } = body;
 
@@ -37,7 +53,8 @@ export async function POST(req: Request) {
       data: {
         nombre,
         precioUSD: parseFloat(precioUSD),
-        activo: activo !== undefined ? activo : true
+        activo: activo !== undefined ? activo : true,
+        laboratorioId: labId
       }
     });
 

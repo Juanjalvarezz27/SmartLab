@@ -603,6 +603,7 @@ export default function CierreCajaPage() {
           dataDiario={previewPDF === "INDIVIDUAL" ? dataIndividual : data}
           tasaBCV={previewPDF === "INDIVIDUAL" ? dataIndividual?.tasaDelDia : (tasaAplicada || 1)}
           historialData={historialFiltrado}
+          laboratorio={data?.laboratorio}
           onClose={() => {
             setPreviewPDF(null);
             setDataIndividual(null);

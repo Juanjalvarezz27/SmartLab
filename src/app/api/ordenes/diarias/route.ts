@@ -2,12 +2,22 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export const revalidate = 15;
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const fechaParam = searchParams.get("fecha");
 
@@ -21,6 +31,7 @@ export async function GET(req: Request) {
     // Solo los campos que la tabla y los KPIs necesitan para renderizarse
     const ordenes = await prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         fechaCreacion: { gte: fechaInicio, lte: fechaFin }
       },
       select: {

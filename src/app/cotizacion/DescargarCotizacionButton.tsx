@@ -34,13 +34,21 @@ export default function DescargarCotizacionButton({ dataB64, nombrePaciente }: D
           tasaBCV: raw.b,
           descuento: raw.d,
           subtotal: raw.s,
-          total: raw.t
+          total: raw.t,
+          laboratorio: raw.l ? {
+            nombre: raw.l.n,
+            correo: raw.l.c,
+            telefono: raw.l.t,
+            rif: raw.l.r,
+            logoBase64: raw.l.lg,
+            direccion: raw.l.d
+          } : null
         };
       } else {
         datosCotizacion = raw;
       }
       
-      const { paciente, pruebas, serviciosExtras, tasaBCV, descuento, subtotal, total } = datosCotizacion;
+      const { paciente, pruebas, serviciosExtras, tasaBCV, descuento, subtotal, total, laboratorio } = datosCotizacion;
 
       const blob = await pdf(
         <PresupuestoDocument 
@@ -51,13 +59,14 @@ export default function DescargarCotizacionButton({ dataB64, nombrePaciente }: D
           descuento={descuento} 
           subtotal={subtotal} 
           total={total} 
+          laboratorio={laboratorio}
         />
       ).toBlob();
 
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `Presupuesto_${nombrePaciente ? nombrePaciente.replace(/\s+/g, "_") : "LEYMA"}.pdf`;
+      link.download = `Presupuesto_${nombrePaciente ? nombrePaciente.replace(/\s+/g, "_") : (laboratorio?.nombre || "Laboratorio")}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -74,11 +83,18 @@ export default function DescargarCotizacionButton({ dataB64, nombrePaciente }: D
     setMensaje(null);
     const link = linkCotizacion;
 
+    let labNombre = 'Laboratorio';
+    try {
+      const jsonStr = decodeURIComponent(escape(atob(dataB64)));
+      const raw = JSON.parse(jsonStr);
+      if (raw.l && raw.l.n) labNombre = raw.l.n;
+    } catch(e) {}
+
     if (typeof navigator !== "undefined" && navigator.share) {
       navigator
         .share({
-          title: `Presupuesto — ${nombrePaciente || 'LEYMA'}`,
-          text: `Laboratorio LEYMA C.A. — Cotización de exámenes para ${nombrePaciente || 'paciente'}.`,
+          title: `Presupuesto — ${nombrePaciente || labNombre}`,
+          text: `${labNombre} — Cotización de exámenes para ${nombrePaciente || 'paciente'}.`,
           url: link,
         })
         .catch((err: any) => {

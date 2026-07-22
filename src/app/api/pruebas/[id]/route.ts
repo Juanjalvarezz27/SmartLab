@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // Función de seguridad para evitar errores NaN en Prisma
 const parsePrecioSeguro = (valor: any) => {
@@ -15,13 +15,29 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { id } = await params; 
     const body = await req.json();
     
+    // Verificar propiedad (Tenant check)
+    const recordExists = await prisma.subcategoriaPrueba.findFirst({
+      where: { id: id, laboratorioId: labId }
+    });
+
+    if (!recordExists) {
+      return NextResponse.json({ error: "No autorizado para modificar este registro" }, { status: 403 });
+    }
+
     // CASO 1: Actualización simple de estado (Activar/Inactivar)
     if (body.activa !== undefined && Object.keys(body).length === 1) {
       const actualizado = await prisma.subcategoriaPrueba.update({
-        where: { id },
+        where: { id_laboratorioId: { id, laboratorioId: labId } },
         data: { activa: body.activa }
       });
       return NextResponse.json(actualizado);
@@ -35,12 +51,12 @@ export async function PUT(
       return NextResponse.json({ error: `Has repetido códigos en la lista (${repetidos}). Cada código debe ser único en la misma estructura.` }, { status: 400 });
     }
 
-    // Filtramos los IDs que vienen del frontend para saber cuáles estamos actualizando
     const idsMantener = body.pruebas.map((p: any) => p.id).filter(Boolean);
 
-    // 2. Validación de códigos repetidos en BD (Excluyendo las pruebas que estamos actualizando)
+    // 2. Validación de códigos repetidos en BD para ESTE laboratorio
     const pruebasExistentes = await prisma.prueba.findMany({
       where: { 
+        laboratorioId: labId,
         codigo: { in: codigos }, 
         id: { notIn: idsMantener.length > 0 ? idsMantener : [''] } 
       }
@@ -60,9 +76,10 @@ export async function PUT(
       }
     }
 
-    // 2. Validar que el nombre del paquete/perfil no exista ya en otro registro
+    // 3. Validar que el nombre del paquete/perfil no exista ya en otro registro del laboratorio
     const subcatExistente = await prisma.subcategoriaPrueba.findFirst({
       where: { 
+        laboratorioId: labId,
         nombre: body.subcategoria.toUpperCase(),
         id: { not: id } 
       }
@@ -71,23 +88,18 @@ export async function PUT(
       return NextResponse.json({ error: `El perfil, paquete o subcategoría con el nombre "${body.subcategoria.toUpperCase()}" ya existe en el sistema.` }, { status: 400 });
     }
 
-
-
-    // =========================================================================
-    // NUEVA VALIDACIÓN: PREVENIR BORRADO DE PRUEBAS EN USO (Protección Foreing Key)
-    // =========================================================================
-    // Buscamos las pruebas que el usuario eliminó en el modal (las que NO están en idsMantener)
+    // Buscamos las pruebas que el usuario eliminó en el modal
     const pruebasAEliminar = await prisma.prueba.findMany({
       where: {
+        laboratorioId: labId,
         subcategoriaId: id,
-        id: { notIn: idsMantener.length > 0 ? idsMantener : [''] } // Evita error si idsMantener está vacío
+        id: { notIn: idsMantener.length > 0 ? idsMantener : [''] }
       },
       include: {
-        detallesOrden: { take: 1 } // Solo necesitamos ver si tiene al menos 1 orden asociada
+        detallesOrden: { take: 1 } 
       }
     });
 
-    // Filtramos las que ya tienen al menos un detalle de orden
     const pruebasEnUso = pruebasAEliminar.filter(p => p.detallesOrden.length > 0);
 
     if (pruebasEnUso.length > 0) {
@@ -96,38 +108,39 @@ export async function PUT(
         error: `No puedes borrar "${nombresBloqueados}" porque ya está registrada en el historial de órdenes de pacientes. Si no la ofreces más, inactiva la subcategoría completa.` 
       }, { status: 400 });
     }
-    // =========================================================================
 
     // Buscamos o creamos la Categoría Padre
     const categoria = await prisma.categoriaPrueba.upsert({
-      where: { nombre: body.categoria.toUpperCase() },
+      where: { 
+        laboratorioId_nombre: {
+          laboratorioId: labId,
+          nombre: body.categoria.toUpperCase()
+        }
+      },
       update: {},
-      create: { nombre: body.categoria.toUpperCase() }
+      create: { 
+        nombre: body.categoria.toUpperCase(),
+        laboratorioId: labId
+      }
     });
 
-    // Mapeamos el orden visual a todas las pruebas antes de separarlas
     const pruebasConOrden = body.pruebas.map((p: any, index: number) => ({
       ...p,
       ordenVisual: index + 1
     }));
 
-    // SEPARAMOS LA LÓGICA: Nuevas vs Existentes
     const pruebasNuevas = pruebasConOrden.filter((p: any) => !p.id);
     const pruebasParaActualizar = pruebasConOrden.filter((p: any) => p.id);
 
-    // Actualizamos la Subcategoría y sus relaciones de forma limpia
     const subcatActualizada = await prisma.subcategoriaPrueba.update({
-      where: { id: id },
+      where: { id_laboratorioId: { id, laboratorioId: labId } },
       data: {
         nombre: body.subcategoria,
-        categoriaId: categoria.id,
+        categoria: { connect: { id_laboratorioId: { id: categoria.id, laboratorioId: labId } } },
         esPaquete: body.esPaquete,
         precioUSD: body.esPaquete ? parsePrecioSeguro(body.precioPaqueteUSD) : null,
         pruebas: {
-          // 1. Eliminamos las pruebas (Ya validamos que es seguro borrarlas)
           deleteMany: { id: { notIn: idsMantener } },
-          
-          // 2. Creamos las pruebas nuevas agregadas
           create: pruebasNuevas.map((p: any) => ({
             codigo: p.codigo.toUpperCase(), 
             nombre: p.nombre.toUpperCase(), 
@@ -140,16 +153,14 @@ export async function PUT(
             categoriaVisual: p.categoriaVisual || null,
             subcategoriaVisual: p.subcategoriaVisual || null
           })),
-
-          // 3. Actualizamos las pruebas que ya existían
           update: pruebasParaActualizar.map((p: any) => ({
-            where: { id: p.id },
-            data: { 
-              codigo: p.codigo.toUpperCase(), 
-              nombre: p.nombre.toUpperCase(), 
+            where: { id_laboratorioId: { id: p.id, laboratorioId: labId } },
+            data: {
+              codigo: p.codigo.toUpperCase(),
+              nombre: p.nombre.toUpperCase(),
               precioUSD: body.esPaquete ? null : parsePrecioSeguro(p.precioUSD),
-              unidades: p.unidades, 
-              valoresReferencia: p.valoresReferencia,
+              unidades: p.unidades,
+              valoresReferencia: p.valoresReferencia || null,
               opcionesPredefinidas: p.opcionesPredefinidas || null,
               ordenVisual: p.ordenVisual,
               categoriaVisual: p.categoriaVisual || null,
@@ -158,44 +169,15 @@ export async function PUT(
           }))
         }
       },
-      include: { categoria: true, pruebas: true }
+      include: { pruebas: true }
     });
-    
+
     return NextResponse.json(subcatActualizada);
   } catch (error: any) {
-    console.error("Error en PUT /api/pruebas/[id]:", error);
+    console.error("Error al actualizar prueba:", error);
     if (error.code === 'P2002') {
-      const target = error.meta?.target || "un campo";
-      return NextResponse.json({ error: `Error: Ya existe un registro con ese nombre o código (${target}).` }, { status: 400 });
+      return NextResponse.json({ error: `Error: Algunos códigos ingresados ya están siendo utilizados en otras subcategorías o pruebas (${error.meta?.target || "código repetido"}). Asegúrate de no duplicar códigos existentes.` }, { status: 400 });
     }
-    return NextResponse.json({ error: error.message || "Error al actualizar registro" }, { status: 500 });
+    return NextResponse.json({ error: "Error de servidor al actualizar. Intenta más tarde." }, { status: 500 });
   }
-}
-
-export async function DELETE(
-  req: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params;
-    const body = await req.json();
-
-    if (body.claveMaestra !== process.env.CLAVE_MAESTRA) {
-      return NextResponse.json({ error: "Clave maestra incorrecta." }, { status: 401 });
-    }
-
-    await prisma.subcategoriaPrueba.delete({ where: { id: id } });
-    return NextResponse.json({ message: "Subcategoría eliminada correctamente." });
-  } catch (error: any) {
-    const isForeignKeyError = error.code === 'P2014' || error.code === 'P2003' || (error.message && error.message.includes('foreign key constraint'));
-    
-    if (isForeignKeyError) {
-      return NextResponse.json(
-        { error: "No puedes eliminar esta subcategoría porque algunas de sus pruebas ya están registradas en el historial de órdenes de pacientes." }, 
-        { status: 400 }
-      );
-    }
-    console.error("Error detallado al eliminar subcategoria:", error);
-      return NextResponse.json({ error: `Error interno al eliminar la subcategoría: ${error.message} (Código: ${error.code})` }, { status: 500 });
-    }
 }

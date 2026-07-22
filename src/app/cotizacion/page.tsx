@@ -21,7 +21,15 @@ export default async function CotizacionPage({ searchParams }: { searchParams: a
         tasaBCV: raw.b,
         descuento: raw.d,
         subtotal: raw.s,
-        total: raw.t
+        total: raw.t,
+        laboratorio: raw.l ? {
+          nombre: raw.l.n,
+          correo: raw.l.c,
+          telefono: raw.l.t,
+          rif: raw.l.r,
+          logoBase64: raw.l.lg,
+          direccion: raw.l.d
+        } : null
       };
     } else {
       datosCotizacion = raw;
@@ -31,7 +39,7 @@ export default async function CotizacionPage({ searchParams }: { searchParams: a
     return notFound();
   }
 
-  const { paciente, total, tasaBCV } = datosCotizacion;
+  const { paciente, total, tasaBCV, laboratorio } = datosCotizacion;
   const totalBS = total * tasaBCV;
 
   const formatFecha = (date: Date) => {
@@ -56,20 +64,29 @@ export default async function CotizacionPage({ searchParams }: { searchParams: a
           <div className="relative w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] mb-4">
             <div className="absolute inset-0 bg-primario/10 rounded-2xl sm:rounded-3xl" />
             <div className="relative w-full h-full flex items-center justify-center">
-              <Image 
-                src="/Logo2.png" 
-                alt="Logo LEYMA" 
-                width={60} 
-                height={60} 
-                className="object-contain drop-shadow-sm"
-                priority
-              />
+              {laboratorio?.logoBase64 ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img 
+                  src={laboratorio.logoBase64} 
+                  alt={`Logo ${laboratorio.nombre}`} 
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-sm"
+                />
+              ) : (
+                <Image 
+                  src="/Logo2.png" 
+                  alt="Logo LEYMA" 
+                  width={60} 
+                  height={60} 
+                  className="object-contain drop-shadow-sm"
+                  priority
+                />
+              )}
             </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black font-title tracking-tight leading-none">
-            LEYMA C.A.
+          <h1 className="text-2xl sm:text-3xl font-black font-title tracking-tight leading-none text-center">
+            {laboratorio?.nombre || "LEYMA C.A."}
           </h1>
-          <p className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-texto-secundario mt-1.5">
+          <p className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-texto-secundario mt-1.5 text-center">
             Laboratorio Clínico Bacteriológico
           </p>
         </div>
@@ -166,7 +183,7 @@ export default async function CotizacionPage({ searchParams }: { searchParams: a
 
         <div className="mt-6 sm:mt-8 text-center px-4">
           <p className="text-[10px] sm:text-[11px] font-semibold text-texto-secundario leading-relaxed">
-            Este presupuesto fue generado automáticamente por el Sistema LEYMA C.A.
+            Este presupuesto fue generado automáticamente por {laboratorio?.nombre ? `el sistema de ${laboratorio.nombre}` : "el Sistema LEYMA C.A."}
           </p>
           <p className="text-[9px] sm:text-[10px] text-texto-secundario/80 font-medium mt-1">
             Los precios están sujetos a cambios sin previo aviso.

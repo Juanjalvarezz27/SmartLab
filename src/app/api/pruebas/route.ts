@@ -2,23 +2,36 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export const revalidate = 15;
 
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const examenes = await prisma.subcategoriaPrueba.findMany({
-      where: { activa: true },
+      where: { 
+        activa: true,
+        laboratorioId: labId
+      },
       select: {
         id: true,
         nombre: true,
         activa: true,
         esPaquete: true,
         precioUSD: true,
-        categoria: { select: { nombre: true } }, // Removido id: true por ser innecesario
+        categoria: { select: { nombre: true } }, 
         pruebas: {
-          where: { activa: true },
+          where: { activa: true, laboratorioId: labId },
           orderBy: { ordenVisual: 'asc' },
           select: {
             id: true,
@@ -38,7 +51,6 @@ export async function GET() {
       orderBy: { nombre: 'asc' },
     });
 
-    // Compresión nativa con zlib para evitar el masivo "Fast Origin Transfer"
     const jsonString = JSON.stringify(examenes);
     const compressedBuffer = await gzip(Buffer.from(jsonString, 'utf-8'));
 
@@ -61,6 +73,13 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     
     // 1. Validar duplicados dentro del mismo formulario
@@ -72,7 +91,10 @@ export async function POST(req: Request) {
     }
 
     const pruebasExistentes = await prisma.prueba.findMany({
-      where: { codigo: { in: codigos } }
+      where: { 
+        laboratorioId: labId,
+        codigo: { in: codigos } 
+      }
     });
 
     if (pruebasExistentes.length > 0) {
@@ -89,24 +111,37 @@ export async function POST(req: Request) {
       }
     }
 
-    // 2. Validar que el nombre del paquete/perfil no exista ya
+    // 2. Validar que el nombre del paquete/perfil no exista ya en este laboratorio
     const subcatExistente = await prisma.subcategoriaPrueba.findFirst({
-      where: { nombre: body.subcategoria.toUpperCase() }
+      where: { 
+        laboratorioId: labId,
+        nombre: body.subcategoria.toUpperCase() 
+      }
     });
+    
     if (subcatExistente) {
       return NextResponse.json({ error: `El perfil, paquete o subcategoría con el nombre "${body.subcategoria.toUpperCase()}" ya existe en el sistema.` }, { status: 400 });
     }
 
     const categoria = await prisma.categoriaPrueba.upsert({
-      where: { nombre: body.categoria.toUpperCase() },
+      where: { 
+        laboratorioId_nombre: {
+          laboratorioId: labId,
+          nombre: body.categoria.toUpperCase()
+        }
+      },
       update: {},
-      create: { nombre: body.categoria.toUpperCase() }
+      create: { 
+        nombre: body.categoria.toUpperCase(),
+        laboratorioId: labId
+      }
     });
 
     const nuevaSubcategoria = await prisma.subcategoriaPrueba.create({
       data: {
         nombre: body.subcategoria,
-        categoriaId: categoria.id,
+        categoria: { connect: { id_laboratorioId: { id: categoria.id, laboratorioId: labId } } },
+        laboratorio: { connect: { id: labId } },
         activa: true,
         esPaquete: body.esPaquete,
         precioUSD: body.esPaquete ? parseFloat(body.precioPaqueteUSD) : null,

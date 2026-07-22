@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export function normalizarNombre(nombre: string): string {
@@ -15,14 +18,22 @@ export function normalizarNombre(nombre: string): string {
 }
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const q = searchParams.get("q") || searchParams.get("cedula");
-
-  if (!q) return NextResponse.json({ error: "Término de búsqueda no proporcionado" }, { status: 400 });
-
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(req.url);
+    const q = searchParams.get("q") || searchParams.get("cedula");
+
+    if (!q) return NextResponse.json({ error: "Término de búsqueda no proporcionado" }, { status: 400 });
+
     const pacientes = await prisma.paciente.findMany({
       where: {
+        laboratorioId: labId,
         OR: [
           { cedula: { contains: q } },
           { nombreCompleto: { contains: q, mode: "insensitive" } }
@@ -52,7 +63,6 @@ export async function GET(req: Request) {
       headers: {
         'Content-Type': 'application/json',
         'Content-Encoding': 'gzip',
-        // Opcional: Cache corto para no machacar el backend si escriben la misma letra rápido
         'Cache-Control': 's-maxage=10, stale-while-revalidate=30'
       }
     });
@@ -63,6 +73,13 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
 
     // VALIDACIÓN ROBUSTA: Si no es bebé, la cédula debe tener texto real
@@ -83,13 +100,14 @@ export async function POST(req: Request) {
     if (esSinCedula) {
       const existente = await prisma.paciente.findFirst({
         where: {
+          laboratorioId: labId,
           nombreCompleto: nombreNormalizado,
           fechaNacimiento: fechaNacimiento
         }
       });
       if (existente) {
         return NextResponse.json(
-          { error: "Ya existe un paciente sin cédula registrado con este mismo nombre exacto y fecha de nacimiento." },
+          { error: "Ya existe un paciente sin cédula registrado con este mismo nombre exacto y fecha de nacimiento en tu laboratorio." },
           { status: 400 }
         );
       }
@@ -97,7 +115,7 @@ export async function POST(req: Request) {
 
     const nuevoPaciente = await prisma.paciente.create({
       data: {
-        // Si es bebe o la cedula esta vacia, guardamos NULL para no romper el Unique de la DB
+        laboratorioId: labId,
         cedula: esSinCedula ? null : cedulaLimpia,
         nombreCompleto: nombreNormalizado,
         fechaNacimiento: fechaNacimiento,
@@ -114,7 +132,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error("ERROR POST /api/pacientes:", error);
     if (error.code === 'P2002') {
-      return NextResponse.json({ error: `Esta cédula ya está registrada: ${error?.message || 'Desconocido'}` }, { status: 400 });
+      return NextResponse.json({ error: `Esta cédula ya está registrada en tu base de datos.` }, { status: 400 });
     }
     return NextResponse.json({ error: "Error interno al registrar paciente", details: error.message }, { status: 500 });
   }

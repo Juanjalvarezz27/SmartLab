@@ -2,18 +2,28 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 const gzip = promisify(gzipCallback);
 
-export const revalidate = 15;
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const dias = parseInt(searchParams.get("dias") || "7", 10);
     const busqueda = searchParams.get("busqueda") || "";
     const fechaFiltro = searchParams.get("fecha") || "";
 
     const whereClause: any = {
+      laboratorioId: labId,
       estado: { nombre: { not: "ANULADA" } }
     };
 
@@ -39,7 +49,7 @@ export async function GET(req: Request) {
     // SELECT ESTRICTO: solo los datos mínimos para poblar las tarjetas
     const ordenes = await prisma.orden.findMany({
       where: whereClause,
-      take: busqueda ? 50 : undefined,
+      take: busqueda ? 50 : 200,
       select: {
         id: true,
         fechaCreacion: true,
@@ -51,8 +61,17 @@ export async function GET(req: Request) {
             id: true,
             nombreCompleto: true,
             cedula: true,
+            sexo: true,
+            esBebe: true,
+            fechaNacimiento: true,
             telefono: true,
+            correo: true,
+            direccion: true,
+            observaciones: true
           }
+        },
+        laboratorio: {
+          select: { nombre: true, correo: true, telefono: true, logoBase64: true, direccion: true, rif: true }
         },
         estado: { select: { nombre: true } },
         // Solo para calcular tabStatus y los chips del resumen — datos mínimos
@@ -130,6 +149,7 @@ export async function GET(req: Request) {
         totalBS: orden.totalBS,
         paciente: orden.paciente,
         estado: orden.estado,
+        laboratorio: orden.laboratorio,
         tabStatus,
         examenesResumen
       };

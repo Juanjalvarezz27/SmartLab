@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    const { email, subject, message, fileName, pdfBase64 } = await request.json();
+    const { email, subject, message, fileName, pdfBase64, labNombre } = await request.json();
 
     if (!email || !pdfBase64) {
       return NextResponse.json({ error: "Faltan datos requeridos." }, { status: 400 });
@@ -19,10 +19,12 @@ export async function POST(request: Request) {
       },
     });
 
+    const nombreLaboratorio = labNombre || "Laboratorio";
+
     const mailOptions = {
-      from: `"Laboratorio LEYMA C.A." <${process.env.EMAIL_USER}>`,
+      from: `"${nombreLaboratorio}" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: subject || "Documento de Laboratorio LEYMA C.A.",
+      subject: subject || `Documento de ${nombreLaboratorio}`,
       text: message || "Adjunto se encuentra su documento.",
       attachments: [
         {

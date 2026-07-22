@@ -2,10 +2,20 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get("page") || "1", 10);
     const limit = parseInt(searchParams.get("limit") || "30", 10);
@@ -14,7 +24,7 @@ export async function GET(req: Request) {
 
     const skip = (page - 1) * limit;
 
-    const whereClause: any = {};
+    const whereClause: any = { laboratorioId: labId };
     const AND = [];
 
     // Búsqueda por nombre, cédula, o ID de orden
@@ -28,7 +38,7 @@ export async function GET(req: Request) {
       if (!isNaN(qNum)) {
         orConditions.push({
           ordenes: {
-            some: { id: qNum }
+            some: { id: qNum, laboratorioId: labId }
           }
         });
       }
@@ -47,7 +57,8 @@ export async function GET(req: Request) {
             fechaCreacion: {
               gte: fechaInicio,
               lte: fechaFin
-            }
+            },
+            laboratorioId: labId
           }
         }
       });
@@ -71,6 +82,7 @@ export async function GET(req: Request) {
           },
           // Extraemos solo la última orden para mostrar la fecha de última visita
           ordenes: {
+            where: { laboratorioId: labId },
             orderBy: { fechaCreacion: 'desc' },
             take: 1,
             select: { id: true, fechaCreacion: true }

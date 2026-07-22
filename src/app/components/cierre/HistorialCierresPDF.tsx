@@ -158,7 +158,7 @@ const formatMoney = (amount: number, isBs = false) => {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(validAmount);
 };
 
-export default function HistorialCierresPDF({ historial }: { historial: any[] }) {
+export default function HistorialCierresPDF({ historial, laboratorio }: { historial: any[], laboratorio?: any }) {
   const fechaGeneracion = new Date().toLocaleString("es-VE", { timeZone: "America/Caracas" });
 
   return (
@@ -167,12 +167,16 @@ export default function HistorialCierresPDF({ historial }: { historial: any[] })
         
         {/* MEMBRETE */}
         <View style={styles.header}>
-          <Image src="/Logo2.png" style={styles.logo} />
+          {laboratorio?.logoBase64 ? (
+            <Image src={laboratorio.logoBase64} style={styles.logo} />
+          ) : (
+            <Image src="/Logo2.png" style={styles.logo} />
+          )}
           <View style={styles.headerTextContainer}>
-            <Text style={styles.titleEmpresa}>LEYMA C.A.</Text>
+            <Text style={styles.titleEmpresa}>{laboratorio?.nombre || "LABORATORIO CLÍNICO"}</Text>
             <Text style={styles.subtitleBold}>Laboratorio clínico bacteriológico</Text>
-            <Text style={styles.subtitleHeader}>RIF: J - 508463315</Text>
-            <Text style={styles.subtitleHeader}>Avenida Coro, Local 4-79, sector Santa Rosa</Text>
+            <Text style={styles.subtitleHeader}>RIF: {laboratorio?.rif || "---"}</Text>
+            <Text style={styles.subtitleHeader}>{laboratorio?.direccion || "---"}</Text>
           </View>
         </View>
 

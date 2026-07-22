@@ -14,6 +14,7 @@ export default async function ValidarPage({ params }: { params: any }) {
     include: {
       paciente: true,
       creadoPor: true,
+      laboratorio: { select: { nombre: true, logoBase64: true } },
       detalles: {
         include: {
           resultado: {
@@ -65,21 +66,29 @@ export default async function ValidarPage({ params }: { params: any }) {
         <div className="flex flex-col items-center mb-8 sm:mb-10">
           <div className="relative w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] mb-4">
             <div className="absolute inset-0 bg-primario/10 rounded-2xl sm:rounded-3xl" />
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image 
-                src="/Logo2.png" 
-                alt="Logo LEYMA" 
-                width={60} 
-                height={60} 
-                className="object-contain drop-shadow-sm"
-                priority
-              />
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-2xl sm:rounded-3xl">
+              {orden.laboratorio?.logoBase64 ? (
+                <img 
+                  src={orden.laboratorio.logoBase64} 
+                  alt={`Logo ${orden.laboratorio.nombre}`}
+                  className="w-full h-full object-contain p-2"
+                />
+              ) : (
+                <Image 
+                  src="/Logo2.png" 
+                  alt="Logo Sistema" 
+                  width={60} 
+                  height={60} 
+                  className="object-contain drop-shadow-sm"
+                  priority
+                />
+              )}
             </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black font-title tracking-tight leading-none">
-            LEYMA C.A.
+          <h1 className="text-2xl sm:text-3xl font-black font-title tracking-tight leading-none text-center">
+            {orden.laboratorio?.nombre || "Laboratorio Clínico"}
           </h1>
-          <p className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-texto-secundario mt-1.5">
+          <p className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-texto-secundario mt-1.5 text-center">
             Laboratorio Clínico Bacteriológico
           </p>
         </div>

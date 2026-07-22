@@ -137,7 +137,8 @@ const PresupuestoDocument = ({
   tasaBCV, 
   descuento, 
   subtotal, 
-  total 
+  total,
+  laboratorio
 }: { 
   paciente: { nombre: string, cedula: string }, 
   pruebas: any[], 
@@ -145,7 +146,8 @@ const PresupuestoDocument = ({
   tasaBCV: number, 
   descuento: number, 
   subtotal: number, 
-  total: number 
+  total: number,
+  laboratorio?: any
 }) => {
   const formatFecha = () => {
     return new Date().toLocaleDateString('es-VE', { year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -157,20 +159,22 @@ const PresupuestoDocument = ({
         
         {/* INFO CONTACTO SUPERIOR */}
         <View style={pdfStyles.topContact}>
-          <Text style={pdfStyles.topContactText}>DIRECCIÓN: AVENIDA CORO, LOCAL 4-79, SECTOR SANTA ROSA.</Text>
+          <Text style={pdfStyles.topContactText}>DIRECCIÓN: {laboratorio?.direccion || '---'}</Text>
           <View style={pdfStyles.topContactRight}>
-            <Text style={pdfStyles.topContactText}>TELÉFONO: 0412-9164371</Text>
-            <Text style={pdfStyles.topContactText}>CORREO: CONTACTO@LEYMA.COM</Text>
-            <Text style={pdfStyles.topContactText}>RIF: J - 508463315</Text>
+            <Text style={pdfStyles.topContactText}>TELÉFONO: {laboratorio?.telefono || '---'}</Text>
+            <Text style={pdfStyles.topContactText}>CORREO: {(laboratorio?.correo || '---').toUpperCase()}</Text>
+            <Text style={pdfStyles.topContactText}>RIF: {laboratorio?.rif || '---'}</Text>
           </View>
         </View>
 
         {/* HEADER */}
         <View style={pdfStyles.header}>
           <View style={pdfStyles.logoRow}>
-            <Image src="/Logo2.png" style={pdfStyles.logoImage} />
+            {laboratorio?.logoBase64 ? (
+              <Image src={laboratorio.logoBase64} style={pdfStyles.logoImage} />
+            ) : null}
             <View>
-              <Text style={pdfStyles.logoTitle}>LEYMA C.A.</Text>
+              <Text style={pdfStyles.logoTitle}>{laboratorio?.nombre || 'Laboratorio'}</Text>
               <Text style={pdfStyles.logoSubtitle}>LABORATORIO CLÍNICO BACTERIOLÓGICO</Text>
             </View>
           </View>

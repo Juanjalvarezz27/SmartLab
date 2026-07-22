@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import prisma from "../../../lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const gzip = promisify(gzipCallback);
 
@@ -9,9 +11,17 @@ export const revalidate = 15; // Cache por 15 segundos
 
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     // 1. Órdenes Pendientes
     const pendientesPromise = prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         estado: { nombre: { in: ["BORRADOR", "PENDIENTE"] } }
       },
       take: 50,
@@ -25,6 +35,7 @@ export async function GET() {
     // 2. Resultados Pendientes
     const resultadosPromise = prisma.orden.findMany({
       where: {
+        laboratorioId: labId,
         resultadosCompletados: false,
         estado: { nombre: { not: "ANULADA" } }
       },
@@ -45,10 +56,11 @@ export async function GET() {
     // 3. Cierre Anterior
     const cierreAnteriorPromise = (async () => {
       const ultimoCierre = await prisma.cierreCaja.findFirst({
+        where: { laboratorioId: labId },
         orderBy: { fechaCierre: 'desc' }
       });
       const primerOrdenPendiente = await prisma.orden.findFirst({
-        where: { estado: { nombre: { not: 'ANULADA' } } },
+        where: { laboratorioId: labId, estado: { nombre: { not: 'ANULADA' } } },
         orderBy: { fechaCreacion: 'asc' }
       });
 
@@ -84,6 +96,7 @@ export async function GET() {
         if (fechaSiguienteStr < fechaHoyStr) {
           const hayOrdenes = await prisma.orden.findFirst({
             where: {
+              laboratorioId: labId,
               fechaCreacion: {
                 gte: new Date(fechaSiguienteStr + "T04:00:00.000Z"),
                 lt: new Date(fechaHoyStr + "T04:00:00.000Z")
@@ -103,16 +116,21 @@ export async function GET() {
     })();
 
     // Ejecutamos las 3 promesas en paralelo para mayor velocidad
-    const [ordenesPendientes, ordenesPendientesResultados, cierreAnterior] = await Promise.all([
+    const [ordenesPendientes, ordenesPendientesResultados, cierreAnterior, laboratorioInfo] = await Promise.all([
       pendientesPromise,
       resultadosPromise,
-      cierreAnteriorPromise
+      cierreAnteriorPromise,
+      prisma.laboratorio.findUnique({
+        where: { id: labId },
+        select: { nombre: true, logoBase64: true }
+      })
     ]);
 
     const payload = {
       ordenesPendientes,
       ordenesPendientesResultados,
-      cierreAnterior
+      cierreAnterior,
+      laboratorio: laboratorioInfo
     };
 
     const compressed = await gzip(Buffer.from(JSON.stringify(payload), 'utf-8'));

@@ -120,10 +120,11 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: emailInput,
-          subject: `Resultados de Laboratorio LEYMA C.A. - Orden #${orden.id}`,
+          subject: `Resultados de ${orden.laboratorio?.nombre || 'Laboratorio'} - Orden #${orden.id}`,
           message: mensaje,
           fileName,
           pdfBase64: base64String,
+          labNombre: orden.laboratorio?.nombre,
         }),
       });
 

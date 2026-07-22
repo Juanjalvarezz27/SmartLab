@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "LEYMA C.A. | Laboratorio Clínico Bacteriológico",
+  title: "SmartLab | Sistema de Gestión",
   description: "Sistema de gestión integral para el control de pacientes, exámenes y resultados clínicos.",
   icons: {
     icon: "/Logo2.png",

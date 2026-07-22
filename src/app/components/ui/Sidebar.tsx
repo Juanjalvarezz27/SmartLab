@@ -19,15 +19,23 @@ import {
   LogOut, 
   ChevronLeft, 
   ChevronRight,
-  UserCog, // <-- NUEVO ÍCONO
-  ClipboardList, // <-- ÍCONO DE PRESUPUESTO
+  UserCog, 
+  ClipboardList, 
   Settings,
   ChevronDown,
-  CircleDollarSign
+  CircleDollarSign,
+  Building2
 } from "lucide-react";
 import ModalConfirmacion from "./ModalConfirmacion";
 
-export default function Sidebar() {
+interface SidebarProps {
+  laboratorio?: {
+    nombre: string;
+    logoBase64: string | null;
+  } | null;
+}
+
+export default function Sidebar({ laboratorio }: SidebarProps) {
   const pathname = usePathname();
   const { data: session } = useSession();
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -56,19 +64,19 @@ export default function Sidebar() {
   ];
 
   const rutasPermitidasUsuario = [
-    "/home", "/home/registro", "/home/diaria", "/home/resultados", "/home/pacientes", "/home/constancias", "/home/presupuestos", "/home/cierre"
+    "/home", "/home/registro", "/home/diaria", "/home/resultados", "/home/pacientes", "/home/constancias", "/home/presupuestos"
   ];
 
-  const menuPrincipal = rolUsuario === "ADMIN" 
+  const esDueno = rolUsuario === "LABORATORIO" || rolUsuario === "SUPERADMIN";
+
+  const menuPrincipal = esDueno 
     ? rutasPrincipales 
     : rutasPrincipales.filter(item => rutasPermitidasUsuario.includes(item.ruta));
 
-  const menuConfiguracion = rolUsuario === "ADMIN"
+  const menuConfiguracion = esDueno
     ? rutasConfiguracion
     : rutasConfiguracion.filter(item => rutasPermitidasUsuario.includes(item.ruta));
 
-  // Abrir configuración automáticamente si estamos en una de sus rutas
-  // Solo dependemos de pathname para no forzar cierres al hacer clic
   useEffect(() => {
     if (rutasConfiguracion.some(item => pathname.startsWith(item.ruta))) {
       setIsConfigOpen(true);
@@ -76,6 +84,9 @@ export default function Sidebar() {
       setIsConfigOpen(false);
     }
   }, [pathname]);
+
+  const labNombre = laboratorio?.nombre || "SmartLab";
+  const labLogo = laboratorio?.logoBase64;
 
   return (
     <>
@@ -96,21 +107,30 @@ export default function Sidebar() {
           isCollapsed ? "justify-center px-0" : "px-8"
         }`}>
           <div className="flex items-center gap-3 w-full">
-            <div className={`relative shrink-0 drop-shadow-sm transition-all duration-300 ${
+            <div className={`relative shrink-0 flex items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 shadow-sm transition-all duration-300 overflow-hidden ${
               isCollapsed ? "w-10 h-10 mx-auto" : "w-12 h-12"
             }`}>
-              <Image src="/Logo2.png" alt="Leyma" fill className="object-contain" />
+              {labLogo ? (
+                <Image
+                  src={labLogo}
+                  alt={`Logo ${labNombre}`}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Building2 className="w-6 h-6 text-slate-400" />
+              )}
             </div>
             
-            <div className={`flex flex-col whitespace-nowrap transition-all duration-300 overflow-hidden ${
-              isCollapsed ? "w-0 opacity-0" : "w-[120px] opacity-100"
+            <div className={`flex flex-col transition-all duration-300 overflow-hidden whitespace-nowrap ${
+              isCollapsed ? "w-0 opacity-0" : "w-full opacity-100"
             }`}>
-              <span className="font-title text-xl font-black text-[#1D1D1F] tracking-tight leading-none">
-                LEYMA <span className="text-sm font-black text-[#1D1D1F]">C.A.</span>
-              </span>
-              <span className="text-[10px] font-bold text-[#86868B] uppercase tracking-[0.2em] mt-1">
-                Laboratorio
-              </span>
+              <h1 className="font-bold text-slate-900 text-lg leading-tight tracking-tight truncate pr-2">
+                {labNombre}
+              </h1>
+              <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest">
+                LABORATORIO
+              </p>
             </div>
           </div>
         </div>

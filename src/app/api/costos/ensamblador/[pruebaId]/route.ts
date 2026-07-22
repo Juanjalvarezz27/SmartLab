@@ -1,18 +1,27 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function GET(req: Request, { params }: { params: Promise<{ pruebaId: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { pruebaId } = await params;
     const { searchParams } = new URL(req.url);
     const tipo = searchParams.get("tipo") || "prueba";
 
     const [costosFijos, config] = await Promise.all([
-      prisma.costoFijo.findMany({ where: { activo: true } }),
-      prisma.configuracionLaboratorio.findFirst()
+      prisma.costoFijo.findMany({ where: { activo: true, laboratorioId: labId } }),
+      prisma.laboratorio.findUnique({ where: { id: labId } })
     ]);
 
-    const totalCostosFijos = costosFijos.reduce((sum, c) => sum + c.montoMensualUSD, 0);
+    const totalCostosFijos = costosFijos.reduce((sum: number, c: any) => sum + c.montoMensualUSD, 0);
     const volumenMensual = config?.volumenPruebasMensualEstimado || 1000;
     const costoFijoPorPrueba = volumenMensual > 0 ? totalCostosFijos / volumenMensual : 0;
 

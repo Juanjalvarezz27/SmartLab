@@ -32,9 +32,23 @@ export default function ModalPreviewPresupuesto({
   const [isMounted, setIsMounted] = useState(false);
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
   const [telefonoManual, setTelefonoManual] = useState<string>("");
+  const [laboratorioInfo, setLaboratorioInfo] = useState<any>(null);
 
   useEffect(() => {
     setIsMounted(true);
+    const fetchLabInfo = async () => {
+      try {
+        const res = await fetch("/api/perfil");
+        if (res.ok) {
+          const data = await res.json();
+          // el perfil devuelve el usuario actual (bioanalista / admin)
+          // pero el usuario tiene un campo 'laboratorio' o similar si hacemos un nuevo endpoint.
+          // En vez de eso, mejor le pasamos laboratorioInfo desde la pagina principal.
+          setLaboratorioInfo(data.laboratorio || data); 
+        }
+      } catch (err) {}
+    };
+    fetchLabInfo();
   }, []);
 
   const handleDownload = async () => {
@@ -48,12 +62,13 @@ export default function ModalPreviewPresupuesto({
           descuento={descuento} 
           subtotal={subtotal} 
           total={total} 
+          laboratorio={laboratorioInfo}
         />
       ).toBlob();
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `Presupuesto_${paciente.nombre ? paciente.nombre.replace(/\s+/g, "_") : "LEYMA"}.pdf`;
+      link.download = `Presupuesto_${paciente.nombre ? paciente.nombre.replace(/\s+/g, "_") : (laboratorioInfo?.nombre || "Laboratorio")}.pdf`;
       link.click();
       URL.revokeObjectURL(url);
     } catch {
@@ -72,7 +87,8 @@ export default function ModalPreviewPresupuesto({
           tasaBCV={tasaBCV} 
           descuento={descuento} 
           subtotal={subtotal} 
-          total={total} 
+          total={total}
+          laboratorio={laboratorioInfo}
         />
       ).toBlob();
       const url = URL.createObjectURL(blob);
@@ -153,6 +169,7 @@ export default function ModalPreviewPresupuesto({
             descuento={descuento} 
             subtotal={subtotal} 
             total={total} 
+            laboratorio={laboratorioInfo}
           />
         </PDFViewer>
       </div>
@@ -167,7 +184,8 @@ export default function ModalPreviewPresupuesto({
           b: tasaBCV,
           d: descuento,
           s: subtotal,
-          t: total
+          t: total,
+          l: laboratorioInfo ? { n: laboratorioInfo.nombre, c: laboratorioInfo.correo, t: laboratorioInfo.telefono, r: laboratorioInfo.rif, lg: laboratorioInfo.logoBase64, d: laboratorioInfo.direccion } : null
         };
         const jsonStr = JSON.stringify(data);
         const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
@@ -180,6 +198,7 @@ export default function ModalPreviewPresupuesto({
             pacienteNombre={paciente.nombre || 'estimado paciente'}
             telefono={telefonoManual || paciente.telefono || ""}
             tipoMensaje="presupuesto"
+            labNombre={laboratorioInfo?.nombre}
             datosAdicionales={{ link: url }}
           />
         );

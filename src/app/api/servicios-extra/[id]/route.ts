@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function PUT(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { id } = await params;
     const body = await req.json();
     const { nombre, precioUSD, activo } = body;
@@ -15,8 +24,16 @@ export async function PUT(
     if (precioUSD !== undefined) dataToUpdate.precioUSD = parseFloat(precioUSD);
     if (activo !== undefined) dataToUpdate.activo = activo;
 
+    const servicioExistente = await prisma.servicioExtra.findFirst({
+      where: { id: parseInt(id), laboratorioId: labId }
+    });
+
+    if (!servicioExistente) {
+      return NextResponse.json({ error: "No autorizado para modificar este servicio" }, { status: 403 });
+    }
+
     const servicio = await prisma.servicioExtra.update({
-      where: { id: parseInt(id) },
+      where: { id_laboratorioId: { id: parseInt(id), laboratorioId: labId } },
       data: dataToUpdate
     });
 
@@ -32,6 +49,13 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     const { claveMaestra } = body;
 
@@ -47,8 +71,16 @@ export async function DELETE(
 
     const { id } = await params;
 
+    const servicioExistente = await prisma.servicioExtra.findFirst({
+      where: { id: parseInt(id), laboratorioId: labId }
+    });
+
+    if (!servicioExistente) {
+      return NextResponse.json({ error: "No autorizado para eliminar este servicio" }, { status: 403 });
+    }
+
     await prisma.servicioExtra.delete({
-      where: { id: parseInt(id) }
+      where: { id_laboratorioId: { id: parseInt(id), laboratorioId: labId } }
     });
 
     return NextResponse.json({ success: true, message: "Servicio eliminado correctamente" });

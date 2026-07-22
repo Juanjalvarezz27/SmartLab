@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-export async function seedServiciosExtra(prisma: PrismaClient) {
+export async function seedServiciosExtra(prisma: PrismaClient, laboratorioId: string) {
   console.log('Iniciando seeder de servicios extra...');
 
   const servicios = [
@@ -11,15 +11,13 @@ export async function seedServiciosExtra(prisma: PrismaClient) {
 
   for (const servicio of servicios) {
     await prisma.servicioExtra.upsert({
-      where: { nombre: servicio.nombre },
+      where: { laboratorioId_nombre: { laboratorioId, nombre: servicio.nombre } },
       update: { precioUSD: servicio.precioUSD },
       create: {
-        nombre: servicio.nombre,
-        precioUSD: servicio.precioUSD,
+        ...servicio,
         activo: true,
+        laboratorioId,
       },
     });
   }
-
-  console.log('Seeder de servicios extra completado con éxito.');
 }

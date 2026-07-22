@@ -2,11 +2,22 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const insumos = await prisma.insumo.findMany({
+      where: { laboratorioId: labId },
       orderBy: { nombre: 'asc' },
     });
     
@@ -25,6 +36,13 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     const { nombre, unidadMedida, costoUnitarioUSD, cantidadComprada, costoTotalUSD, activo } = body;
     
@@ -40,6 +58,7 @@ export async function POST(req: Request) {
         cantidadComprada: cantidadComprada ? Number(cantidadComprada) : null,
         costoTotalUSD: costoTotalUSD ? Number(costoTotalUSD) : null,
         activo: activo ?? true,
+        laboratorioId: labId
       },
     });
 

@@ -1,28 +1,34 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function GET() {
   try {
-    let config = await prisma.configuracionLaboratorio.findFirst();
-    if (!config) {
-      config = await prisma.configuracionLaboratorio.create({
-        data: { volumenPruebasMensualEstimado: 1000 },
-      });
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
+
+    const labConfig = await prisma.laboratorio.findUnique({
+      where: { id: labId },
+      select: { volumenPruebasMensualEstimado: true }
+    });
     
     // Obtener también el total de costos fijos para calcular la cuota directamente
     const sumatoria = await prisma.costoFijo.aggregate({
       _sum: { montoMensualUSD: true },
-      where: { activo: true },
+      where: { activo: true, laboratorioId: labId },
     });
 
     const costoFijoTotal = sumatoria._sum.montoMensualUSD || 0;
-    const cuotaFijaPorPrueba = config.volumenPruebasMensualEstimado > 0 
-      ? costoFijoTotal / config.volumenPruebasMensualEstimado 
-      : 0;
+    const volumen = labConfig?.volumenPruebasMensualEstimado || 1000;
+    const cuotaFijaPorPrueba = volumen > 0 ? costoFijoTotal / volumen : 0;
 
     return NextResponse.json({
-      config,
+      config: { volumenPruebasMensualEstimado: volumen },
       costoFijoTotal,
       cuotaFijaPorPrueba
     });
@@ -34,21 +40,23 @@ export async function GET() {
 
 export async function PUT(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     const { volumenPruebasMensualEstimado } = body;
 
-    let config = await prisma.configuracionLaboratorio.findFirst();
-    if (config) {
-      config = await prisma.configuracionLaboratorio.update({
-        where: { id: config.id },
-        data: { volumenPruebasMensualEstimado: Number(volumenPruebasMensualEstimado) },
-      });
-    } else {
-      config = await prisma.configuracionLaboratorio.create({
-        data: { volumenPruebasMensualEstimado: Number(volumenPruebasMensualEstimado) },
-      });
-    }
-    return NextResponse.json(config);
+    const labActualizado = await prisma.laboratorio.update({
+      where: { id: labId },
+      data: { volumenPruebasMensualEstimado: Number(volumenPruebasMensualEstimado) },
+      select: { volumenPruebasMensualEstimado: true }
+    });
+    
+    return NextResponse.json({ config: labActualizado });
   } catch (error: any) {
     return NextResponse.json({ error: `Error al actualizar config: ${error?.message || 'Desconocido'}` }, { status: 500 });
   }

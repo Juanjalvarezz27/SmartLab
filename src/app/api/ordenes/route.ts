@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // Utilidad vital: Si el ID es numérico lo convierte, si es texto (CUID/UUID) lo deja intacto.
 const parseId = (id: any) => isNaN(Number(id)) ? id : Number(id);
@@ -9,13 +9,16 @@ const parseId = (id: any) => isNaN(Number(id)) ? id : Number(id);
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
 
-    if (!session || !session.user?.email) {
+    if (!session || !session.user?.email || !labId) {
       return NextResponse.json({ error: "No autorizado. Inicie sesión." }, { status: 401 });
     }
 
     const usuarioSesion = await prisma.usuario.findUnique({ where: { correo: session.user.email } });
-    if (!usuarioSesion) return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
+    if (!usuarioSesion || usuarioSesion.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Usuario no encontrado o conflicto de tenant" }, { status: 404 });
+    }
 
     const usuarioId = usuarioSesion.id;
     const body = await req.json();
@@ -25,6 +28,14 @@ export async function POST(req: Request) {
     }
     if (!body.pruebas || body.pruebas.length === 0) {
       return NextResponse.json({ error: "La orden debe tener al menos una prueba" }, { status: 400 });
+    }
+
+    // Verificar que el paciente pertenezca a este laboratorio
+    const paciente = await prisma.paciente.findFirst({
+      where: { id: parseId(body.pacienteId), laboratorioId: labId }
+    });
+    if (!paciente) {
+      return NextResponse.json({ error: "Paciente no encontrado o no autorizado" }, { status: 403 });
     }
 
     const estado = await prisma.estadoOrden.findUnique({ where: { nombre: body.estado } });
@@ -39,6 +50,7 @@ export async function POST(req: Request) {
       precioCongeladoUSD: p.precioCongelado,
       descuento: p.descuentoInd || 0,
       tipoDescuentoId: p.descuentoInd > 0 ? getIdDescuento(p.tipoDescuentoInd) : null,
+      /* removed */
     }));
 
     const tasa = body.tasaBCV;
@@ -51,7 +63,8 @@ export async function POST(req: Request) {
         montoUSD: parseFloat(montoEnUSD.toFixed(2)),
         montoBS: parseFloat(montoEnBS.toFixed(2)),
         referencia: p.referencia || null,
-        fechaPago: new Date()
+        fechaPago: new Date(),
+        /* removed */
       };
     }) : [];
 
@@ -73,6 +86,7 @@ export async function POST(req: Request) {
 
     const nuevaOrden = await prisma.orden.create({
       data: {
+        laboratorioId: labId, // Tenant isolation
         pacienteId: parseId(body.pacienteId),
         usuarioId: usuarioId,
         estadoId: estadoFinalId,
@@ -91,6 +105,7 @@ export async function POST(req: Request) {
             servicioId: parseId(s.servicioId),
             cantidad: s.cantidad || 1,
             precioCongeladoUSD: s.precioCongelado,
+            /* removed */
           }))
         } : undefined,
         pagos: pagosData.length > 0 ? {

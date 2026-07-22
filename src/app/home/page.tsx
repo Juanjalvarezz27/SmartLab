@@ -29,6 +29,7 @@ export default function HomeDashboardPage() {
 
   const [faltaCierreAyer, setFaltaCierreAyer] = useState(false);
   const [fechaFaltante, setFechaFaltante] = useState("");
+  const [labData, setLabData] = useState<any>(null);
 
   useEffect(() => {
     const opciones: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -43,6 +44,7 @@ export default function HomeDashboardPage() {
           
           setOrdenesPendientes(data.ordenesPendientes || []);
           setOrdenesPendientesResultados(data.ordenesPendientesResultados || []);
+          if (data.laboratorio) setLabData(data.laboratorio);
           
           if (data.cierreAnterior?.faltaCierreAnterior && data.cierreAnterior?.fechaFaltante) {
             setFaltaCierreAyer(true);
@@ -97,11 +99,17 @@ export default function HomeDashboardPage() {
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <div className="shrink-0">
-              <img 
-                src="/Logo2.png" 
-                alt="Logo LEYMA" 
-                className="h-20 md:h-24 w-auto object-contain drop-shadow-sm" 
-              />
+              {labData?.logoBase64 ? (
+                <img 
+                  src={labData.logoBase64} 
+                  alt={`Logo ${labData.nombre || "Laboratorio"}`} 
+                  className="h-20 md:h-24 w-auto object-contain drop-shadow-sm rounded-xl" 
+                />
+              ) : (
+                <div className="h-20 w-20 md:h-24 md:w-24 bg-blue-50 text-blue-300 rounded-2xl flex items-center justify-center border border-blue-100 shadow-sm">
+                  <Activity size={40} />
+                </div>
+              )}
             </div>
             
             <div>
@@ -109,7 +117,7 @@ export default function HomeDashboardPage() {
                 Hola, <span className="text-[#0071E3]">{status === "loading" ? "..." : nombreUsuario}</span>
               </h1>
               <p className="text-lg font-medium text-slate-500 max-w-xl">
-                Bienvenido al panel principal de LEYMA C.A. ¿Qué te gustaría hacer hoy?
+                Bienvenido al panel principal de {labData?.nombre || "tu Laboratorio"}. ¿Qué te gustaría hacer hoy?
               </p>
             </div>
           </div>

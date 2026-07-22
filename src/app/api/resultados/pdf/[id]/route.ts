@@ -6,9 +6,18 @@ import path from "path";
 import fs from "fs";
 import React from "react";
 import ReporteDocumentServer from "../../../../components/resultados/ReporteDocumentServer";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
 
@@ -20,6 +29,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
       where: { id: ordenId },
       select: {
         id: true,
+        laboratorioId: true,
         fechaCreacion: true,
         resultadosCompletados: true,
         notasSubcategoria: {
@@ -93,8 +103,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
       },
     });
 
-    if (!orden) {
-      return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
+    if (!orden || orden.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Orden no encontrada o no autorizada" }, { status: 404 });
     }
 
     if (!orden.resultadosCompletados) {
@@ -103,6 +113,11 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
         { status: 403 }
       );
     }
+
+    // Obtener información del laboratorio actual
+    const laboratorio = await prisma.laboratorio.findUnique({
+      where: { id: labId }
+    });
 
     // Fecha impresa
     const ahora = new Date();
@@ -130,15 +145,23 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
       color: { dark: "#000000", light: "#FFFFFF" },
     });
 
-    // Logo: leer del filesystem como base64 (react-pdf en servidor necesita ruta absoluta o buffer)
-    const logoPath = path.join(process.cwd(), "public", "Logo2.png");
-    const logoBase64 = fs.existsSync(logoPath)
-      ? `data:image/png;base64,${fs.readFileSync(logoPath).toString("base64")}`
-      : null;
+    // Logo: leer del filesystem o usar URL
+    let logoBase64 = null;
+    if (laboratorio?.logoBase64) {
+       logoBase64 = laboratorio.logoBase64; 
+    }
+
+    if (!logoBase64) {
+      const logoPath = path.join(process.cwd(), "public", "Logo2.png");
+      logoBase64 = fs.existsSync(logoPath)
+        ? `data:image/png;base64,${fs.readFileSync(logoPath).toString("base64")}`
+        : undefined;
+    }
 
     // Firmas: convertir URLs relativas a base64 si existen en el filesystem público
     const ordenConFirmas = {
       ...orden,
+      laboratorio: laboratorio,
       detalles: orden.detalles.map((det: any) => ({
         ...det,
         resultado: det.resultado

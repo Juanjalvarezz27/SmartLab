@@ -342,6 +342,8 @@ function RegistroContent() {
     setCedulaBusqueda("");
     setResultadosBusqueda([]);
     setIsCreandoNuevo(false);
+    setPruebasSeleccionadas([]);
+    setServiciosSeleccionados([]);
     setFormData({
       esBebe: false, cedula: "", nombreCompleto: "", fechaNacimiento: "",
       sexo: "M", telefono: "", correo: "", direccion: "", observaciones: ""

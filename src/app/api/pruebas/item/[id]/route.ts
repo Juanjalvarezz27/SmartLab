@@ -1,18 +1,27 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function PUT(
   req: Request, 
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { id } = await params; 
     const body = await req.json();
     
     // Si solo enviamos el estado "activa" (Botón de inhabilitar)
     if (body.activa !== undefined && Object.keys(body).length === 1) {
       const actualizado = await prisma.prueba.update({
-        where: { id },
+        where: { id_laboratorioId: { id, laboratorioId: labId } },
         data: { activa: body.activa }
       });
       return NextResponse.json(actualizado);
@@ -20,7 +29,7 @@ export async function PUT(
 
     // Si enviamos los datos completos (Edición individual)
     const actualizado = await prisma.prueba.update({
-      where: { id },
+      where: { id_laboratorioId: { id, laboratorioId: labId } },
       data: { 
         codigo: body.codigo?.toUpperCase(),
         nombre: body.nombre?.toUpperCase(),

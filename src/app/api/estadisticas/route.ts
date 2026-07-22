@@ -2,13 +2,23 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
-const gzip = promisify(gzipCallback);
 import { getCaracasTodayBounds, subtractDaysCaracas, getCaracasThisMonthBounds, getCaracasBoundsForDate, formatToCaracasDateString } from "../../../lib/dateUtils";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
+const gzip = promisify(gzipCallback);
 
 export const revalidate = 15;
 
 export async function GET(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const periodo = searchParams.get("periodo") || "7DIAS";
     const inicioStr = searchParams.get("inicio");
@@ -42,6 +52,7 @@ export async function GET(req: Request) {
     }
 
     const whereBase = {
+      laboratorioId: labId,
       fechaCreacion: { gte: fechaInicio, lte: fechaFin },
       estado: { nombre: { not: "ANULADA" } }
     };
@@ -64,7 +75,7 @@ export async function GET(req: Request) {
       SELECT COUNT(DISTINCT o."pacienteId")::integer as count 
       FROM "Orden" o
       JOIN "EstadoOrden" e ON o."estadoId" = e.id
-      WHERE o."fechaCreacion" >= ${fechaInicio} AND o."fechaCreacion" <= ${fechaFin} AND e.nombre != 'ANULADA'
+      WHERE o."fechaCreacion" >= ${fechaInicio} AND o."fechaCreacion" <= ${fechaFin} AND e.nombre != 'ANULADA' AND o."laboratorioId" = ${labId}
     `;
     const pacientesUnicos = pacientesRaw.length > 0 ? pacientesRaw[0].count : 0;
 

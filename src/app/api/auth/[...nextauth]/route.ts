@@ -17,39 +17,41 @@ export const authOptions: NextAuthOptions = {
         }
 
       const usuario = await prisma.usuario.findUnique({
-                where: { correo: credentials.correo },
-                include: { rol: true } // <-- AGREGAMOS ESTO PARA TRAER EL NOMBRE DEL ROL
-              });
+        where: { correo: credentials.correo }
+      });
 
-              if (!usuario || !usuario.activo) throw new Error("El usuario no existe o está inactivo.");
-              
-              const claveCorrecta = await bcrypt.compare(credentials.clave, usuario.clave);
-              if (!claveCorrecta) throw new Error("Contraseña incorrecta.");
+      if (!usuario || !usuario.activo) throw new Error("El usuario no existe o está inactivo.");
+      
+      const claveCorrecta = await bcrypt.compare(credentials.clave, usuario.clave);
+      if (!claveCorrecta) throw new Error("Contraseña incorrecta.");
 
-              return {
-                id: usuario.id,
-                name: usuario.nombre,
-                email: usuario.correo,
-                rol: usuario.rol.nombre, // <-- GUARDAMOS EL NOMBRE: "ADMIN" o "USUARIO"
-              };
-            }
-          })
-        ],
-        callbacks: {
-          async jwt({ token, user }) {
-            if (user) {
-              token.rol = (user as any).rol; // Guardamos el nombre en el token
-            }
-            return token;
-          },
-          async session({ session, token }) {
-            if (session.user) {
-              (session.user as any).rol = token.rol; 
-              (session.user as any).id = token.sub; 
-            }
-            return session;
-          }
+      return {
+        id: usuario.id,
+        name: usuario.nombre,
+        email: usuario.correo,
+        rol: usuario.rol, 
+        laboratorioId: usuario.laboratorioId,
+      };
+    }
+  })
+],
+callbacks: {
+  async jwt({ token, user }) {
+    if (user) {
+      token.rol = (user as any).rol;
+      token.laboratorioId = (user as any).laboratorioId;
+    }
+    return token;
   },
+  async session({ session, token }) {
+    if (session.user) {
+      (session.user as any).rol = token.rol; 
+      (session.user as any).id = token.sub; 
+      (session.user as any).laboratorioId = token.laboratorioId;
+    }
+    return session;
+  }
+},
   pages: {
     signIn: "/", // Le decimos a NextAuth dónde está nuestra vista de login
   },

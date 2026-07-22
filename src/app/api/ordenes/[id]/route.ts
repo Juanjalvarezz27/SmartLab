@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
 const gzip = promisify(gzipCallback);
@@ -9,6 +9,13 @@ const gzip = promisify(gzipCallback);
 // GET: Traer una sola orden para editarla
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
 
@@ -25,6 +32,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
         },
         estado: { select: { nombre: true } },
         tipoDescuento: { select: { nombre: true } },
+        laboratorio: {
+          select: { nombre: true, correo: true, telefono: true, logoBase64: true, direccion: true, rif: true }
+        },
         detalles: {
           include: {
             prueba: {
@@ -61,7 +71,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       }
     });
 
-    if (!orden) return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
+    if (!orden || orden.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Orden no encontrada o no autorizada" }, { status: 404 });
+    }
 
     const payload = JSON.stringify(orden);
     const compressed = await gzip(Buffer.from(payload));
@@ -83,13 +95,23 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user) {
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!session || !session.user || !labId) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
     const body = await req.json();
+
+    const ordenExistente = await prisma.orden.findFirst({
+      where: { id: ordenId, laboratorioId: labId }
+    });
+
+    if (!ordenExistente) {
+      return NextResponse.json({ error: "No autorizado para modificar esta orden" }, { status: 403 });
+    }
 
     const tiposDescuento = await prisma.tipoDescuento.findMany();
     const getIdDescuento = (nombreStr: string) => tiposDescuento.find(t => t.nombre === nombreStr)?.id || null;
@@ -100,6 +122,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       precioCongeladoUSD: p.precioCongelado, 
       descuento: p.descuentoInd || 0,        
       tipoDescuentoId: p.descuentoInd > 0 ? getIdDescuento(p.tipoDescuentoInd) : null,
+      laboratorioId: labId // cascada
     }));
 
     const tasa = body.tasaBCV;
@@ -112,7 +135,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
         montoUSD: parseFloat(montoEnUSD.toFixed(2)),
         montoBS: parseFloat(montoEnBS.toFixed(2)),
         referencia: p.referencia || null,
-        fechaPago: new Date()
+        fechaPago: new Date(),
+        laboratorioId: labId // cascada
       };
     }) : [];
 
@@ -131,9 +155,9 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     // Uso de Transacción: Borramos los detalles viejos y metemos los nuevos
     const ordenActualizada = await prisma.$transaction(async (tx) => {
       // 1. Limpiar pruebas, servicios y PAGOS anteriores (para evitar pagos fantasmas si el monto bajó)
-      await tx.detalleOrden.deleteMany({ where: { ordenId } });
-      await tx.servicioEnOrden.deleteMany({ where: { ordenId } });
-      await tx.pago.deleteMany({ where: { ordenId } });
+      await tx.detalleOrden.deleteMany({ where: { ordenId, laboratorioId: labId } });
+      await tx.servicioEnOrden.deleteMany({ where: { ordenId, laboratorioId: labId } });
+      await tx.pago.deleteMany({ where: { ordenId, laboratorioId: labId } });
 
       // 2. Actualizar totales, crear nuevas pruebas, servicios y los nuevos pagos
       return await tx.orden.update({
@@ -154,6 +178,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
               servicioId: s.servicioId,
               cantidad: s.cantidad || 1,
               precioCongeladoUSD: s.precioCongelado,
+              laboratorioId: labId // cascada
             }))
           } : undefined,
           pagos: pagosData.length > 0 ? {

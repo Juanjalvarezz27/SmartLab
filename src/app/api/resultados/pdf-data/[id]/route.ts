@@ -2,10 +2,20 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 const gzip = promisify(gzipCallback);
 
 export async function GET(request: Request, { params }: { params: any }) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
 
@@ -17,6 +27,7 @@ export async function GET(request: Request, { params }: { params: any }) {
       where: { id: ordenId },
       select: {
         id: true,
+        laboratorioId: true,
         fechaCreacion: true,
         resultadosCompletados: true,
         paciente: {
@@ -28,6 +39,9 @@ export async function GET(request: Request, { params }: { params: any }) {
         },
         estado: { select: { nombre: true } },
         creadoPor: { select: { nombre: true } },
+        laboratorio: {
+          select: { nombre: true, correo: true, telefono: true, logoBase64: true, direccion: true, rif: true }
+        },
         detalles: {
           select: {
             id: true,
@@ -72,8 +86,8 @@ export async function GET(request: Request, { params }: { params: any }) {
       }
     });
 
-    if (!orden) {
-      return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
+    if (!orden || orden.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Orden no encontrada o no autorizada" }, { status: 404 });
     }
 
     if (!orden.resultadosCompletados) {

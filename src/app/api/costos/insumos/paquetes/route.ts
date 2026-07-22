@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { promisify } from "util";
 import { gzip as gzipCallback } from "zlib";
 const gzip = promisify(gzipCallback);
@@ -7,8 +9,15 @@ const gzip = promisify(gzipCallback);
 // Obtener todos los paquetes con sus insumos
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const paquetes = await prisma.paqueteInsumo.findMany({
-      where: { activo: true },
+      where: { activo: true, laboratorioId: labId },
       include: {
         items: {
           include: { insumo: true },
@@ -33,6 +42,13 @@ export async function GET() {
 // Crear un nuevo paquete de insumos
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await req.json();
     const { nombre, items } = body;
 
@@ -53,10 +69,12 @@ export async function POST(req: Request) {
     const nuevoPaquete = await prisma.paqueteInsumo.create({
       data: {
         nombre: nombre.trim().toUpperCase(),
+        laboratorioId: labId,
         items: {
           create: items.map((item: any) => ({
             insumoId: Number(item.insumoId),
             cantidadUsada: Number(item.cantidadUsada),
+            laboratorioId: labId
           })),
         },
       },

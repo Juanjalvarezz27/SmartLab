@@ -1,17 +1,21 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user?.email) {
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!session || !session.user?.email || !labId) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
     const usuarioSesion = await prisma.usuario.findUnique({ where: { correo: session.user.email } });
-    if (!usuarioSesion) return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
+    if (!usuarioSesion || usuarioSesion.laboratorioId !== labId) {
+      return NextResponse.json({ error: "Usuario no encontrado o conflicto de tenant" }, { status: 404 });
+    }
 
     const body = await req.json();
     const { ordenId, resultados, accion, pin, bioanalistaId, notasSubcategoria } = body; 
@@ -25,8 +29,8 @@ export async function POST(req: Request) {
       include: { paciente: true }
     });
 
-    if (!ordenExistente) {
-      throw new Error("Orden inválida: La orden no existe en el sistema.");
+    if (!ordenExistente || ordenExistente.laboratorioId !== labId) {
+      throw new Error("Orden inválida: La orden no existe en el sistema o no está autorizada.");
     }
 
     if (!ordenExistente.pacienteId || !ordenExistente.paciente) {
@@ -46,7 +50,7 @@ export async function POST(req: Request) {
       if (!pin || !bioanalistaId) return NextResponse.json({ error: "Faltan credenciales de validación." }, { status: 400 });
       
       const bioanalista = await prisma.usuario.findFirst({ 
-        where: { id: bioanalistaId, pinFirma: pin, activo: true } 
+        where: { id: bioanalistaId, pinFirma: pin, activo: true, laboratorioId: labId } 
       });
       
       if (!bioanalista) return NextResponse.json({ error: "PIN incorrecto para la bioanalista seleccionada." }, { status: 403 });
@@ -59,7 +63,7 @@ export async function POST(req: Request) {
       // Optimizacion: buscar todos los resultados actuales de una sola vez
       const detalleIds = resultados.map((r: any) => r.detalleOrdenId);
       const existingResultsList = await tx.resultadoPrueba.findMany({
-        where: { detalleOrdenId: { in: detalleIds } }
+        where: { detalleOrdenId: { in: detalleIds }, laboratorioId: labId }
       });
       const existingResultsMap = new Map(existingResultsList.map(r => [r.detalleOrdenId, r]));
 
@@ -79,7 +83,7 @@ export async function POST(req: Request) {
 
         // UPSERT DEL ENCABEZADO (ResultadoPrueba)
         const resPrueba = await tx.resultadoPrueba.upsert({
-          where: { detalleOrdenId: res.detalleOrdenId },
+          where: { detalleOrdenId_laboratorioId: { detalleOrdenId: res.detalleOrdenId, laboratorioId: labId } },
           update: {
             observaciones: res.observaciones || null,
             valoresReferencia: res.valoresReferencia || null,
@@ -89,6 +93,7 @@ export async function POST(req: Request) {
           },
           create: {
             detalleOrdenId: res.detalleOrdenId,
+            laboratorioId: labId,
             usuarioId: nextUsuarioId,
             firmado: nextFirmado,
             observaciones: res.observaciones || null,
@@ -100,7 +105,7 @@ export async function POST(req: Request) {
         // OPTIMIZACIÓN: Prevenir Dead Tuples y Bloat
         // Buscamos los valores que ya existen para este resultado
         const existingValores = await tx.valorResultado.findMany({
-          where: { resultadoId: resPrueba.id }
+          where: { resultadoId: resPrueba.id, laboratorioId: labId }
         });
         
         // Agrupamos los IDs existentes por pruebaId para manejar múltiples valores del mismo parámetro (ej. con el botón +)
@@ -113,8 +118,6 @@ export async function POST(req: Request) {
         }
 
         // Iteramos los valores que vienen del frontend y actualizamos o creamos uno por uno.
-        // Esto permite a PostgreSQL hacer un HOT (Heap-Only-Tuple) update, sin afectar los índices,
-        // lo que ahorra un masivo espacio de disco en comparación al deleteMany + create de antes.
         for (const v of res.valores) {
           const idsForPrueba = existingValoresByPrueba.get(v.pruebaId);
           let valorId = null;
@@ -133,7 +136,8 @@ export async function POST(req: Request) {
                data: {
                  resultadoId: resPrueba.id,
                  pruebaId: v.pruebaId,
-                 valorIngresado: v.valorIngresado
+                 valorIngresado: v.valorIngresado,
+                 laboratorioId: labId
                }
              });
           }
@@ -147,14 +151,14 @@ export async function POST(req: Request) {
         
         if (idsToDelete.length > 0) {
            await tx.valorResultado.deleteMany({
-             where: { id: { in: idsToDelete } }
+             where: { id: { in: idsToDelete }, laboratorioId: labId }
            });
         }
       }
 
       // Verificamos si absolutamente TODOS los detalles de la orden ya están FIRMADOS
       const allDetalles = await tx.detalleOrden.findMany({
-        where: { ordenId },
+        where: { ordenId, laboratorioId: labId },
         include: { resultado: true }
       });
       
@@ -179,7 +183,7 @@ export async function POST(req: Request) {
                 ordenId_subcategoria: { ordenId: ordenId, subcategoria: ns.subcategoria } 
               },
               update: { nota: ns.nota },
-              create: { ordenId: ordenId, subcategoria: ns.subcategoria, nota: ns.nota }
+              create: { ordenId: ordenId, subcategoria: ns.subcategoria, nota: ns.nota, laboratorioId: labId }
             });
           }
         }

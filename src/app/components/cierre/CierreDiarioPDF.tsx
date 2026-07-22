@@ -196,12 +196,16 @@ export default function CierreDiarioPDF({ data, tasaBCV }: { data: any, tasaBCV:
         
         {/* MEMBRETE */}
         <View style={styles.header}>
-          <Image src="/Logo2.png" style={styles.logo} />
+          {data?.laboratorio?.logoBase64 ? (
+            <Image src={data.laboratorio.logoBase64} style={styles.logo} />
+          ) : (
+            <Image src="/Logo2.png" style={styles.logo} />
+          )}
           <View style={styles.headerTextContainer}>
-            <Text style={styles.titleEmpresa}>LEYMA C.A.</Text>
+            <Text style={styles.titleEmpresa}>{data?.laboratorio?.nombre || "LABORATORIO CLÍNICO"}</Text>
             <Text style={styles.subtitleBold}>Laboratorio clínico bacteriológico</Text>
-            <Text style={styles.subtitleHeader}>RIF: J - 508463315</Text>
-            <Text style={styles.subtitleHeader}>Avenida Coro, Local 4-79, sector Santa Rosa</Text>
+            <Text style={styles.subtitleHeader}>RIF: {data?.laboratorio?.rif || "---"}</Text>
+            <Text style={styles.subtitleHeader}>{data?.laboratorio?.direccion || "---"}</Text>
           </View>
         </View>
 
