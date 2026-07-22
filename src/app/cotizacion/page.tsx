@@ -1,0 +1,179 @@
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import DescargarCotizacionButton from "./DescargarCotizacionButton";
+
+export default async function CotizacionPage({ searchParams }: { searchParams: any }) {
+  const resolvedParams = await searchParams;
+  const dataB64 = resolvedParams.d;
+
+  if (!dataB64) return notFound();
+
+  let datosCotizacion;
+  try {
+    const jsonStr = decodeURIComponent(escape(atob(dataB64)));
+    const raw = JSON.parse(jsonStr);
+    
+    // Soporte para formato comprimido (nuevo) y formato extenso (viejo)
+    if (raw.p && raw.e) {
+      datosCotizacion = {
+        paciente: { nombre: raw.p.n, cedula: raw.p.c, telefono: raw.p.t },
+        pruebas: raw.e.map((x: any) => ({ nombre: x[0], precioUSD: x[1], cantidad: x[2] })),
+        tasaBCV: raw.b,
+        descuento: raw.d,
+        subtotal: raw.s,
+        total: raw.t
+      };
+    } else {
+      datosCotizacion = raw;
+    }
+  } catch (error: any) {
+    console.error("Error decoding cotizacion data", error);
+    return notFound();
+  }
+
+  const { paciente, total, tasaBCV } = datosCotizacion;
+  const totalBS = total * tasaBCV;
+
+  const formatFecha = (date: Date) => {
+    return date.toLocaleDateString("es-VE", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-fondo flex flex-col items-center justify-center px-4 py-8 sm:py-12 font-sans text-texto-principal">
+
+      {/* CONTENEDOR PRINCIPAL — CARD PREMIUM */}
+      <div className="w-full max-w-xl">
+
+        {/* HEADER BRAND */}
+        <div className="flex flex-col items-center mb-8 sm:mb-10">
+          <div className="relative w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] mb-4">
+            <div className="absolute inset-0 bg-primario/10 rounded-2xl sm:rounded-3xl" />
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image 
+                src="/Logo2.png" 
+                alt="Logo LEYMA" 
+                width={60} 
+                height={60} 
+                className="object-contain drop-shadow-sm"
+                priority
+              />
+            </div>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black font-title tracking-tight leading-none">
+            LEYMA C.A.
+          </h1>
+          <p className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-texto-secundario mt-1.5">
+            Laboratorio Clínico Bacteriológico
+          </p>
+        </div>
+
+        {/* CARD PRINCIPAL */}
+        <div className="bg-superficie rounded-3xl shadow-apple border border-borde overflow-hidden">
+          
+          {/* BADGE DE ESTADO — BANNER SUPERIOR */}
+          <div className="bg-emerald-600 px-6 py-4 sm:py-5 flex items-center justify-center gap-3">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-white font-black text-sm sm:text-[15px] uppercase tracking-wider">
+                Presupuesto Oficial
+              </p>
+              <p className="text-emerald-100 text-[11px] sm:text-xs font-medium mt-0.5 opacity-90">
+                Cotización de exámenes válida
+              </p>
+            </div>
+          </div>
+
+          {/* CUERPO DE LA CARD */}
+          <div className="p-6 sm:p-8">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8">
+              <div className="bg-fondo rounded-2xl p-4 sm:col-span-2 border border-borde/50">
+                <p className="text-[10px] font-bold text-texto-secundario uppercase tracking-widest mb-1.5">
+                  A nombre de
+                </p>
+                <p className="text-base sm:text-lg font-black uppercase text-texto-principal leading-tight">
+                  {paciente?.nombre || "Sin nombre especificado"}
+                </p>
+              </div>
+              <div className="bg-fondo rounded-2xl p-4 border border-borde/50">
+                <p className="text-[10px] font-bold text-texto-secundario uppercase tracking-widest mb-1.5">
+                  Cédula de Identidad
+                </p>
+                <p className="text-[15px] font-bold text-texto-principal">
+                  {paciente?.cedula || "S/N"}
+                </p>
+              </div>
+              <div className="bg-fondo rounded-2xl p-4 border border-borde/50">
+                <p className="text-[10px] font-bold text-texto-secundario uppercase tracking-widest mb-1.5">
+                  Fecha de Cotización
+                </p>
+                <p className="text-[15px] font-bold text-texto-principal">
+                  {formatFecha(new Date())}
+                </p>
+              </div>
+              
+              <div className="bg-fondo rounded-2xl p-4 sm:col-span-2 border border-borde/50 flex justify-between items-center">
+                <div>
+                  <p className="text-[10px] font-bold text-texto-secundario uppercase tracking-widest mb-1.5">
+                    Monto Total
+                  </p>
+                  <p className="text-2xl font-black text-emerald-600">
+                    ${total.toFixed(2)}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] font-bold text-texto-secundario uppercase tracking-widest mb-1.5">
+                    En Bolívares
+                  </p>
+                  <p className="text-lg font-bold text-texto-principal">
+                    Bs {totalBS.toFixed(2)}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-borde pt-6 sm:pt-8">
+              <div className="flex flex-col items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-primario-light rounded-2xl flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-primario">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                </div>
+                <p className="text-xs font-bold text-texto-secundario uppercase tracking-widest text-center">
+                  Descarga el detalle del presupuesto
+                </p>
+              </div>
+              <DescargarCotizacionButton dataB64={dataB64} nombrePaciente={paciente?.nombre} />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 sm:mt-8 text-center px-4">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-texto-secundario leading-relaxed">
+            Este presupuesto fue generado automáticamente por el Sistema LEYMA C.A.
+          </p>
+          <p className="text-[9px] sm:text-[10px] text-texto-secundario/80 font-medium mt-1">
+            Los precios están sujetos a cambios sin previo aviso.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}

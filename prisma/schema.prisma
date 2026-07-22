@@ -1,0 +1,334 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- TABLAS DE REFERENCIA ---
+
+model Rol {
+  id       Int       @id @default(autoincrement())
+  nombre   String    @unique
+  usuarios Usuario[]
+}
+
+model EstadoOrden {
+  id      Int     @id @default(autoincrement())
+  nombre  String  @unique
+  ordenes Orden[]
+}
+
+model TipoDescuento {
+  id            Int            @id @default(autoincrement())
+  nombre        String         @unique
+  ordenes       Orden[]
+  detallesOrden DetalleOrden[]
+}
+
+model MetodoPago {
+  id     Int     @id @default(autoincrement())
+  nombre String  @unique
+  pagos  Pago[]
+  gastos Gasto[]
+}
+
+// --- MODELOS DE PRUEBAS (Nivel 1, 2 y 3) ---
+
+model CategoriaPrueba {
+  id            Int                  @id @default(autoincrement())
+  nombre        String               @unique
+  subcategorias SubcategoriaPrueba[]
+}
+
+model SubcategoriaPrueba {
+  id     String  @id @default(cuid())
+  nombre String
+  activa Boolean @default(true)
+
+  esPaquete Boolean @default(false)
+  precioUSD Float? // El precio total si es un paquete
+
+  categoriaId Int
+  categoria   CategoriaPrueba @relation(fields: [categoriaId], references: [id])
+  pruebas     Prueba[]
+  insumosAsociados SubcategoriaInsumo[]
+}
+
+model Prueba {
+  id     String @id @default(cuid())
+  codigo String
+  nombre String
+
+  precioUSD      Float?
+  margenGanancia Float? // Opcional, para sugerencia de precios
+
+  unidades             String?
+  valoresReferencia    String?
+  opcionesPredefinidas String?
+  activa               Boolean @default(true)
+  ordenVisual          Int     @default(0)
+  categoriaVisual      String? 
+  subcategoriaVisual   String? 
+
+  subcategoriaId String
+  subcategoria   SubcategoriaPrueba @relation(fields: [subcategoriaId], references: [id], onDelete: Cascade)
+
+  detallesOrden     DetalleOrden[]
+  valoresResultados ValorResultado[]
+  insumosAsociados  PruebaInsumo[] // Relación con insumos
+}
+
+// --- MODELOS PRINCIPALES ---
+
+model Usuario {
+  id                  String            @id @default(cuid())
+  nombre              String
+  correo              String            @unique
+  clave               String
+  pinFirma            String? // <-- NUEVO: PIN de 4 dígitos para firmar exámenes
+  firmaUrl            String? // <-- NUEVO: Ruta o Base64 de la firma y sello digital
+  mpps                String? // Credencial MPPS
+  col                 String? // Credencial Colegio de Bioanalistas
+  activo              Boolean           @default(true)
+  rolId               Int
+  rol                 Rol               @relation(fields: [rolId], references: [id])
+  ordenesCreadas      Orden[]
+  gastosRegistrados   Gasto[]
+  resultadosValidados ResultadoPrueba[] // Apunta a los exámenes que este usuario firmó
+  fechaCreacion       DateTime          @default(now())
+  cierresRealizados   CierreCaja[]
+}
+
+model Paciente {
+  id              String   @id @default(cuid())
+  cedula          String?  @unique
+  nombreCompleto  String
+  fechaNacimiento DateTime
+  esBebe          Boolean  @default(false)
+  sexo            String
+  telefono        String?
+  correo          String?
+  direccion       String?
+  observaciones   String?  @db.Text
+  ordenes         Orden[]
+  fechaRegistro   DateTime @default(now())
+
+  @@index([nombreCompleto])
+  @@index([fechaRegistro])
+}
+
+model Orden {
+  id                    Int               @id @default(autoincrement())
+  pacienteId            String
+  paciente              Paciente          @relation(fields: [pacienteId], references: [id])
+  usuarioId             String
+  creadoPor             Usuario           @relation(fields: [usuarioId], references: [id])
+  estadoId              Int
+  estado                EstadoOrden       @relation(fields: [estadoId], references: [id])
+  subtotalUSD           Float
+  descuentoGeneral      Float             @default(0)
+  tipoDescuentoId       Int?
+  tipoDescuento         TipoDescuento?    @relation(fields: [tipoDescuentoId], references: [id])
+  totalUSD              Float
+  totalBS               Float
+  tasaBCV               Float
+  resultadosCompletados Boolean           @default(false)
+  fechaCreacion         DateTime          @default(now())
+  pagos                 Pago[]
+  detalles              DetalleOrden[]
+  serviciosExtra        ServicioEnOrden[]
+  notasSubcategoria     NotaSubcategoriaOrden[]
+
+  @@index([fechaCreacion])
+  @@index([estadoId])
+  @@index([pacienteId])
+  @@index([resultadosCompletados])
+}
+
+model DetalleOrden {
+  id      String @id @default(cuid())
+  ordenId Int
+  orden   Orden  @relation(fields: [ordenId], references: [id], onDelete: Cascade)
+
+  pruebaId String // Apunta directamente a la prueba cobrada
+  prueba   Prueba @relation(fields: [pruebaId], references: [id])
+
+  cantidad           Int              @default(1)
+  precioCongeladoUSD Float
+  descuento          Float            @default(0)
+  tipoDescuentoId    Int?
+  tipoDescuento      TipoDescuento?   @relation(fields: [tipoDescuentoId], references: [id])
+  resultado          ResultadoPrueba?
+}
+
+model ResultadoPrueba {
+  id                String           @id @default(cuid())
+  detalleOrdenId    String           @unique
+  detalleOrden      DetalleOrden     @relation(fields: [detalleOrdenId], references: [id], onDelete: Cascade)
+  usuarioId         String
+  procesadoPor      Usuario          @relation(fields: [usuarioId], references: [id]) // Bioanalista que firmó
+  observaciones     String?          @db.Text
+  firmado           Boolean          @default(false) // <-- NUEVO: Si está guardado por asistente es false, si tiene PIN es true
+  fechaProcesado    DateTime         @default(now())
+  valores           ValorResultado[]
+  valoresReferencia String?          @db.Text
+}
+
+model ValorResultado {
+  id             String          @id @default(cuid())
+  resultadoId    String
+  resultado      ResultadoPrueba @relation(fields: [resultadoId], references: [id], onDelete: Cascade)
+  pruebaId       String
+  prueba         Prueba          @relation(fields: [pruebaId], references: [id])
+  valorIngresado String
+}
+
+model Pago {
+  id         String     @id @default(cuid())
+  ordenId    Int
+  orden      Orden      @relation(fields: [ordenId], references: [id], onDelete: Cascade)
+  metodoId   Int
+  metodo     MetodoPago @relation(fields: [metodoId], references: [id])
+  montoUSD   Float
+  montoBS    Float
+  referencia String?
+  fechaPago  DateTime   @default(now())
+}
+
+model Gasto {
+  id            String     @id @default(cuid())
+  usuarioId     String
+  registradoPor Usuario    @relation(fields: [usuarioId], references: [id])
+  concepto      String
+  metodoId      Int
+  metodo        MetodoPago @relation(fields: [metodoId], references: [id])
+  montoUSD      Float
+  montoBS       Float
+  referencia    String?
+  fechaGasto    DateTime   @default(now())
+}
+
+model CierreCaja {
+  id            String   @id @default(cuid())
+  usuarioId     String
+  realizadoPor  Usuario  @relation(fields: [usuarioId], references: [id])
+  fechaApertura DateTime
+  fechaCierre   DateTime @default(now())
+
+  totalCalculadoUSD Float
+  totalCalculadoBS  Float
+  totalDeclaradoUSD Float? // Lo que el cajero dice que hay físicamente
+  totalDeclaradoBS  Float?
+
+  descuadreUSD Float? // Diferencia (faltante o sobrante)
+  descuadreBS  Float?
+
+  tasaBCV       Float
+  observaciones String? @db.Text
+
+  desgloseMetodos String? @db.Text
+}
+
+// --- SERVICIOS LOGÍSTICOS (No generan resultado médico) ---
+
+// Catálogo de servicios de extracción disponibles
+model ServicioExtra {
+  id        Int               @id @default(autoincrement())
+  nombre    String            @unique
+  precioUSD Float
+  activo    Boolean           @default(true)
+  ordenes   ServicioEnOrden[]
+}
+
+// Tabla de relación: servicios contratados en una orden específica
+model ServicioEnOrden {
+  id                 String        @id @default(cuid())
+  ordenId            Int
+  orden              Orden         @relation(fields: [ordenId], references: [id], onDelete: Cascade)
+  servicioId         Int
+  servicio           ServicioExtra @relation(fields: [servicioId], references: [id])
+  cantidad           Int           @default(1)
+  precioCongeladoUSD Float // Precio al momento de crear la orden
+}
+
+// --- ESTRUCTURA DE COSTOS (Módulo Admin) ---
+
+model CostoFijo {
+  id              Int     @id @default(autoincrement())
+  nombre          String  @unique
+  montoMensualUSD Float
+  activo          Boolean @default(true)
+}
+
+model ConfiguracionLaboratorio {
+  id                            Int @id @default(autoincrement())
+  volumenPruebasMensualEstimado Int @default(1000)
+}
+
+model Insumo {
+  id                Int                 @id @default(autoincrement())
+  nombre            String              @unique
+  unidadMedida      String // ej. "ml", "und", "kit"
+  costoUnitarioUSD  Float
+  cantidadComprada  Float?
+  costoTotalUSD     Float?
+  activo            Boolean             @default(true)
+  pruebasAsociadas  PruebaInsumo[]
+  paquetesAsociados PaqueteInsumoItem[]
+  subcategoriasAsociadas SubcategoriaInsumo[]
+}
+
+model PruebaInsumo {
+  id            String @id @default(cuid())
+  pruebaId      String
+  prueba        Prueba @relation(fields: [pruebaId], references: [id], onDelete: Cascade)
+  insumoId      Int
+  insumo        Insumo @relation(fields: [insumoId], references: [id], onDelete: Cascade)
+  cantidadUsada Float
+
+  @@unique([pruebaId, insumoId])
+}
+
+// Paquete que agrupa varios insumos con cantidades preconfiguradas
+model PaqueteInsumo {
+  id     Int                 @id @default(autoincrement())
+  nombre String              @unique
+  activo Boolean             @default(true)
+  items  PaqueteInsumoItem[]
+}
+
+// Cada insumo dentro de un paquete, con su cantidad por defecto
+model PaqueteInsumoItem {
+  id            String        @id @default(cuid())
+  paqueteId     Int
+  paquete       PaqueteInsumo @relation(fields: [paqueteId], references: [id], onDelete: Cascade)
+  insumoId      Int
+  insumo        Insumo        @relation(fields: [insumoId], references: [id], onDelete: Cascade)
+  cantidadUsada Float
+
+  @@unique([paqueteId, insumoId])
+}
+
+model SubcategoriaInsumo {
+  id                 String             @id @default(cuid())
+  subcategoriaId     String
+  subcategoria       SubcategoriaPrueba @relation(fields: [subcategoriaId], references: [id], onDelete: Cascade)
+  insumoId           Int
+  insumo             Insumo             @relation(fields: [insumoId], references: [id], onDelete: Cascade)
+  cantidadUsada      Float
+
+  @@unique([subcategoriaId, insumoId])
+}
+
+model NotaSubcategoriaOrden {
+  id             String @id @default(cuid())
+  ordenId        Int
+  orden          Orden  @relation(fields: [ordenId], references: [id], onDelete: Cascade)
+  subcategoria   String 
+  nota           String @db.Text
+  
+  @@unique([ordenId, subcategoria])
+}

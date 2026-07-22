@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Opcional: configuraciones base del sistema */
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800;
+  }
+  
+  /* Escala global responsiva basada en REM.
+     El navegador por defecto es 16px. 
+     Para pantallas HD (1366px) o menores, reducimos el porcentaje 
+     para que TODO (márgenes, paddings, textos) se achique proporcionalmente 
+     y no se desacomode nada. */
+  
+  @media (max-width: 1440px) {
+    html {
+      font-size: 14px; /* ~12.5% más pequeño */
+    }
+  }
+
+  @media (max-width: 1280px) {
+    html {
+      font-size: 13px; /* ~18.75% más pequeño */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 12px; /* ~25% más pequeño */
+    }
+  }
+}

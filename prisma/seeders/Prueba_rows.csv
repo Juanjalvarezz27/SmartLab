@@ -1,0 +1,168 @@
+id,codigo,nombre,precioUSD,margenGanancia,unidades,valoresReferencia,opcionesPredefinidas,activa,ordenVisual,subcategoriaId
+cmq3vt2li000l3s8w14e8mo3n,QS-AUR,ACIDO URICO,2.5,,mg/dL,"3.5 - 7.5 ",,true,1,cmq3vszy2000b3s8wmpuireuz
+cmq3vt38e000n3s8w90l593ai,QS-AMI,AMILASA,5,,U/L,"Hasta 140 ",,true,2,cmq3vszy2000b3s8wmpuireuz
+cmq3vt3rk000p3s8w0k7c09s1,QS-COL,COLESTEROL TOTAL,3,,mg/dL,"Menor de 150 ",,true,3,cmq3vszy2000b3s8wmpuireuz
+cmq3vt4ty000t3s8wc7w0zwsw,QS-CAL,CALCIO,3,,mg/dL,8.5 - 11.0,,true,4,cmq3vszy2000b3s8wmpuireuz
+cmq3vt5d4000v3s8ww7og1yqc,QS-CALI,CALCIO IONICO,4,,mg/dL,"4.6 - 5.3 ",,true,5,cmq3vszy2000b3s8wmpuireuz
+cmq3vt5w7000x3s8w4h32fsqx,QS-CRE,CREATININA,2,,mg/dL,"Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1 ",,true,6,cmq3vszy2000b3s8wmpuireuz
+cmq3vt6f7000z3s8wa27im84u,QS-CLO,CLORO,4,,mEq/L,"96 - 106 ",,true,7,cmq3vszy2000b3s8wmpuireuz
+cmq3vt7hb00133s8wac2rq6cu,QS-FIB,FIBRINOGENO,4.5,,%,200 - 450,,true,8,cmq3vszy2000b3s8wmpuireuz
+cmq3vt80c00153s8we420sads,QS-FOS,FOSFORO,2.5,,mg/dL,"Adultos 2.5 - 4.5 Niños 4.0 - 7.0 ",,true,9,cmq3vszy2000b3s8wmpuireuz
+cmq3vt8jf00173s8wqo6fxutf,QS-FA,FOSFATASAS ALCALINAS,4.5,,UI/L,"Adultos 40 - 140 ",,true,10,cmq3vszy2000b3s8wmpuireuz
+cmq3vt92j00193s8wloa4esdf,QS-GLU,GLUCOSA BASAL (AYUNO),2,,mg/dL,"70 - 110 ",,true,11,cmq3vszy2000b3s8wmpuireuz
+cmq3vt9ln001b3s8w29mdgd1i,QS-GPC30,GLUCOSA POST CARGA 30 MIN,2,,mg/dL,,,true,12,cmq3vszy2000b3s8wmpuireuz
+cmq3vta4l001d3s8wmt9owxbp,QS-GPC60,GLUCOSA POST CARGA 60 MIN,2,,mg/dL,,,true,13,cmq3vszy2000b3s8wmpuireuz
+cmq3vtann001f3s8wn7a0u5rf,QS-GPC120,GLUCOSA POST CARGA 120 MIN,2,,mg/dL,,,true,14,cmq3vszy2000b3s8wmpuireuz
+cmq3vtb6n001h3s8wz7hxlggj,QS-GGT,GAMMA GLUTAMIL TRANSFERASA (GGT),4.5,,U/L,"5 - 40 ",,true,15,cmq3vszy2000b3s8wmpuireuz
+cmq3vtbpq001j3s8w2bjc9fym,QS-HBA1C,HEMOGLOBINA GLICADA (HBA1C),10,,%,Normal menor a 5.7,,true,16,cmq3vszy2000b3s8wmpuireuz
+cmq3vtc8p001l3s8wvyxnvxxv,QS-FE,HIERRO SERICO,4,,mg/dL,"Hombres 65 - 175 Mujeres 50 - 175 ",,true,17,cmq3vszy2000b3s8wmpuireuz
+cmq3vtcrr001n3s8wrpvsw38h,QS-INS,INSULINA BASAL (AYUNAS),6.5,,mg/mL,"2 - 25 ",,true,18,cmq3vszy2000b3s8wmpuireuz
+cmq3vtdas001p3s8wzhzi3kb6,QS-INSP,INSULINA POSPRANDIAL (2 HORAS),6.5,,mg/mL,,,true,19,cmq3vszy2000b3s8wmpuireuz
+cmq3vtdtt001r3s8wjylgoxyf,QS-LDH,LACTATO DESHIDROGENASA (LDH),3,,UI/L,"105 - 333 ",,true,20,cmq3vszy2000b3s8wmpuireuz
+cmq3vtecv001t3s8w06kr3sfj,QS-MG,MAGNESIO,7,,mEq/dL,"1.7 - 2.2 ",,true,21,cmq3vszy2000b3s8wmpuireuz
+cmq3vtezr001v3s8w3shvxii8,QS-NTBNP,NT-PRO BNP,17,,mg/dL,"Menor a 125 ",,true,22,cmq3vszy2000b3s8wmpuireuz
+cmq3vtfit001x3s8wasfvlbyh,QS-K,POTASIO,6.5,,mEq/dL,3.5 - 5.2,,true,23,cmq3vszy2000b3s8wmpuireuz
+cmq3vtg1y001z3s8w467rwwnq,QS-PCR,PROTEINA C REACTIVA (PCR),6.5,,mg/dL,"Menor 0.6 ",,true,24,cmq3vszy2000b3s8wmpuireuz
+cmq3vtgl900213s8wixv0jrbm,QS-TG,TRIGLICERIDOS,4.5,,mg/dL,"Menor a 136 ",,true,25,cmq3vszy2000b3s8wmpuireuz
+cmq3vth4f00233s8w2329di74,QS-URE,UREA,2,,mg/dL,"10 - 40 ",,true,26,cmq3vszy2000b3s8wmpuireuz
+cmq3vtips00273s8wp5hk2few,QS-BILT,BILIRRUBINA TOTAL,,,mg/dL,0.1 - 1.2 mg/dL,,true,1,cmq3vti6o00253s8wvplzq8sb
+cmq3vtj8u00293s8w248ssbe5,QS-BILD,BILIRRUBINA DIRECTA,,,mg/dL,0.0 - 0.4 mg/dL,,true,2,cmq3vti6o00253s8wvplzq8sb
+cmq3vtjs1002b3s8wj5o1frxs,QS-BILI,BILIRRUBINA INDIRECTA,,,mg/dL,0.1 - 1.0 mg/dL,,true,3,cmq3vti6o00253s8wvplzq8sb
+cmq3vtld3002f3s8wyp3esjaq,QS-PROT,PROTEINAS TOTALES,,,g/dL,6.0 - 8.0 g/dL,,true,1,cmq3vtku2002d3s8wdunm8mfe
+cmq3vtlw7002h3s8w6anxjr8d,QS-ALB,ALBUMINA,,,g/dL,3.0 - 5.0 g/dL,,true,2,cmq3vtku2002d3s8wdunm8mfe
+cmq3vtmf7002j3s8wja31xzav,QS-GLOB,GLOBULINAS,,,g/dL,2.0 - 4.0 g/dL,,true,3,cmq3vtku2002d3s8wdunm8mfe
+cmq3vto53002n3s8wl8afys0e,QS-ALT,PIRUVICA (ALT),,,U/L,4 - 36 U/L,,true,1,cmq3vtnh7002l3s8wbijg5rmh
+cmq3vtoo5002p3s8w891ya2ef,QS-AST,OXALOACETICA (AST),,,U/L,8 - 33 U/L,,true,2,cmq3vtnh7002l3s8wbijg5rmh
+cmq415fcs0002ky046ea8hywc,COL-T,COLESTEROL TOTAL,,,mg/dL,Menor de 150,,true,1,cmq415fcs0001ky04fyupwk7z
+cmq415fcs0003ky04onfpd2i9,COL-HDL,COLESTEROL HDL,,,mg/dL,"Hombres  26 - 63
+Mujeres    33- 75",,true,2,cmq415fcs0001ky04fyupwk7z
+cmq419sth0004ky04u5m8gzfw,COL-LDL,COLESTEROL LDL,,,mg/dL,Menor de 100,,true,3,cmq415fcs0001ky04fyupwk7z
+cmq41biq00005ky0476bui0i4,COL-VLDL,COLESTEROL VLDL,,,mg/dL,"2 - 30 ",,true,4,cmq415fcs0001ky04fyupwk7z
+cmq41dr2w0006ky04yd4w8q2q,TG,TRIGLICERIDOS,,,mg/dL,Menor de 150,,true,5,cmq415fcs0001ky04fyupwk7z
+cmq41shdn0000ld04u1nlicgd,QS-NA,SODIO,5,,mEq/L,135 -  155,,true,27,cmq3vszy2000b3s8wmpuireuz
+cmq43e9k70003kw04tr1octue,QS-VDRL,VDRL,3.5,,,,,true,28,cmq3vszy2000b3s8wmpuireuz
+cmq43e9k70004kw04k3g8779x,QS-CK,CREATIN FOSFOQUINASA (CKTOTAL),7,,U/L,"30 - 170 ",,true,29,cmq3vszy2000b3s8wmpuireuz
+cmq43e9k70005kw04biaefeha,QS-CKMB,CREATIN FOSFOQUINASA (CKMB),12,,U/L,Menor de 25,,true,30,cmq3vszy2000b3s8wmpuireuz
+cmq453p5b0000l804nggznche,QS-LIP],LIPASA,5.5,,U/L,"Hasta 160 ",,true,31,cmq3vszy2000b3s8wmpuireuz
+cmq45knhv0002kz043pkkulse,QU-CA,"CALCIO EN ORINA PARCIAL ",3,,mg/dL,2 - 18,,true,1,cmq45knhv0001kz04wcoyyare
+cmq45knhv0003kz04moffud1h,"QU-FOS ",FOSFORO EN ORINA PARCIAL,3,,mg/dL,"20 - 60 ",,true,2,cmq45knhv0001kz04wcoyyare
+cmq45r8gr0004kz046pylld6l,QU-AU,ACIDO URICO EN ORINA PARCIAL,3,,mg/dL,"7 - 50 ",,true,3,cmq45knhv0001kz04wcoyyare
+cmq45r8gr0005kz04bocpwzyp,QU-CREA,CREATININA EN ORINA PARCIAL,3,,mg/dL,30 - 125,,true,4,cmq45knhv0001kz04wcoyyare
+cmq45r8gr0006kz04zs0m7sik,QU-NA,SODIO EN ORINA PARCIAL,4,,mEq/L,"54 - 150 ",,true,5,cmq45knhv0001kz04wcoyyare
+cmq45r8gr0007kz04ls7jivso,QU-K,POTASIO EN ORINA PARCIAL,4,,mEq/L,20 - 80,,true,6,cmq45knhv0001kz04wcoyyare
+cmq45u3hn0000la04ljxj9735,QU-PT,PROTEINAS EN ORINA PARCIAL,3,,mg/dL,"Menor de 25 ",,true,7,cmq45knhv0001kz04wcoyyare
+cmq46a7sr0002l704ns2ftuy8,QU-PESO,"PESO ",,,kg,,,true,1,cmq46a7sr0001l7044au5kz8o
+cmq46a7sr0003l704fiic52z8,QU-TALLA,TALLA,,,cm,,,true,2,cmq46a7sr0001l7044au5kz8o
+cmq46a7sr0004l704puwj248c,QU-VT,VOLUMEN TOTAL 24 HORAS,,,ml,,,true,3,cmq46a7sr0001l7044au5kz8o
+cmq46a7sr0005l704x50lqr2s,QU-VMC,VOLUMEN MINUTO CORREGIDO,,,,,,true,4,cmq46a7sr0001l7044au5kz8o
+cmq46a7sr0006l704hieqjxdg,QU-SC,SUPERFICIE CORPORAL CORREGIDA,,,,,,true,5,cmq46a7sr0001l7044au5kz8o
+cmq46a7ss0007l7049jb32lhw,QU-CREA24H,CREATININA EN ORINA 24 HORAS,,,g/24 horas,"Hombres  1.1 - 2.0
+Mujeres    0.01 - 1.33",,true,6,cmq46a7sr0001l7044au5kz8o
+cmq46a7ss0008l704sfxv6sip,QU-DEPU,"DEPURACION DE CREATININA ",,,mL/min,"70 - 110 ",,true,7,cmq46a7sr0001l7044au5kz8o
+cmq46oxib0000l704yogmdbl9,QU-CREA24H,CREATININA EN ORINA 24 HORAS,4,,mg/24 horas,"HOMBRE 1.1 -  2.0
+MUJER     0.01 - 1.33",,true,8,cmq45knhv0001kz04wcoyyare
+cmq46oxib0001l704r7lncfev,QU-CA24H,CALCIO EN ORINA DE 24 HORAS,3,,mg/24 horas,50 - 150,,true,9,cmq45knhv0001kz04wcoyyare
+cmq46oxib0002l7047wkk8uy8,QU-FOS24H,FOSFORO EN ORINA DE 24 HORAS,3,,mg/24 horas,"0.3 - 1.0 ",,true,10,cmq45knhv0001kz04wcoyyare
+cmq46oxib0003l7040263ytmi,QU-AU24H,ACIDO URICO EN ORINA DE 24 HORAS,3,,mg/24 horas,"250 - 750 ",,true,11,cmq45knhv0001kz04wcoyyare
+cmq46oxib0004l7042axx0qp6,QU-U24H,UREA EN ORINA DE 24 HORAS,3,,mg/24 horas,"3 - 20 ",,true,12,cmq45knhv0001kz04wcoyyare
+cmq46oxib0005l7047wo2ln0w,QU-NA24H,SODIO EN ORINA DE 24 HORAS,5,,mEq/24 horas,"75 - 200 ",,true,13,cmq45knhv0001kz04wcoyyare
+cmq46t7gx0006l704tia59rmh,QU-K24H,POTASIO EN ORINA DE 24 HORAS,5,,mEq/L,40 - 150,,true,14,cmq45knhv0001kz04wcoyyare
+cmq46t7gx0007l704o8yg4ly2,QU-CL24H,CLORO EN ORINA DE 24 HORAS,5,,mEq/L,110 - 250,,true,15,cmq45knhv0001kz04wcoyyare
+cmq46t7gx0008l704ppp1h82e,QU-MG24H,MAGNESIO EN ORINA DE 24 HORAS,5,,mEq/24 horas,"50 - 150 ",,true,16,cmq45knhv0001kz04wcoyyare
+cmq470gcl0000jx04th2gwumc,QU-VT24H,VOLUMEN TOTAL 24 HORAS,0.1,,ml,,,true,17,cmq45knhv0001kz04wcoyyare
+cmq4769540002jr04jsofhkdj,QU-PTC,PROTEINAS TOTALES CUALITATIVAS,,,,,"TRAZAS,POSITIVO",true,1,cmq4769540001jr04b9sfnn9r
+cmq4769540003jr049t1emg9e,QU-VT,VOLUMEN TOTAL 24 HORAS,,,ml,,,true,2,cmq4769540001jr04b9sfnn9r
+cmq4769540004jr04raxuyhj7,QU-PCUANTI,"PROTEINAS CUANTITATIVAS ",,,mg/24 horas,"Hasta 125 ",,true,3,cmq4769540001jr04b9sfnn9r
+cmq48bhdq0002l20417cy63mf,HE-1,HEMOGLOBINA,,,g/dL,"Hombres  13.5 - 17.5
+Mujeres    12.0 - 16.0",,true,1,cmq48bhdq0001l204trmuj5tr
+cmq48bhdq0003l2048tc1qqdj,HE-2,HEMATOCRITO,,,%,"Hombres 40 - 54
+Mujeres   36 -48",,true,2,cmq48bhdq0001l204trmuj5tr
+cmq48bhdq0004l204rxi4xvge,HE-3,"GLOBULOS BLANCOS ",,,cel/mm3,5000 - 10.000,,true,3,cmq48bhdq0001l204trmuj5tr
+cmq48bhdq0005l204iama09cr,HE-4,PLAQUETAS,,,cel/mm3,150.000 -400.000,,true,4,cmq48bhdq0001l204trmuj5tr
+cmq48bhdq0006l204m4ot1ntp,HE-5,RECUENTO DIFERENCIAL,,,%,"Segmentados Neutrofilos 50 -70
+Segmentados Eosinofilos 1 - 4
+Segmentados Basofilos     0 - 1 
+Linfocitos 20 - 40
+Monocitos   2 - 8 ",,true,5,cmq48bhdq0001l204trmuj5tr
+cmq48l6fm0000l404vwfuyo2q,HE-6,GLOBULOS ROJOS,,,millones /mm3,"Hombres 4.7 - 6.1
+Mujeres   4.2 - 5.4",,true,6,cmq48bhdq0001l204trmuj5tr
+cmq48l6fm0001l404lkrh8wu2,HE-7,VCM (VOLUMEN CORPUSCULAR MEDIO),,,fl,80 - 100,,true,7,cmq48bhdq0001l204trmuj5tr
+cmq48l6fm0002l4047nk6pxpq,HE-8,HCM (HEMOGLOBINA CORPUSCULAR MEDIA),,,pg,"27 - 32 ",,true,8,cmq48bhdq0001l204trmuj5tr
+cmq48l6fm0003l4043qy15kt8,HE-9,CHCM (CONCENTRACION DE HEMOGLOBINA CORPUSCULAR MEDIA),,,g/dl,"32 -  36 ",,true,9,cmq48bhdq0001l204trmuj5tr
+cmq48l6fm0004l4044a1k2fkv,HE-10,RETICULOCITOS,,,5,"0.5 - 2 ",,true,10,cmq48bhdq0001l204trmuj5tr
+cmq48p8p40007l404sf61vqfq,HE-1,HEMOGLOBINA,,,g/dL,"Hombres  13.5 - 17.5
+Mujeres    12.0 - 16.0",,true,1,cmq48p8p40006l404asnvhzg8
+cmq48p8p40008l404hwewmg1j,HE-2,HEMATOCRITO,,,%,"Hombres 40 - 54
+Mujeres   36 -48",,true,2,cmq48p8p40006l404asnvhzg8
+cmq48p8p50009l404qsbjpkmk,HE-3,"GLOBULOS BLANCOS ",,,cel/mm3,5000 - 10.000,,true,3,cmq48p8p40006l404asnvhzg8
+cmq48p8p5000al404efgn9bkz,HE-5,RECUENTO DIFERENCIAL,,,%,"Segmentados Neutrofilos 50 -70
+Segmentados Eosinofilos 1 - 4
+Segmentados Basofilos     0 - 1 
+Linfocitos 20 - 40
+Monocitos   2 - 8 ",,true,4,cmq48p8p40006l404asnvhzg8
+cmq48p8p5000bl404dhqgvkwn,HE-4,PLAQUETAS,,,cel/mm3,150.000 -400.000,,true,5,cmq48p8p40006l404asnvhzg8
+cmq48xw5k000fl404xkgab59m,HE-VSG,VSG (1 H),2,,mm/h,0 - 20,,true,1,cmq48xw5k000el404ibw8et6n
+cmq4923qs000il404wnv0u06n,HE-SERIE ROJA,GLOBULOS ROJOS,,,-,,,true,1,cmq4923qs000hl4046r8jqh7d
+cmq4923qs000jl404b9vixko4,"HE-SERIE BLANCA ","GLOBULOS BLANCOS ",,,-,,,true,2,cmq4923qs000hl4046r8jqh7d
+cmq4923qs000kl404yhtp7736,HE-PLAQUETAS,PLAQUETAS,,,-,,,true,3,cmq4923qs000hl4046r8jqh7d
+cmq49a5ew0002ju04nwzp05rm,HE-GRUPO SANGUINEO,GRUPO SANGUINEO,3.5,,,,"O Rh POSITIVO,A Rh POSITIVO,B Rh POSITIVO,AB Rh POSITIVO,O Rh NEGATIVO,A Rh NEGATIVO,B Rh NEGATIVO,AB Rh NEGATIVO",true,1,cmq49a5ew0001ju04arehdhrt
+cmq49pfqx0002l7044jxzp6gi,HOR-T3L,"T3 (TRIYODOTIRONINA) LIBRE ",7,,nmol/L,1.2 - 2.7,,true,1,cmq49pfqx0001l704jgwc8z3i
+cmq49pfqx0003l704urylsutr,HOR-T4L,T4 (TIROXINA) LIBRE,7,,pmol/L,10.3 -  24.5,,true,2,cmq49pfqx0001l704jgwc8z3i
+cmq49vqjf0007l70410mscdhe,HOR-TSH,TSH (HORMONA ESTIMULANTE DE LA TIROIDES),7,,mUI/L,"0.4 - 4.5 ",,true,3,cmq49pfqx0001l704jgwc8z3i
+cmq49xx90000bl704bdtjxz9u,T3-L,"T3 (TRIYODOTIRONINA) LIBRE ",,,nmol/L,1.2 - 2.7,,true,1,cmq49xx900009l704tdj4p3vw
+cmq49xx90000cl704h7rxy362,T4-L,T4 (TIROXINA) LIBRE,,,pmol/L,10.3 -  24.5,,true,2,cmq49xx900009l704tdj4p3vw
+cmq49xx90000dl704t3imw4pd,TSH-1,TSH (HORMONA ESTIMULANTE DE LA TIROIDES),,,mUI/L,"0.4 - 4.5 ",,true,3,cmq49xx900009l704tdj4p3vw
+cmq4aeq2a0002ld04vd1278k7,HOR-INSB,INSULINA BASAL (AYUNAS),6.5,,uUI/mL,"5 - 2.5 ",,true,1,cmq4aeq2a0001ld04z03cv0ia
+cmq4aeq2a0003ld04nvozhgg8,HOR-INSP,INSULINA POSPRANDIAL (2HORAS),6.5,,uUI/mL,,,true,2,cmq4aeq2a0001ld04z03cv0ia
+cmq4ani5q0002js04du9v8vuf,HOR-CORTISOLB,CORTISOL BASAL (7 - 9 AM),7,,ug/dL,10 - 20,,true,1,cmq4ani5q0001js04sjkpw9h1
+cmq4ani5q0003js04xgd6yq4x,HOR-CORTISOLTARDE,CORTISOL (3 - 4 PM),7,,ug/dL,3 - 10,,true,2,cmq4ani5q0001js04sjkpw9h1
+cmq4b1gtj0002l80438djnlmn,PER-PROS,PSA TOTAL  (ANTIGENO PROSTATICO ESPECIFICO TOTAL),,,ng/mL,"0.2 - 4.0 ",,true,1,cmq4b1gtj0001l804ykoa7qn7
+cmq4b1gtj0003l804qgwk7o9x,PER-PROL,PSA LIBRE (ANTIGENO PROSTATICO ESECIFICO LIBRE),,,ng/mL,"0.0 - 0.1 ",,true,2,cmq4b1gtj0001l804ykoa7qn7
+cmq4b1gtj0004l804vfi3mjas,PERF-PROSR,RELACION PSA LIBRE/PSA TOTAL,,,%,"Menor a 25 ",,true,3,cmq4b1gtj0001l804ykoa7qn7
+cmq4ccoic0002jy04ivwasqbx,IN-VDRL,VDRL,3,,,,"NO REACTIVO,REACTIVO 1 dil,REACTIVO 2 dil",true,1,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0003jy044bui8yjb,IN-HEPABC,HEPATITIS B (ANTI CORE),3,,,,"REACTIVO,NO REACTIVO",true,2,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0004jy04qbr0txl5,IN-HEPABA,HEPATITIS B (ANTIGENO AUSTRALIA),3,,,,"REACTIVO,NO REACTIVO",true,3,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0005jy04if2t65m4,IN-HEPAAG,HEPATITIS A  IGG,5,,,,REACTIVO,true,4,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0006jy04i27qqz5l,IN-HEPAAM,HEPATITIS A IGM,5,,,,,true,5,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0007jy04jfta7xi1,IN-HEPAC,"HEPATITIS C ",5,,,,"REACTIVO,NO REACTIVO",true,6,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0008jy04sq7onyan,IN-TOX,TOXOPLASMOSIS IGG,4,,,,"POSITIVO,NEGATIVO",true,7,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic0009jy04ftsjfj9h,IN-CHA,CHAGAS,5,,,,"POSITIVO,NEGATIVO",true,8,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000ajy049lwitigz,IN-CITOM,CITOMEGALOVIRUS IGM,5,,ML,0.5 - 1.8,,true,9,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000bjy04o5luhy0f,IN-CITOG,CITOMEGALOVIRUS IGG,5,,ML,0.5 - 1.8,,true,10,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000cjy04y7lmts3a,IN-EPBG,EPSTEIN BARR IGG,6,,ML,0.5 -  1.3,,true,11,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000djy04k6kgve3r,IN-EPBM,EPSTEIN BARR IGM,6,,ML,0.8 - 3.5,,true,12,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000ejy04iz40m62c,IN-ANTITG,ANTICUERPOS ANTI-TIROGLOBULINA (ANTI-TG),10,,ML,"2 - 4 ",,true,13,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000fjy04xrziy1ye,IN-ANTITPO,ANTICUERPOS ANTI-PEROXIDASA (ANTI-TPO),15,,ML,1,,true,14,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000gjy04x6mv7yfb,IN-ANA,ANTICUERPOS ANTINUCLEARES,15,,,,,true,15,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000hjy04msq83jvj,IN-,ANTICUERPOS ANTI-ADN,20,,ML,8,,true,16,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000ijy0420bf4qt8,IN-COV,COVID-SARS,8,,,,"POSITIVO,NEGATIVO",true,17,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000jjy04z1ovqzra,IN-DENGUEG,DENGUE IGG,5,,,,"POSITIVO,NEGATIVO",true,18,cmq4ccoib0001jy04u3qcftsj
+cmq4ccoic000kjy04238588ky,IN-TOXOM,TOXOPLASMOSIS IGM,8,,,,"POSITIVO,NEGATIVO",true,19,cmq4ccoib0001jy04u3qcftsj
+cmq5gk2c40002jo0461k13ma5,CO-TPT,TPT (TIEMPO PARCIAL DE TROMBOPLASTINA),4.5,,seg,25 - 35,,true,1,cmq5gk2c40001jo049ue1cid9
+cmq5gk2c40003jo04uanvo5z4,CO-TP,TP (TIEMPO DE PROTROMBINA),4.5,,seg,"11 - 13.5 ",,true,2,cmq5gk2c40001jo049ue1cid9
+cmq5gk2c40004jo04vuy7nx7r,CO-INR,INR (INDICE INTERNACIONAL NORMALIZADO),2,,,"0.8 - 1.2 ",,true,3,cmq5gk2c40001jo049ue1cid9
+cmq5gk2c40005jo04vun87oxs,CO-ISI,ISI (INDICE DE SENSIBILIDAD INTERNACIONAL),0.1,,,,,true,4,cmq5gk2c40001jo049ue1cid9
+cmq5gk2c40006jo0416vzfe6z,CO-RAZON,RAZON,0.1,,,,,true,5,cmq5gk2c40001jo049ue1cid9
+cmq5gmeze0009jo04eocpkncf,IN-HIV,HIV 1/2,5,,,,"POSITIVO,NEGATIVO",true,1,cmq5gmeze0008jo04j94up87o
+cmq5h1l1m0002jj04jv90zakf,OR-MACRO,ASPECTO,,,,-,"CLARO,LIGERA TURBIDEZ,TURBIO,MUY TURBIO",true,1,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0003jj04m58pn9cd,OR-MAC,COLOR,,,,-,"AMARILLO CLARO,AMARILLO INTENSO,AMBAR,ROJIZA",true,2,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0004jj04elmdievb,OR-MADE,DENSIDAD,,,,-,"1.010,1.025,1.030,1.020",true,3,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0005jj04lbz8k8bo,OR-MAPH,PH,,,,-,"6.5,7.0,5.0,7.5",true,4,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0006jj04lc05185v,OR-MAREA,REACCION,,,,-,"ACIDA,ALCALINA,NEUTRA",true,5,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0007jj0426idbv2h,OR-GLUC,GLUCOSA,,,,-,"NEGATIVO,TRAZAS,POSITIVO",true,6,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0008jj04b50wj9oo,OIR-NI,NITRITOS,,,,-,"NEGATIVO,TRAZAS,POSITIVO",true,7,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n0009jj0471yno0hm,OR-CE,CUERPOS CETONICOS,,,,-,"NEGATIVO,TRAZAS,POSITIVO",true,8,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n000ajj040sailbmt,OR-URO,UROBILINOGENO,,,,-,"NEGATIVO,TRAZAS,POSITIVO",true,9,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n000bjj04w98khqxi,OR-PROT,PROTEINAS,,,,-,"NEGATIVO,POSITIVO,TRAZAS",true,10,cmq5h1l1m0001jj04jnaft9ur
+cmq5h1l1n000cjj04dzwnr6l6,OR-SANGREMO,SANGRE,,,,-,"NEGATIVO,TRAZAS,POSITIVO",true,11,cmq5h1l1m0001jj04jnaft9ur
+cmq5hdau30002jl043zlv4a77,OR-MILEU,LEUCOCITOS,,,,,,true,1,cmq5hdau30001jl047ypgzlk5
+cmq5hdau30003jl04nftu5305,OR-MICCRIS,CRISTALES,,,,,"Acido Urico,Oxalate de Calcio,Uratos amorfos,Fosfatos amorfos,Fosfatos triple,Ausentes",true,2,cmq5hdau30001jl047ypgzlk5
+cmq5hdau30004jl0416ug6fy3,OR-MICIL,CILINDROS,,,,,"Granulosos finos,Granulosos gruesos,Leucocitarios,Hematicos,Ausentes",true,3,cmq5hdau30001jl047ypgzlk5
+cmq5hdau30005jl04zyf3es9t,OR-MIBAC,BACTERIAS,,,,,"Abundantes,Escasas,Ausentes,Moderadas",true,4,cmq5hdau30001jl047ypgzlk5
+cmq5hdau30006jl04xbmihtc3,OR-MICHE,HEMATIES,,,,,,true,5,cmq5hdau30001jl047ypgzlk5
+cmq5jd22x0002ky04rki0peex,HEC-MAA,ASPECTO,,,-,-,,true,1,cmq5jd22x0001ky04km7ouaxp
+cmq5jd22x0003ky04r0sv4f19,HEC-MAC,COLOR,,,-,-,,true,2,cmq5jd22x0001ky04km7ouaxp
+cmq5jd22x0004ky04v90i77eb,HEC-CON,CONSISTENCIA,,,-,-,"Homogenea,Heterogena",true,3,cmq5jd22x0001ky04km7ouaxp
+cmq5jd22x0005ky04yiy1hbvw,HEC-MAM,MOCO,,,-,-,"Ausente,Presente",true,4,cmq5jd22x0001ky04km7ouaxp
+cmq5jd22x0006ky040xqldzac,HEC-MAS,SANGRE,,,-,-,"Ausente,Presente",true,5,cmq5jd22x0001ky04km7ouaxp
+cmq5jh6hv0009ky04jbm8h192,HEC-MIC,ANALISIS MICROSCOPICO,,,-,-,,true,1,cmq5jh6hv0008ky04vikziuch
