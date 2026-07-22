@@ -6,6 +6,7 @@ import { Building2, User, Save, ArrowLeft, Loader2, ImagePlus, X } from "lucide-
 import Link from "next/link";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { compressImage } from "@/lib/imageUtils";
 
 export default function NuevoLaboratorioPage() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function NuevoLaboratorioPage() {
   const [logoBase64, setLogoBase64] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -27,11 +28,13 @@ export default function NuevoLaboratorioPage() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setLogoBase64(event.target?.result as string);
-    };
-    reader.readAsDataURL(file);
+    try {
+      // Comprimimos el logo a un ancho máximo de 300px
+      const compressedBase64 = await compressImage(file, 300);
+      setLogoBase64(compressedBase64);
+    } catch (error) {
+      toast.error('Hubo un error al procesar la imagen');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

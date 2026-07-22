@@ -1,18 +1,19 @@
 import { Document, Page, Text, View, StyleSheet, Font, Image } from "@react-pdf/renderer";
+import { inter400, inter700, montserrat900 } from "@/lib/fontsBase64";
 
 // ---------------------------------------------------------------------------
 // 1. REGISTRO DE FUENTES
 // ---------------------------------------------------------------------------
 Font.register({
   family: 'Montserrat',
-  src: '/fonts/montserrat-900.ttf' 
+  src: montserrat900 
 });
 
 Font.register({
   family: 'Inter',
   fonts: [
-    { src: '/fonts/inter-400.ttf', fontWeight: 400 },
-    { src: '/fonts/inter-700.ttf', fontWeight: 700 }
+    { src: inter400, fontWeight: 400 },
+    { src: inter700, fontWeight: 700 }
   ]
 });
 

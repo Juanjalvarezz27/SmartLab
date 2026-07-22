@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { UserCog, Lock, KeyRound, UploadCloud, Save, Image as ImageIcon, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
+import { compressImage } from "@/lib/imageUtils";
 
 export default function PerfilPage() {
   const { data: session } = useSession();
@@ -52,7 +53,7 @@ export default function PerfilPage() {
     fetchPerfil();
   }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -61,35 +62,13 @@ export default function PerfilPage() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const MAX_WIDTH = 400;
-        
-        let width = img.width;
-        let height = img.height;
-        
-        if (width > MAX_WIDTH) {
-          const scaleSize = MAX_WIDTH / img.width;
-          width = MAX_WIDTH;
-          height = img.height * scaleSize;
-        }
-
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext("2d");
-        
-        if (ctx) {
-          ctx.drawImage(img, 0, 0, width, height);
-          const compressedBase64 = canvas.toDataURL("image/png");
-          setFormData(prev => ({ ...prev, firmaUrl: compressedBase64 }));
-        }
-      };
-      img.src = event.target?.result as string;
-    };
-    reader.readAsDataURL(file);
+    try {
+      // Usamos el utilitario para comprimir al máximo (300px es suficiente para una firma/logo)
+      const compressedBase64 = await compressImage(file, 300);
+      setFormData(prev => ({ ...prev, firmaUrl: compressedBase64 }));
+    } catch (error) {
+      toast.error("Hubo un error al procesar la imagen");
+    }
   };
 
   const handlePinChange = (e: React.ChangeEvent<HTMLInputElement>, field: 'pinActual' | 'nuevoPin') => {

@@ -3,24 +3,23 @@
 // NO tiene "use client". Acepta logoBase64 como prop.
 
 import { Document, Page, Text, View, StyleSheet, Image, Font } from "@react-pdf/renderer";
-
-import path from "path";
+import { inter400, inter700, montserrat900 } from "@/lib/fontsBase64";
 
 // Registro de fuentes
 Font.register({
   family: "Montserrat",
-  src: path.join(process.cwd(), "public", "fonts", "montserrat-900.ttf"),
+  src: montserrat900,
 });
 
 Font.register({
   family: "Inter",
   fonts: [
     {
-      src: path.join(process.cwd(), "public", "fonts", "inter-400.ttf"),
+      src: inter400,
       fontWeight: 400,
     },
     {
-      src: path.join(process.cwd(), "public", "fonts", "inter-700.ttf"),
+      src: inter700,
       fontWeight: 700,
     },
   ],
