@@ -24,6 +24,7 @@ export async function GET() {
         rif: true,
         ciudad: true,
         estado: true,
+        claveMaestra: true,
       }
     });
 
@@ -62,6 +63,7 @@ export async function PUT(req: Request) {
         rif: body.rif,
         ciudad: body.ciudad,
         estado: body.estado,
+        ...(body.claveMaestra && { claveMaestra: body.claveMaestra })
       },
     });
 

@@ -3,7 +3,6 @@
 import { X, Download, Loader2, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PDFViewer, PDFDownloadLink, pdf } from "@react-pdf/renderer";
-import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import ConstanciaPDF from "./ConstanciaPDF";
 
 export default function ModalConstancia({ orden, onClose }: { orden: any; onClose: () => void }) {

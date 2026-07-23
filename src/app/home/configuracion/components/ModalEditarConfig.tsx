@@ -23,6 +23,7 @@ export default function ModalEditarConfig({ isOpen, onClose, onSaveSuccess, dato
     ciudad: "",
     estado: "",
     logoBase64: "",
+    claveMaestra: "",
   });
   
   const [previewLogo, setPreviewLogo] = useState<string | null>(null);
@@ -40,6 +41,7 @@ export default function ModalEditarConfig({ isOpen, onClose, onSaveSuccess, dato
         ciudad: datosActuales.ciudad || "",
         estado: datosActuales.estado || "",
         logoBase64: datosActuales.logoBase64 || "",
+        claveMaestra: datosActuales.claveMaestra || "",
       });
       setPreviewLogo(datosActuales.logoBase64 || null);
     }
@@ -174,7 +176,17 @@ export default function ModalEditarConfig({ isOpen, onClose, onSaveSuccess, dato
 
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-bold text-slate-700">Dirección Completa</label>
-                  <textarea name="direccion" value={formData.direccion} onChange={handleChange} rows={3} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-semibold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none resize-none" placeholder="Dirección exacta del laboratorio" />
+                  <textarea name="direccion" value={formData.direccion} onChange={handleChange} rows={2} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-semibold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none resize-none" placeholder="Dirección exacta del laboratorio" />
+                </div>
+
+                <div className="flex flex-col gap-2 p-4 bg-amber-50/50 rounded-xl border border-amber-100">
+                  <label className="text-sm font-bold text-amber-800 flex items-center gap-2">
+                    Clave Maestra (Anulaciones y Borrados)
+                  </label>
+                  <input type="text" name="claveMaestra" required value={formData.claveMaestra} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-amber-200 rounded-xl text-sm font-bold focus:ring-2 focus:ring-amber-500/20 focus:outline-none text-amber-900" placeholder="Ej. 123456" />
+                  <p className="text-[11px] text-amber-600/80 font-medium leading-tight">
+                    Esta clave será solicitada a los usuarios para confirmar acciones críticas. No la compartas con personal no autorizado.
+                  </p>
                 </div>
 
               </div>

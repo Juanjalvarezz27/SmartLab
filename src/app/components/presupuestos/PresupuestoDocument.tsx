@@ -36,6 +36,7 @@ export const pdfStyles = StyleSheet.create({
   },
   topContactText: { fontSize: 7, color: '#000000', fontWeight: 700 }, 
   topContactRight: { flexDirection: 'row', gap: 10 },
+  topContactRightBox: { flexDirection: 'column', alignItems: 'flex-end', gap: 2 },
   
   header: {
     flexDirection: 'row',

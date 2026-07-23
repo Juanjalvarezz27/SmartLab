@@ -42,9 +42,12 @@ export async function POST(req: Request) {
 
     if (accion === "EDITAR") {
       if (!pin) return NextResponse.json({ error: "Falta la clave maestra." }, { status: 400 });
-      if (pin !== process.env.CLAVE_MAESTRA) {
+      
+      const lab = await prisma.laboratorio.findUnique({ where: { id: labId }, select: { claveMaestra: true } });
+      if (!lab || pin !== lab.claveMaestra) {
         return NextResponse.json({ error: "Clave maestra incorrecta." }, { status: 403 });
       }
+      
       validacionActiva = true;
     } else if (accion === "FIRMAR") {
       if (!pin || !bioanalistaId) return NextResponse.json({ error: "Faltan credenciales de validación." }, { status: 400 });

@@ -33,6 +33,7 @@ model Laboratorio {
 
   // Configuracion fusionada
   volumenPruebasMensualEstimado Int @default(1000)
+  claveMaestra                  String @default("123456")
 
   // Relaciones Directas (Parents)
   usuarios            Usuario[]

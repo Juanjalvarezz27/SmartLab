@@ -392,7 +392,8 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: "Faltan parámetros" }, { status: 400 });
     }
 
-    if (clave !== process.env.CLAVE_MAESTRA) {
+    const lab = await prisma.laboratorio.findUnique({ where: { id: labId }, select: { claveMaestra: true } });
+    if (!lab || clave !== lab.claveMaestra) {
       return NextResponse.json({ error: "Clave maestra incorrecta" }, { status: 401 });
     }
 

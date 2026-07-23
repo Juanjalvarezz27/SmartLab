@@ -18,13 +18,12 @@ export async function DELETE(
     const body = await req.json();
     const { claveMaestra } = body;
 
-    const CLAVE_REAL = process.env.CLAVE_MAESTRA || "leyma2026";
-
     if (!claveMaestra) {
       return NextResponse.json({ error: "Clave maestra requerida." }, { status: 400 });
     }
 
-    if (claveMaestra !== CLAVE_REAL) {
+    const lab = await prisma.laboratorio.findUnique({ where: { id: labId }, select: { claveMaestra: true } });
+    if (!lab || claveMaestra !== lab.claveMaestra) {
       return NextResponse.json({ error: "Clave maestra incorrecta." }, { status: 401 });
     }
 

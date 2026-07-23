@@ -21,9 +21,9 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 
     const { clave, estadoDestino } = body;
 
-    const CLAVE_REAL = process.env.CLAVE_MAESTRA || "leyma2026";
+    const lab = await prisma.laboratorio.findUnique({ where: { id: labId }, select: { claveMaestra: true } });
 
-    if (clave !== CLAVE_REAL) {
+    if (!lab || clave !== lab.claveMaestra) {
       return NextResponse.json({ error: "Clave maestra incorrecta" }, { status: 403 });
     }
 
