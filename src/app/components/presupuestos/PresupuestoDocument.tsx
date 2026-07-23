@@ -160,11 +160,15 @@ const PresupuestoDocument = ({
         
         {/* INFO CONTACTO SUPERIOR */}
         <View style={pdfStyles.topContact}>
-          <Text style={pdfStyles.topContactText}>DIRECCIÓN: {laboratorio?.direccion || '---'}</Text>
-          <View style={pdfStyles.topContactRight}>
-            <Text style={pdfStyles.topContactText}>TELÉFONO: {laboratorio?.telefono || '---'}</Text>
-            <Text style={pdfStyles.topContactText}>CORREO: {(laboratorio?.correo || '---').toUpperCase()}</Text>
-            <Text style={pdfStyles.topContactText}>RIF: {laboratorio?.rif || '---'}</Text>
+          <View style={pdfStyles.topContactRightBox}>
+            <View style={pdfStyles.topContactRight}>
+              <Text style={pdfStyles.topContactText}>DIRECCIÓN: {laboratorio?.direccion || '---'}</Text>
+              <Text style={pdfStyles.topContactText}>RIF: {laboratorio?.rif || '---'}</Text>
+            </View>
+            <View style={pdfStyles.topContactRight}>
+              <Text style={pdfStyles.topContactText}>TELÉFONO: {laboratorio?.telefono || '---'}</Text>
+              <Text style={pdfStyles.topContactText}>CORREO: {(laboratorio?.correo || '---').toUpperCase()}</Text>
+            </View>
           </View>
         </View>
 

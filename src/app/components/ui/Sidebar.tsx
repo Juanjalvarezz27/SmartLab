@@ -59,8 +59,9 @@ export default function Sidebar({ laboratorio }: SidebarProps) {
     { nombre: "Estadísticas", ruta: "/home/estadisticas", icono: BarChart3 },
     { nombre: "Monedero", ruta: "/home/monedero", icono: Wallet },
     { nombre: "Cierre de Caja", ruta: "/home/cierre", icono: Calculator },
-    { nombre: "Mi Perfil", ruta: "/home/perfil", icono: UserCog },
     { nombre: "Estructura Costos", ruta: "/home/costos", icono: CircleDollarSign },
+    { nombre: "Mi Perfil", ruta: "/home/perfil", icono: UserCog },
+    { nombre: "Configuración", ruta: "/home/configuracion", icono: Building2 },
   ];
 
   const rutasPermitidasUsuario = [

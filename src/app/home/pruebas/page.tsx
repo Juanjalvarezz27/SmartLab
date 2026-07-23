@@ -76,6 +76,7 @@ export default function PruebasPage() {
   
   const [isModalItemOpen, setIsModalItemOpen] = useState(false);
   const [itemEditando, setItemEditando] = useState<any>(null);
+  const [itemEditandoEsPaquete, setItemEditandoEsPaquete] = useState<boolean>(false);
   
   const [isModalConfirmOpen, setIsModalConfirmOpen] = useState(false);
   const [subcategoriaAEliminar, setSubcategoriaAEliminar] = useState<string | null>(null);
@@ -434,8 +435,9 @@ export default function PruebasPage() {
     setIsModalServicioOpen(true);
   };
 
-  const abrirModalEditarItem = (item: any) => {
+  const abrirModalEditarItem = (item: any, esPaquete: boolean = false) => {
     setItemEditando(item);
+    setItemEditandoEsPaquete(esPaquete);
     setIsModalItemOpen(true);
   };
 
@@ -758,7 +760,7 @@ export default function PruebasPage() {
                                           <div className="flex items-center gap-2">
                                             {/* BOTÓN: EDITAR PRUEBA INDIVIDUAL */}
                                             <div className="relative group/btn flex flex-col items-center">
-                                              <button onClick={() => abrirModalEditarItem(p)} disabled={!examen.activa} className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300 ${!examen.activa ? 'bg-slate-100 text-slate-300 cursor-not-allowed' : 'bg-blue-50 text-[#0071E3] hover:bg-[#0071E3] hover:text-white hover:shadow-[0_4px_12px_rgba(0,113,227,0.3)] hover:-translate-y-0.5'}`}>
+                                              <button onClick={() => abrirModalEditarItem(p, examen.esPaquete)} disabled={!examen.activa} className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300 ${!examen.activa ? 'bg-slate-100 text-slate-300 cursor-not-allowed' : 'bg-blue-50 text-[#0071E3] hover:bg-[#0071E3] hover:text-white hover:shadow-[0_4px_12px_rgba(0,113,227,0.3)] hover:-translate-y-0.5'}`}>
                                                 <Edit2 size={14} strokeWidth={2.5}/>
                                               </button>
                                               {examen.activa && (
@@ -859,7 +861,7 @@ export default function PruebasPage() {
       )}
 
       <ModalPrueba isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSave={handleSavePrueba} pruebaEditar={pruebaEditando} categoriasExistentes={categoriasExistentes} subcategoriasExistentes={subcategoriasExistentes} catalogoExamenes={examenes} />
-      <ModalPruebaIndividual isOpen={isModalItemOpen} onClose={() => setIsModalItemOpen(false)} onSave={handleSavePruebaIndividual} itemEditar={itemEditando} />
+      <ModalPruebaIndividual isOpen={isModalItemOpen} onClose={() => setIsModalItemOpen(false)} onSave={handleSavePruebaIndividual} itemEditar={itemEditando} isParentPaquete={itemEditandoEsPaquete} />
       <ModalServicioExtra
         isOpen={isModalServicioOpen}
         onClose={() => setIsModalServicioOpen(false)}

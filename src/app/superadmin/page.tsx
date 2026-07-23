@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import { Plus, Building2, Calendar, Phone, Mail, MapPin, Users, User, Activity, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import LaboratorioActions from "./components/LaboratorioActions";
 
 export const dynamic = 'force-dynamic';
 
@@ -9,7 +10,7 @@ export default async function SuperAdminPage() {
   const laboratorios = await prisma.laboratorio.findMany({
     include: {
       usuarios: {
-        select: { nombre: true, correo: true, activo: true, rol: true }
+        select: { id: true, nombre: true, correo: true, activo: true, rol: true }
       },
       _count: {
         select: { ordenes: true, pacientes: true }
@@ -56,13 +57,13 @@ export default async function SuperAdminPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {laboratorios.map((lab, i) => {
-            const admin = lab.usuarios.find(u => u.rol === 'LABORATORIO');
+            const admins = lab.usuarios.filter(u => u.rol === 'LABORATORIO');
             const asistentes = lab.usuarios.filter(u => u.rol === 'ASISTENTE');
             
             return (
               <div 
                 key={lab.id} 
-                className="group relative bg-white/70 backdrop-blur-xl border border-white/80 rounded-[32px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
+                className={`group relative bg-white/70 backdrop-blur-xl border border-white/80 rounded-[32px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden ${!lab.activo ? 'opacity-60 grayscale-[0.3]' : ''}`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 {/* Fondo Decorativo */}
@@ -94,7 +95,7 @@ export default async function SuperAdminPage() {
                   </div>
                 </div>
                 
-                {/* Información de Contacto con Glassmorphism */}
+                {/* Información Completa del Registro */}
                 <div className="bg-slate-50/60 backdrop-blur-md rounded-2xl p-4 border border-slate-100/60 mb-6 space-y-3">
                   {lab.correo && (
                     <div className="flex items-center gap-3 text-sm text-slate-600">
@@ -112,6 +113,25 @@ export default async function SuperAdminPage() {
                       <span className="truncate font-medium">{lab.telefono}</span>
                     </div>
                   )}
+                  {/* Nueva Info Agregada */}
+                  {(lab.direccion || lab.ciudad || lab.estado) && (
+                    <div className="flex items-start gap-3 text-sm text-slate-600 mt-2 pt-2 border-t border-slate-200/60">
+                      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm text-slate-400 group-hover:text-blue-500 transition-colors">
+                        <MapPin size={14} />
+                      </div>
+                      <span className="font-medium leading-tight">
+                        {lab.direccion} {lab.ciudad ? `, ${lab.ciudad}` : ''} {lab.estado ? `(${lab.estado})` : ''}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-3 text-sm text-slate-600 mt-2 pt-2 border-t border-slate-200/60">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm text-slate-400 group-hover:text-blue-500 transition-colors">
+                      <Calendar size={14} />
+                    </div>
+                    <span className="font-medium">
+                      Registrado: {new Date(lab.fechaCreacion).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Métricas y Cifras */}
@@ -137,7 +157,7 @@ export default async function SuperAdminPage() {
                 </div>
 
                 {/* Sección de Usuarios */}
-                <div className="mt-auto bg-slate-50/50 rounded-2xl p-5 border border-slate-100/50">
+                <div className="bg-slate-50/50 rounded-2xl p-5 border border-slate-100/50">
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-sm font-bold text-slate-800">Equipo</h4>
                     <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
@@ -146,9 +166,9 @@ export default async function SuperAdminPage() {
                   </div>
 
                   <div className="space-y-3">
-                    {/* Administrador */}
-                    {admin && (
-                      <div className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm border border-slate-100/80 relative overflow-hidden">
+                    {/* Bioanalistas (Admins) */}
+                    {admins.map((admin, idx) => (
+                      <div key={admin.id || idx} className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm border border-slate-100/80 relative overflow-hidden">
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>
                         <div className="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm shrink-0 border border-indigo-100">
                           {admin.nombre.charAt(0).toUpperCase()}
@@ -156,12 +176,12 @@ export default async function SuperAdminPage() {
                         <div className="overflow-hidden flex-1">
                           <div className="flex items-center justify-between">
                             <p className="text-sm font-bold text-slate-800 truncate">{admin.nombre}</p>
-                            <span className="text-[9px] font-black uppercase tracking-wider text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-md">Admin</span>
+                            <span className="text-[9px] font-black uppercase tracking-wider text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-md">Bioanalista</span>
                           </div>
                           <p className="text-xs font-medium text-slate-500 truncate mt-0.5">{admin.correo}</p>
                         </div>
                       </div>
-                    )}
+                    ))}
 
                     {/* Asistentes Preview */}
                     {asistentes.length > 0 && (
@@ -185,6 +205,19 @@ export default async function SuperAdminPage() {
                   </div>
                 </div>
 
+                <LaboratorioActions lab={{
+                  id: lab.id,
+                  nombre: lab.nombre,
+                  rif: lab.rif,
+                  telefono: lab.telefono,
+                  correo: lab.correo,
+                  direccion: lab.direccion,
+                  ciudad: lab.ciudad,
+                  estado: lab.estado,
+                  activo: lab.activo,
+                  logoBase64: lab.logoBase64,
+                  usuarios: lab.usuarios
+                }} />
               </div>
             );
           })}

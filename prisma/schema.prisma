@@ -15,6 +15,7 @@ enum Rol {
   ASISTENTE
 }
 
+
 // --- NUEVO MODELO LABORATORIO ---
 
 model Laboratorio {

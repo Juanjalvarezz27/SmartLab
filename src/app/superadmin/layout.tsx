@@ -6,6 +6,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 import SuperAdminLogout from "./components/SuperAdminLogout";
+import SuperAdminNav from "./components/SuperAdminNav";
 
 export default async function SuperAdminLayout({
   children,
@@ -33,22 +34,7 @@ export default async function SuperAdminLayout({
               <span className="text-[10px] font-black uppercase text-blue-600 ml-1 bg-blue-50 px-2 py-0.5 rounded-full">ADMIN</span>
             </div>
             
-            <nav className="flex flex-col gap-1">
-              <Link href="/superadmin" className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-blue-50 text-blue-700 font-medium transition-colors">
-                <Building2 size={20} />
-                <span>Laboratorios</span>
-              </Link>
-              
-              <div className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 font-medium opacity-50 cursor-not-allowed">
-                <LayoutDashboard size={20} />
-                <span>Métricas</span>
-              </div>
-              
-              <div className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 font-medium opacity-50 cursor-not-allowed">
-                <Settings size={20} />
-                <span>Configuración SaaS</span>
-              </div>
-            </nav>
+            <SuperAdminNav />
           </div>
           
           <div className="border-t border-slate-100 pt-4">

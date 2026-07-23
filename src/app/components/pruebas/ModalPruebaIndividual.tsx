@@ -8,9 +8,10 @@ interface ModalPruebaIndividualProps {
   onClose: () => void;
   onSave: (data: any) => void;
   itemEditar: any;
+  isParentPaquete?: boolean;
 }
 
-export default function ModalPruebaIndividual({ isOpen, onClose, onSave, itemEditar }: ModalPruebaIndividualProps) {
+export default function ModalPruebaIndividual({ isOpen, onClose, onSave, itemEditar, isParentPaquete = false }: ModalPruebaIndividualProps) {
   const [formData, setFormData] = useState<{
     codigo: string, nombre: string, precioUSD: string, unidades: string, valoresReferencia: string,
     opcionesPredefinidas: string[], mostrarOpciones: boolean,
@@ -92,15 +93,17 @@ export default function ModalPruebaIndividual({ isOpen, onClose, onSave, itemEdi
         <form onSubmit={handleSubmit} className="flex flex-col overflow-hidden">
           <div className="p-6 space-y-4 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full">
             <div className="flex gap-4">
-            <div className="w-1/3 flex flex-col gap-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase">Código</label>
-              <input type="text" required value={formData.codigo} onChange={(e) => setFormData({ ...formData, codigo: e.target.value.toUpperCase() })} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-bold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none" />
+              <div className={`${isParentPaquete ? 'w-full' : 'w-1/3'} flex flex-col gap-1.5`}>
+                <label className="text-[10px] font-bold text-slate-400 uppercase">Código</label>
+                <input type="text" required value={formData.codigo} onChange={(e) => setFormData({ ...formData, codigo: e.target.value.toUpperCase() })} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-bold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none" />
+              </div>
+              {!isParentPaquete && (
+                <div className="w-2/3 flex flex-col gap-1.5">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase">Precio ($)</label>
+                  <input type="number" step="0.01" required value={formData.precioUSD} onChange={(e) => setFormData({ ...formData, precioUSD: e.target.value })} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-bold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none" />
+                </div>
+              )}
             </div>
-            <div className="w-2/3 flex flex-col gap-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase">Precio ($)</label>
-              <input type="number" step="0.01" required value={formData.precioUSD} onChange={(e) => setFormData({ ...formData, precioUSD: e.target.value })} className="w-full px-4 py-3 bg-[#F5F5F7] rounded-xl text-sm font-bold focus:ring-2 focus:ring-[#0071E3]/20 focus:outline-none" />
-            </div>
-          </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-[10px] font-bold text-slate-400 uppercase">Nombre de la Prueba</label>

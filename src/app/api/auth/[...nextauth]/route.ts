@@ -17,10 +17,14 @@ export const authOptions: NextAuthOptions = {
         }
 
       const usuario = await prisma.usuario.findUnique({
-        where: { correo: credentials.correo }
+        where: { correo: credentials.correo },
+        include: { laboratorio: true }
       });
 
       if (!usuario || !usuario.activo) throw new Error("El usuario no existe o está inactivo.");
+      if (usuario.laboratorio && !usuario.laboratorio.activo) {
+        throw new Error("El acceso de este laboratorio se encuentra suspendido.");
+      }
       
       const claveCorrecta = await bcrypt.compare(credentials.clave, usuario.clave);
       if (!claveCorrecta) throw new Error("Contraseña incorrecta.");

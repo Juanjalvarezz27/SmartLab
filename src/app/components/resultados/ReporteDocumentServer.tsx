@@ -377,13 +377,13 @@ const ReporteDocumentServer = ({
             </View>
           </View>
           <View style={pdfStyles.topContactRightBox}>
-            <Text style={pdfStyles.topContactText}>
-              DIRECCIÓN: {orden.laboratorio?.direccion || '---'}
-            </Text>
+            <View style={pdfStyles.topContactRight}>
+              <Text style={pdfStyles.topContactText}>DIRECCIÓN: {orden.laboratorio?.direccion || '---'}</Text>
+              <Text style={pdfStyles.topContactText}>RIF: {orden.laboratorio?.rif || '---'}</Text>
+            </View>
             <View style={pdfStyles.topContactRight}>
               <Text style={pdfStyles.topContactText}>TELÉFONO: {orden.laboratorio?.telefono || '---'}</Text>
               <Text style={pdfStyles.topContactText}>CORREO: {(orden.laboratorio?.correo || '---').toUpperCase()}</Text>
-              <Text style={pdfStyles.topContactText}>RIF: {orden.laboratorio?.rif || '---'}</Text>
             </View>
           </View>
         </View>

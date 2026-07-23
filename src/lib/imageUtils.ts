@@ -19,8 +19,9 @@ export function compressImage(file: File, maxWidth: number = 300): Promise<strin
         const ctx = canvas.getContext("2d");
 
         if (ctx) {
-          // Si queremos mantener la transparencia usamos PNG.
-          // Al reducir el ancho máximo a 300px o menos, el PNG final suele pesar < 20KB.
+          // Usamos PNG porque las librerías generadoras de PDF (como pdfmake o jsPDF)
+          // usualmente no soportan WebP nativamente, pero sí soportan PNG para mantener transparencia.
+          // Al limitar a 300px, el PNG suele pesar ~20KB lo cual sigue siendo muy liviano.
           ctx.drawImage(img, 0, 0, width, height);
           const compressedBase64 = canvas.toDataURL("image/png");
           resolve(compressedBase64);

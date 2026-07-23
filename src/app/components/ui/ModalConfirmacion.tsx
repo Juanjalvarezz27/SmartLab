@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 interface ModalConfirmacionProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (valorInput?: string) => void; // AHORA ACEPTA EL TEXTO
+  onConfirm: (valorInput?: string) => void;
+  onCancel?: () => void;
   titulo: string;
-  mensaje: string;
+  mensaje: React.ReactNode;
   textoConfirmar?: string;
   textoCancelar?: string;
   colorBoton?: "red" | "blue"; 
@@ -20,6 +21,7 @@ export default function ModalConfirmacion({
   isOpen,
   onClose,
   onConfirm,
+  onCancel,
   titulo,
   mensaje,
   textoConfirmar = "Confirmar",
@@ -44,8 +46,12 @@ export default function ModalConfirmacion({
   if (!mostrar) return null;
 
   const handleConfirm = () => {
-    // ENVIAMOS EL TEXTO A LA PÁGINA PRINCIPAL
     onConfirm(requiereInput ? inputValue : undefined);
+    onClose();
+  };
+
+  const handleCancelClick = () => {
+    if (onCancel) onCancel();
     onClose();
   };
 
@@ -74,7 +80,7 @@ export default function ModalConfirmacion({
 
         <div className="p-6 pt-4">
           <h3 className="font-title text-xl font-bold text-[#1D1D1F] mb-2">{titulo}</h3>
-          <p className="text-[#86868B] font-medium leading-relaxed mb-4">{mensaje}</p>
+          <div className="text-[#86868B] font-medium leading-relaxed mb-4">{mensaje}</div>
 
           {/* INPUT PARA LA CLAVE */}
           {requiereInput && (
@@ -90,7 +96,8 @@ export default function ModalConfirmacion({
 
         <div className="p-4 px-6 bg-slate-50 border-t border-slate-100 rounded-b-[32px] flex gap-3">
           <button
-            onClick={onClose}
+            type="button"
+            onClick={handleCancelClick}
             className="flex-1 py-3 px-4 bg-white border border-slate-200 text-slate-700 font-semibold rounded-xl hover:bg-slate-100 transition-colors"
           >
             {textoCancelar}
