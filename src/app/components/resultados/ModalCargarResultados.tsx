@@ -56,14 +56,26 @@ export default function ModalCargarResultados({ orden, onClose, onSuccess }: Mod
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
+  const fetchBioanalistas = () => {
     fetch("/api/bioanalistas")
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) setBioanalistas(data);
       })
       .catch(() => console.log("Error cargando bioanalistas"));
+  };
 
+  useEffect(() => {
+    fetchBioanalistas();
+  }, []);
+
+  useEffect(() => {
+    if (showPinModal) {
+      fetchBioanalistas();
+    }
+  }, [showPinModal]);
+
+  useEffect(() => {
     if (orden && orden.detalles) {
       const initialValores: Record<string, string[]> = {};
       const initialObs: Record<string, string> = {};
