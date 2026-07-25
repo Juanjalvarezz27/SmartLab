@@ -33,9 +33,9 @@ export async function PUT(
       nombre: body.nombre,
       correo: body.correo,
       rol: body.rol,
-      mpps: body.rol === "BIOANALISTA" ? body.mpps : null,
-      col: body.rol === "BIOANALISTA" ? body.col : null,
-      pinFirma: body.rol === "BIOANALISTA" ? body.pinFirma : null,
+      mpps: (body.rol === "BIOANALISTA" || body.rol === "LABORATORIO") ? body.mpps : null,
+      col: (body.rol === "BIOANALISTA" || body.rol === "LABORATORIO") ? body.col : null,
+      pinFirma: (body.rol === "BIOANALISTA" || body.rol === "LABORATORIO") ? body.pinFirma : null,
       activo: body.activo,
     };
 

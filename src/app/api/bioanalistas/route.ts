@@ -15,7 +15,7 @@ export async function GET() {
     const bioanalistas = await prisma.usuario.findMany({
       where: { 
         laboratorioId: labId,
-        rol: "BIOANALISTA",
+        rol: { in: ["BIOANALISTA", "LABORATORIO"] },
         activo: true,
         pinFirma: { not: null }
       },

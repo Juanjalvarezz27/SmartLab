@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         nombre: body.nombre,
         correo: body.correo,
         clave: hashedPassword,
-        rol: (body.rol === "BIOANALISTA" || body.rol === "ASISTENTE") ? body.rol : "ASISTENTE",
+        rol: (body.rol === "BIOANALISTA" || body.rol === "LABORATORIO" || body.rol === "ASISTENTE") ? body.rol : "ASISTENTE",
         mpps: body.mpps || null,
         col: body.col || null,
         pinFirma: body.pinFirma || null,

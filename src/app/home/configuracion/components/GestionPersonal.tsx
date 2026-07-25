@@ -146,7 +146,11 @@ export default function GestionPersonal() {
                       </div>
                     </td>
                     <td className="p-4">
-                      {u.rol === "BIOANALISTA" ? (
+                      {u.rol === "LABORATORIO" ? (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-bold border border-purple-100">
+                          <Shield size={12} /> Director
+                        </span>
+                      ) : u.rol === "BIOANALISTA" ? (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-100">
                           <Shield size={12} /> Bioanalista
                         </span>
@@ -157,7 +161,7 @@ export default function GestionPersonal() {
                       )}
                     </td>
                     <td className="p-4">
-                      {u.rol === "BIOANALISTA" ? (
+                      {(u.rol === "BIOANALISTA" || u.rol === "LABORATORIO") ? (
                         <div className="flex flex-col gap-0.5">
                           <span className="text-[10px] font-bold text-slate-500">MPPS: {u.mpps || <span className="text-slate-300 font-normal">N/A</span>}</span>
                           <span className="text-[10px] font-bold text-slate-500">COL: {u.col || <span className="text-slate-300 font-normal">N/A</span>}</span>

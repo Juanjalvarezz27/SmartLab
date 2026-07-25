@@ -53,7 +53,7 @@ export default function ModalUsuario({ isOpen, onClose, onSave, usuarioEditar }:
     setGuardando(false);
   };
 
-  const isBioanalista = formData.rol === "BIOANALISTA";
+  const isBioanalista = formData.rol === "BIOANALISTA" || formData.rol === "LABORATORIO";
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm">
@@ -102,7 +102,7 @@ export default function ModalUsuario({ isOpen, onClose, onSave, usuarioEditar }:
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, rol: "ASISTENTE" })}
-                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                    className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all ${
                       formData.rol === "ASISTENTE"
                         ? "bg-white text-slate-800 shadow-sm"
                         : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
@@ -113,13 +113,24 @@ export default function ModalUsuario({ isOpen, onClose, onSave, usuarioEditar }:
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, rol: "BIOANALISTA" })}
-                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                    className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all ${
                       formData.rol === "BIOANALISTA"
                         ? "bg-white text-blue-700 shadow-sm"
                         : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
                     }`}
                   >
                     Bioanalista
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, rol: "LABORATORIO" })}
+                    className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all ${
+                      formData.rol === "LABORATORIO"
+                        ? "bg-white text-purple-700 shadow-sm"
+                        : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
+                    }`}
+                  >
+                    Director
                   </button>
                 </div>
               </div>
