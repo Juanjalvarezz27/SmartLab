@@ -12,6 +12,7 @@ datasource db {
 enum Rol {
   SUPERADMIN
   LABORATORIO
+  BIOANALISTA
   ASISTENTE
 }
 

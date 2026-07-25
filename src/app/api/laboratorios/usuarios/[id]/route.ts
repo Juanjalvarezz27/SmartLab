@@ -13,7 +13,7 @@ export async function PUT(
     const labId = (session?.user as any)?.laboratorioId;
     const rol = (session?.user as any)?.rol;
 
-    if (!labId || rol !== "LABORATORIO") {
+    if (!labId || (rol !== "LABORATORIO" && rol !== "SUPERADMIN")) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
@@ -33,9 +33,9 @@ export async function PUT(
       nombre: body.nombre,
       correo: body.correo,
       rol: body.rol,
-      mpps: body.rol === "LABORATORIO" ? body.mpps : null,
-      col: body.rol === "LABORATORIO" ? body.col : null,
-      pinFirma: body.rol === "LABORATORIO" ? body.pinFirma : null,
+      mpps: body.rol === "BIOANALISTA" ? body.mpps : null,
+      col: body.rol === "BIOANALISTA" ? body.col : null,
+      pinFirma: body.rol === "BIOANALISTA" ? body.pinFirma : null,
       activo: body.activo,
     };
 

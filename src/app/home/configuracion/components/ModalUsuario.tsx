@@ -53,7 +53,7 @@ export default function ModalUsuario({ isOpen, onClose, onSave, usuarioEditar }:
     setGuardando(false);
   };
 
-  const isBioanalista = formData.rol === "LABORATORIO";
+  const isBioanalista = formData.rol === "BIOANALISTA";
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm">
@@ -112,9 +112,9 @@ export default function ModalUsuario({ isOpen, onClose, onSave, usuarioEditar }:
                   </button>
                   <button
                     type="button"
-                    onClick={() => setFormData({ ...formData, rol: "LABORATORIO" })}
+                    onClick={() => setFormData({ ...formData, rol: "BIOANALISTA" })}
                     className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all ${
-                      formData.rol === "LABORATORIO"
+                      formData.rol === "BIOANALISTA"
                         ? "bg-white text-blue-700 shadow-sm"
                         : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
                     }`}

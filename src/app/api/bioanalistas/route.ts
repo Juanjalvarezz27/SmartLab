@@ -15,16 +15,15 @@ export async function GET() {
     const bioanalistas = await prisma.usuario.findMany({
       where: { 
         laboratorioId: labId,
-        rol: "LABORATORIO",
+        rol: "BIOANALISTA",
         activo: true,
         pinFirma: { not: null }
       },
-      select: { id: true, nombre: true }
+      select: { id: true, nombre: true },
+      orderBy: { nombre: "asc" }
     });
     
-    const response = NextResponse.json(bioanalistas);
-    response.headers.set('Cache-Control', 's-maxage=600, stale-while-revalidate=1200');
-    return response;
+    return NextResponse.json(bioanalistas);
   } catch (error: any) {
     return NextResponse.json({ error: `Error al obtener lista de bioanalistas: ${error?.message || 'Desconocido'}` }, { status: 500 });
   }

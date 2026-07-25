@@ -10,7 +10,7 @@ export async function GET() {
     const labId = (session?.user as any)?.laboratorioId;
     const rol = (session?.user as any)?.rol;
 
-    if (!labId || rol !== "LABORATORIO") {
+    if (!labId || (rol !== "LABORATORIO" && rol !== "SUPERADMIN")) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     const labId = (session?.user as any)?.laboratorioId;
     const rol = (session?.user as any)?.rol;
 
-    if (!labId || rol !== "LABORATORIO") {
+    if (!labId || (rol !== "LABORATORIO" && rol !== "SUPERADMIN")) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         nombre: body.nombre,
         correo: body.correo,
         clave: hashedPassword,
-        rol: body.rol || "ASISTENTE",
+        rol: (body.rol === "BIOANALISTA" || body.rol === "ASISTENTE") ? body.rol : "ASISTENTE",
         mpps: body.mpps || null,
         col: body.col || null,
         pinFirma: body.pinFirma || null,

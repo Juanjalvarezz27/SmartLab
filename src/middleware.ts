@@ -17,21 +17,21 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  // 3. RUTAS RESTRINGIDAS: Si es un ASISTENTE intentando entrar a configuración
+  // 3. RUTAS RESTRINGIDAS: ASISTENTE y BIOANALISTA no pueden entrar a rutas de administración
   if (token && token.rol !== "LABORATORIO" && token.rol !== "SUPERADMIN") {
     const rutasRestringidas = [
       "/home/pruebas", 
       "/home/estadisticas", 
       "/home/monedero",
       "/home/perfil",
-      "/home/costos"
+      "/home/costos",
+      "/home/configuracion",
+      "/home/cierre",
     ];
     
-    // Verificamos si la ruta actual empieza con alguna de las bloqueadas
     const intentaEntrarRutaAdmin = rutasRestringidas.some(ruta => pathname.startsWith(ruta));
     
     if (intentaEntrarRutaAdmin) {
-      // Lo regresamos al Dashboard por "listillo"
       return NextResponse.redirect(new URL("/home", req.url));
     }
   }
