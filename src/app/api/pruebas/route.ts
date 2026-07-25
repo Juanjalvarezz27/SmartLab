@@ -139,7 +139,7 @@ export async function POST(req: Request) {
 
     const nuevaSubcategoria = await prisma.subcategoriaPrueba.create({
       data: {
-        nombre: body.subcategoria,
+        nombre: body.subcategoria.toUpperCase(),
         categoria: { connect: { id_laboratorioId: { id: categoria.id, laboratorioId: labId } } },
         laboratorio: { connect: { id: labId } },
         activa: true,

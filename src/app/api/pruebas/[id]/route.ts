@@ -135,7 +135,7 @@ export async function PUT(
     const subcatActualizada = await prisma.subcategoriaPrueba.update({
       where: { id_laboratorioId: { id, laboratorioId: labId } },
       data: {
-        nombre: body.subcategoria,
+        nombre: body.subcategoria.toUpperCase(),
         categoria: { connect: { id_laboratorioId: { id: categoria.id, laboratorioId: labId } } },
         esPaquete: body.esPaquete,
         precioUSD: body.esPaquete ? parsePrecioSeguro(body.precioPaqueteUSD) : null,
