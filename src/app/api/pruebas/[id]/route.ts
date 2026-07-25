@@ -181,3 +181,52 @@ export async function PUT(
     return NextResponse.json({ error: "Error de servidor al actualizar. Intenta más tarde." }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const session = await getServerSession(authOptions);
+    const labId = (session?.user as any)?.laboratorioId;
+
+    if (!labId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    const body = await req.json();
+    const { claveMaestra } = body;
+
+    if (!claveMaestra) {
+      return NextResponse.json({ error: "Clave maestra requerida." }, { status: 400 });
+    }
+
+    const lab = await prisma.laboratorio.findUnique({
+      where: { id: labId },
+      select: { claveMaestra: true }
+    });
+
+    if (!lab || claveMaestra !== lab.claveMaestra) {
+      return NextResponse.json({ error: "Clave maestra incorrecta." }, { status: 401 });
+    }
+
+    const { id } = await params;
+
+    const subcategoriaExistente = await prisma.subcategoriaPrueba.findFirst({
+      where: { id: id, laboratorioId: labId }
+    });
+
+    if (!subcategoriaExistente) {
+      return NextResponse.json({ error: "No autorizado para eliminar esta estructura" }, { status: 403 });
+    }
+
+    await prisma.subcategoriaPrueba.delete({
+      where: { id_laboratorioId: { id: id, laboratorioId: labId } }
+    });
+
+    return NextResponse.json({ success: true, message: "Estructura eliminada correctamente" });
+  } catch (error: any) {
+    console.error("Error al eliminar subcategoría:", error);
+    return NextResponse.json({ error: `Error interno al eliminar (posiblemente esté en uso en órdenes existentes): ${error?.message || 'Desconocido'}` }, { status: 500 });
+  }
+}
