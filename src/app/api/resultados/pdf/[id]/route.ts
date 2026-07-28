@@ -12,11 +12,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions);
-    const labId = (session?.user as any)?.laboratorioId;
-
-    if (!labId) {
-      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
-    }
+    const labIdFromSession = (session?.user as any)?.laboratorioId;
 
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
@@ -103,8 +99,12 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
       },
     });
 
-    if (!orden || orden.laboratorioId !== labId) {
-      return NextResponse.json({ error: "Orden no encontrada o no autorizada" }, { status: 404 });
+    if (!orden) {
+      return NextResponse.json({ error: "Orden no encontrada" }, { status: 404 });
+    }
+
+    if (labIdFromSession && orden.laboratorioId !== labIdFromSession) {
+      return NextResponse.json({ error: "No autorizado para ver esta orden" }, { status: 403 });
     }
 
     if (!orden.resultadosCompletados) {
@@ -116,7 +116,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 
     // Obtener información del laboratorio actual
     const laboratorio = await prisma.laboratorio.findUnique({
-      where: { id: labId }
+      where: { id: orden.laboratorioId }
     });
 
     // Fecha impresa
