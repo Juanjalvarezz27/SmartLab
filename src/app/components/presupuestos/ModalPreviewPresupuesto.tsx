@@ -33,6 +33,7 @@ export default function ModalPreviewPresupuesto({
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
   const [telefonoManual, setTelefonoManual] = useState<string>("");
   const [laboratorioInfo, setLaboratorioInfo] = useState<any>(null);
+  const [formatoImpresion, setFormatoImpresion] = useState<"LETTER" | "A5">("LETTER");
 
   useEffect(() => {
     setIsMounted(true);
@@ -63,6 +64,7 @@ export default function ModalPreviewPresupuesto({
           subtotal={subtotal} 
           total={total} 
           laboratorio={laboratorioInfo}
+          formato={formatoImpresion}
         />
       ).toBlob();
       const url = URL.createObjectURL(blob);
@@ -89,6 +91,7 @@ export default function ModalPreviewPresupuesto({
           subtotal={subtotal} 
           total={total}
           laboratorio={laboratorioInfo}
+          formato={formatoImpresion}
         />
       ).toBlob();
       const url = URL.createObjectURL(blob);
@@ -131,7 +134,27 @@ export default function ModalPreviewPresupuesto({
   return (
     <div className="fixed inset-0 z-[200] flex flex-col items-center p-4 sm:p-8 bg-[#1D1D1F]/95">
       <div className="w-full max-w-[850px] flex justify-between items-center bg-[#2D2D2F] p-4 rounded-2xl mb-6 shrink-0 shadow-lg border border-white/10">
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-center">
+          {/* SELECTOR DE FORMATO */}
+          <div className="flex bg-[#1D1D1F] p-1 rounded-xl border border-white/10 mr-2">
+            <button
+              onClick={() => setFormatoImpresion("LETTER")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${
+                formatoImpresion === "LETTER" ? "bg-white text-black" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              CARTA
+            </button>
+            <button
+              onClick={() => setFormatoImpresion("A5")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${
+                formatoImpresion === "A5" ? "bg-white text-black" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              A5
+            </button>
+          </div>
+          
           <button
             onClick={handlePrint}
             className="flex items-center gap-2 bg-white text-[#1D1D1F] hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-bold transition-colors shadow-sm"
@@ -170,6 +193,7 @@ export default function ModalPreviewPresupuesto({
             subtotal={subtotal} 
             total={total} 
             laboratorio={laboratorioInfo}
+            formato={formatoImpresion}
           />
         </PDFViewer>
       </div>
@@ -180,7 +204,9 @@ export default function ModalPreviewPresupuesto({
         const data = {
           p: { n: paciente.nombre, c: paciente.cedula, t: paciente.telefono },
           e: pruebas.map(pr => [pr.nombre, pr.precioUSD, pr.cantidad || 1]),
-          se: serviciosExtras.map(s => [s.nombre, s.precioUSD, s.cantidad || 1]),
+          se: serviciosExtras
+            .filter((s) => !s.nombre.toLowerCase().includes("extracci"))
+            .map(s => [s.nombre, s.precioUSD, s.cantidad || 1]),
           b: tasaBCV,
           d: descuento,
           s: subtotal,

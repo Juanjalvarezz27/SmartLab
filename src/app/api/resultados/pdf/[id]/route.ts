@@ -13,6 +13,9 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   try {
     const session = await getServerSession(authOptions);
     const labIdFromSession = (session?.user as any)?.laboratorioId;
+    const { searchParams } = new URL(request.url);
+    const formatoParam = searchParams.get("formato")?.toUpperCase();
+    const formatoFinal = formatoParam === "A5" ? "A5" : "LETTER";
 
     const resolvedParams = await params;
     const ordenId = parseInt(resolvedParams.id, 10);
@@ -185,6 +188,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
         fechaImpresa,
         qrCodeUrl,
         logoBase64: logoBase64 ?? undefined,
+        formato: formatoFinal as "LETTER" | "A5",
       }) as React.ReactElement<any>
     );
 

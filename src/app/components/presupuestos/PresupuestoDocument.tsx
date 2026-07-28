@@ -16,7 +16,7 @@ Font.register({
   ]
 });
 
-export const pdfStyles = StyleSheet.create({
+const baseStyles = {
   page: {
     paddingTop: 30,
     paddingBottom: 70, 
@@ -28,7 +28,7 @@ export const pdfStyles = StyleSheet.create({
   },
   topContact: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#E2E8F0',
     paddingBottom: 4,
@@ -36,7 +36,7 @@ export const pdfStyles = StyleSheet.create({
   },
   topContactText: { fontSize: 7, color: '#000000', fontWeight: 700 }, 
   topContactRight: { flexDirection: 'row', gap: 10 },
-  topContactRightBox: { flexDirection: 'column', alignItems: 'flex-end', gap: 2 },
+  topContactRightBox: { flexDirection: 'column', alignItems: 'center', gap: 2 },
   
   header: {
     flexDirection: 'row',
@@ -130,7 +130,27 @@ export const pdfStyles = StyleSheet.create({
   },
   footerNote: { fontSize: 8, color: '#000000', textAlign: 'center', marginBottom: 2 },
   footerLegal: { fontSize: 7, color: '#000000', textAlign: 'center', fontWeight: 700 }
-});
+};
+
+const scaleStyles = (styles: any, factor: number): any => {
+  const skipKeys = ['fontWeight', 'flex', 'zIndex', 'opacity'];
+  const newStyles = {} as any;
+  for (const key in styles) {
+    if (typeof styles[key] === 'object' && styles[key] !== null) {
+      newStyles[key] = scaleStyles(styles[key], factor);
+    } else if (typeof styles[key] === 'number' && !skipKeys.includes(key)) {
+      newStyles[key] = styles[key] * factor;
+    } else {
+      newStyles[key] = styles[key];
+    }
+  }
+  return newStyles;
+};
+
+export const getPdfStyles = (formato: "LETTER" | "A5" = "LETTER") => {
+  const factor = formato === "A5" ? 0.70 : 1;
+  return StyleSheet.create(scaleStyles(baseStyles, factor));
+};
 
 const PresupuestoDocument = ({ 
   paciente, 
@@ -140,7 +160,8 @@ const PresupuestoDocument = ({
   descuento, 
   subtotal, 
   total,
-  laboratorio
+  laboratorio,
+  formato = "LETTER"
 }: { 
   paciente: { nombre: string, cedula: string }, 
   pruebas: any[], 
@@ -149,15 +170,17 @@ const PresupuestoDocument = ({
   descuento: number, 
   subtotal: number, 
   total: number,
-  laboratorio?: any
+  laboratorio?: any,
+  formato?: "LETTER" | "A5"
 }) => {
+  const pdfStyles = getPdfStyles(formato);
   const formatFecha = () => {
     return new Date().toLocaleDateString('es-VE', { year: 'numeric', month: '2-digit', day: '2-digit' });
   };
 
   return (
     <Document>
-      <Page size="LETTER" style={pdfStyles.page}>
+      <Page size={formato} style={pdfStyles.page}>
         
         {/* INFO CONTACTO SUPERIOR */}
         <View style={pdfStyles.topContact}>
@@ -222,14 +245,16 @@ const PresupuestoDocument = ({
               <Text style={pdfStyles.tdName}>{p.nombre} {p.cantidad > 1 ? `(x${p.cantidad})` : ''}</Text>
             </View>
           ))}
-          {serviciosExtras.map((s, idx) => {
-            const qty = s.cantidad || 1;
-            return (
-              <View key={`srv-${idx}`} style={pdfStyles.tableRow}>
-                <Text style={pdfStyles.tdName}>{s.nombre} {qty > 1 ? `(x${qty})` : ''}</Text>
-              </View>
-            );
-          })}
+          {serviciosExtras
+            .filter((s) => !s.nombre.toLowerCase().includes("extracci"))
+            .map((s, idx) => {
+              const qty = s.cantidad || 1;
+              return (
+                <View key={`srv-${idx}`} style={pdfStyles.tableRow}>
+                  <Text style={pdfStyles.tdName}>{s.nombre} {qty > 1 ? `(x${qty})` : ''}</Text>
+                </View>
+              );
+            })}
         </View>
 
         {/* TOTALES */}

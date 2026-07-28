@@ -1,0 +1,7157 @@
+[
+  {
+    "id": "cmq3vt2li000l3s8w14e8mo3n",
+    "codigo": "QS-AUR",
+    "nombre": "ACIDO URICO",
+    "precioUSD": 2.5,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "3.5 - 7.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000kl204gy40qay3",
+    "codigo": "QS-AUR",
+    "nombre": "ACIDO URICO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "3.5 - 7.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0007l40416qwe1u4",
+    "codigo": "QS-AUR",
+    "nombre": "ACIDO URICO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "3.5 - 7.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0003l7040263ytmi",
+    "codigo": "QU-AU24H",
+    "nombre": "ACIDO URICO EN ORINA DE 24 HORAS",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/24 horas",
+    "valoresReferencia": "250 - 750",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq45r8gr0004kz046pylld6l",
+    "codigo": "QU-AU",
+    "nombre": "ACIDO URICO EN ORINA PARCIAL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "7 - 50",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000dl404nxoj03yz",
+    "codigo": "QS-ALB",
+    "nombre": "ALBUMINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "3.0 - 5.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtlw7002h3s8w6anxjr8d",
+    "codigo": "QS-ALB",
+    "nombre": "ALBUMINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "3.0 - 5.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmq3vtku2002d3s8wdunm8mfe",
+    "subcategoria": {
+      "id": "cmq3vtku2002d3s8wdunm8mfe",
+      "nombre": "Proteínas Totales y Fraccionadas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000ol204unl0ko4x",
+    "codigo": "QS-ALB",
+    "nombre": "ALBUMINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "3.0 - 5.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt38e000n3s8w90l593ai",
+    "codigo": "QS-AMI",
+    "nombre": "AMILASA",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "Hasta 140",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000sl404fi80fn76",
+    "codigo": "HEC-MIC",
+    "nombre": "ANALISIS MICROSCOPICO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "En la muestra examinada no se observaron formas parasitarias,Quistes del complejo E. histolytica/E. dispar,Quistes de Endolimax nana,Huevos de Ascaris lumbricoides,Huevos de Trichuris trichuira,Blastocystis sp",
+    "activa": true,
+    "ordenVisual": 27,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0007lf04kb7y0f5d",
+    "codigo": "HEC-MIC",
+    "nombre": "ANALISIS MICROSCOPICO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "En la muestra examinada no se observaron formas parasitarias,Quistes del complejo E. histolytica/E. dispar,Quistes de Endolimax nana,Huevos de Ascaris lumbricoides,Huevos de Trichuris trichuira,Blastocystis sp",
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000hjy04msq83jvj",
+    "codigo": "IN-",
+    "nombre": "ANTICUERPOS ANTI-ADN",
+    "precioUSD": 20,
+    "margenGanancia": null,
+    "unidades": "ML",
+    "valoresReferencia": "8",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000fjy04xrziy1ye",
+    "codigo": "IN-ANTITPO",
+    "nombre": "ANTICUERPOS ANTI-PEROXIDASA (ANTI-TPO)",
+    "precioUSD": 15,
+    "margenGanancia": null,
+    "unidades": "ML",
+    "valoresReferencia": "1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000ejy04iz40m62c",
+    "codigo": "IN-ANTITG",
+    "nombre": "ANTICUERPOS ANTI-TIROGLOBULINA (ANTI-TG)",
+    "precioUSD": 10,
+    "margenGanancia": null,
+    "unidades": "ML",
+    "valoresReferencia": "2 - 4",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000gjy04x6mv7yfb",
+    "codigo": "IN-ANA",
+    "nombre": "ANTICUERPOS ANTINUCLEARES",
+    "precioUSD": 15,
+    "margenGanancia": null,
+    "unidades": "ML",
+    "valoresReferencia": "45",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000nl404jekqbod1",
+    "codigo": "HEC-MAA",
+    "nombre": "ASPECTO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Heterogeneo,Homogeneo",
+    "activa": true,
+    "ordenVisual": 22,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000tl40454y96i61",
+    "codigo": "OR-MACRO",
+    "nombre": "ASPECTO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Claro,Ligera Turbidez,Turbio,Muy Turbio",
+    "activa": true,
+    "ordenVisual": 28,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0002lf04zatz637h",
+    "codigo": "HEC-MAA",
+    "nombre": "ASPECTO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Heterogeneo,Homogeneo",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgl000g3shg71ltoqwo",
+    "codigo": "OR-MACRO",
+    "nombre": "ASPECTO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Claro,Ligera Turbidez,Turbio,Muy Turbio",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5y0017l4049uczh5t5",
+    "codigo": "OR-MIBAC",
+    "nombre": "BACTERIAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Abundantes,Escasas,Ausentes,Moderadas",
+    "activa": true,
+    "ordenVisual": 40,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000u3shgs5zcdzg5",
+    "codigo": "OR-MIBAC",
+    "nombre": "BACTERIAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Abundantes,Escasas,Ausentes,Moderadas",
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtj8u00293s8w248ssbe5",
+    "codigo": "QS-BILD",
+    "nombre": "BILIRRUBINA DIRECTA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "0.0 - 0.4 mg/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Bilirrubina Total y Fraccionada",
+    "subcategoriaId": "cmq3vti6o00253s8wvplzq8sb",
+    "subcategoria": {
+      "id": "cmq3vti6o00253s8wvplzq8sb",
+      "nombre": "Bilirrubina Total y Fraccionada",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtjs1002b3s8wj5o1frxs",
+    "codigo": "QS-BILI",
+    "nombre": "BILIRRUBINA INDIRECTA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "0.1 - 1.0 mg/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Bilirrubina Total y Fraccionada",
+    "subcategoriaId": "cmq3vti6o00253s8wvplzq8sb",
+    "subcategoria": {
+      "id": "cmq3vti6o00253s8wvplzq8sb",
+      "nombre": "Bilirrubina Total y Fraccionada",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtips00273s8wp5hk2few",
+    "codigo": "QS-BILT",
+    "nombre": "BILIRRUBINA TOTAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "0.1 - 1.2 mg/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Bilirrubina Total y Fraccionada",
+    "subcategoriaId": "cmq3vti6o00253s8wvplzq8sb",
+    "subcategoria": {
+      "id": "cmq3vti6o00253s8wvplzq8sb",
+      "nombre": "Bilirrubina Total y Fraccionada",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt4ty000t3s8wc7w0zwsw",
+    "codigo": "QS-CAL",
+    "nombre": "CALCIO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "8.5 - 11.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000rl204kpkdm6zt",
+    "codigo": "QS-CAL",
+    "nombre": "CALCIO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "8.5 - 11.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 18,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0008l4042vkizp5m",
+    "codigo": "QS-CAL",
+    "nombre": "CALCIO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "8.5 - 11.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0001l704r7lncfev",
+    "codigo": "QU-CA24H",
+    "nombre": "CALCIO EN ORINA DE 24 HORAS",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/24 horas",
+    "valoresReferencia": "50 - 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq45knhv0002kz043pkkulse",
+    "codigo": "QU-CA",
+    "nombre": "CALCIO EN ORINA PARCIAL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "2 - 18",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt5d4000v3s8ww7og1yqc",
+    "codigo": "QS-CALI",
+    "nombre": "CALCIO IONICO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "4.6 - 5.3",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmrcw30jc00003s10lxxvydev",
+    "codigo": "OR-CEL",
+    "nombre": "CELULAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 42,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000v3shg5kpjdwqp",
+    "codigo": "OR-CEL",
+    "nombre": "CELULAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0009jy04ftsjfj9h",
+    "codigo": "IN-CHA",
+    "nombre": "CHAGAS",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq48l6fm0003l4043qy15kt8",
+    "codigo": "HE-9",
+    "nombre": "CHCM (CONCENTRACION DE HEMOGLOBINA CORPUSCULAR MEDIA)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dl",
+    "valoresReferencia": "32 -  36",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0016l404n9thpf54",
+    "codigo": "OR-MICIL",
+    "nombre": "CILINDROS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Granulosos finos,Granulosos gruesos,Leucocitarios,Hematicos,Ausentes",
+    "activa": true,
+    "ordenVisual": 43,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000t3shghot01n3s",
+    "codigo": "OR-MICIL",
+    "nombre": "CILINDROS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Granulosos finos,Granulosos gruesos,Leucocitarios,Hematicos,Ausentes",
+    "activa": true,
+    "ordenVisual": 18,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmrqkyhjq0002ie04iwhzo3pj",
+    "codigo": "IN-CITOMEGALO",
+    "nombre": "CITOMEGALOVIRUS IG/IGM",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 25,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000bjy04o5luhy0f",
+    "codigo": "IN-CITOG",
+    "nombre": "CITOMEGALOVIRUS IGG",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000ajy049lwitigz",
+    "codigo": "IN-CITOM",
+    "nombre": "CITOMEGALOVIRUS IGM",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq43e9k70005kw04biaefeha",
+    "codigo": "QS-CKMB",
+    "nombre": "CKMB (CREATIN FOSFOQUINASA MB)",
+    "precioUSD": 15,
+    "margenGanancia": null,
+    "unidades": "UI/L",
+    "valoresReferencia": "Menor de 25",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 30,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq43e9k70004kw04k3g8779x",
+    "codigo": "QS-CK",
+    "nombre": "CKTOTAL (CREATIN FOSFOQUINASA TOTAL)",
+    "precioUSD": 8.5,
+    "margenGanancia": null,
+    "unidades": "UI/L",
+    "valoresReferencia": "25 - 192",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 29,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt6f7000z3s8wa27im84u",
+    "codigo": "QS-CLO",
+    "nombre": "CLORO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mEq/L",
+    "valoresReferencia": "96 - 106",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46t7gx0007l704o8yg4ly2",
+    "codigo": "QU-CL24H",
+    "nombre": "CLORO EN ORINA DE 24 HORAS",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "mEq/24hrs",
+    "valoresReferencia": "110 - 250",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq415fcs0003ky04onfpd2i9",
+    "codigo": "COL-HDL",
+    "nombre": "COLESTEROL HDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres  26 - 63\nMujeres    33- 75",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmq415fcs0001ky04fyupwk7z",
+    "subcategoria": {
+      "id": "cmq415fcs0001ky04fyupwk7z",
+      "nombre": "Perfil Lipidico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000jl404px65qv35",
+    "codigo": "COL-HDL",
+    "nombre": "COLESTEROL HDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres  26 - 63\nMujeres    33- 75",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 18,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000kl404zzmfp34i",
+    "codigo": "COL-LDL",
+    "nombre": "COLESTEROL LDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 100",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 19,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq419sth0004ky04u5m8gzfw",
+    "codigo": "COL-LDL",
+    "nombre": "COLESTEROL LDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 100",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmq415fcs0001ky04fyupwk7z",
+    "subcategoria": {
+      "id": "cmq415fcs0001ky04fyupwk7z",
+      "nombre": "Perfil Lipidico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt3rk000p3s8w0k7c09s1",
+    "codigo": "QS-COL",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000il204ntud9r4l",
+    "codigo": "COL-T",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m9000blb04fjflffrx",
+    "codigo": "COL-T",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000il404sjf8b8vb",
+    "codigo": "COL-T",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr0l00010008l7048s9zndyd",
+    "codigo": "COL-T",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq415fcs0002ky046ea8hywc",
+    "codigo": "COL-T",
+    "nombre": "COLESTEROL TOTAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmq415fcs0001ky04fyupwk7z",
+    "subcategoria": {
+      "id": "cmq415fcs0001ky04fyupwk7z",
+      "nombre": "Perfil Lipidico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq41biq00005ky0476bui0i4",
+    "codigo": "COL-VLDL",
+    "nombre": "COLESTEROL VLDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "2 - 30",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmq415fcs0001ky04fyupwk7z",
+    "subcategoria": {
+      "id": "cmq415fcs0001ky04fyupwk7z",
+      "nombre": "Perfil Lipidico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000ll404q5pz2rqh",
+    "codigo": "COL-VLDL",
+    "nombre": "COLESTEROL VLDL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "2 - 30",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 20,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgl000h3shgmtu8qjej",
+    "codigo": "OR-MAC",
+    "nombre": "COLOR",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Amarillo claro,Amarillo intenso,Ambar,Rojiza",
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000ul404b9m7v3oo",
+    "codigo": "OR-MAC",
+    "nombre": "COLOR",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "AMARILLO CLARO,AMARILLO INTENSO,AMBAR,ROJIZA",
+    "activa": true,
+    "ordenVisual": 29,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0003lf041c4h82fc",
+    "codigo": "HEC-MAC",
+    "nombre": "COLOR",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Marron,Amarillo,Acolica,Verde,Negra",
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000ol404vi72gg0h",
+    "codigo": "HEC-MAC",
+    "nombre": "COLOR",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Marron,Amarillo,Acolica,Verde,Negra",
+    "activa": true,
+    "ordenVisual": 23,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0004lf044lcmj6oa",
+    "codigo": "HEC-CON",
+    "nombre": "CONSISTENCIA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Dura,Blanda,Liquida",
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000pl4042isxx9o1",
+    "codigo": "HEC-CON",
+    "nombre": "CONSISTENCIA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Dura,Blanda,Liquida",
+    "activa": true,
+    "ordenVisual": 24,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4ani5q0003js04xgd6yq4x",
+    "codigo": "HOR-CORTISOLTARDE",
+    "nombre": "CORTISOL (3 - 4 PM)",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "ug/dL",
+    "valoresReferencia": "3 - 10",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Cortisol",
+    "subcategoriaId": "cmq4ani5q0001js04sjkpw9h1",
+    "subcategoria": {
+      "id": "cmq4ani5q0001js04sjkpw9h1",
+      "nombre": "Cortisol",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq4ani5q0002js04du9v8vuf",
+    "codigo": "HOR-CORTISOLB",
+    "nombre": "CORTISOL BASAL (7 - 9 AM)",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "ug/dL",
+    "valoresReferencia": "10 - 20",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Cortisol",
+    "subcategoriaId": "cmq4ani5q0001js04sjkpw9h1",
+    "subcategoria": {
+      "id": "cmq4ani5q0001js04sjkpw9h1",
+      "nombre": "Cortisol",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000ijy0420bf4qt8",
+    "codigo": "IN-COV",
+    "nombre": "COVID-SARS",
+    "precioUSD": 8,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0009l4040npg2p2q",
+    "codigo": "QS-CRE",
+    "nombre": "CREATININA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt5w7000x3s8w4h32fsqx",
+    "codigo": "QS-CRE",
+    "nombre": "CREATININA",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m9000alb04742cda8c",
+    "codigo": "QS-CRE",
+    "nombre": "CREATININA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000hl204w8qoqr3n",
+    "codigo": "QS-CRE",
+    "nombre": "CREATININA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqzo0nz700023sa8jxcokpye",
+    "codigo": "QS-CRE",
+    "nombre": "CREATININA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 0.7 - 1.63 Mujeres 0.5 - 1.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0000l704yogmdbl9",
+    "codigo": "QU-CREA24H",
+    "nombre": "CREATININA EN ORINA 24 HORAS",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "g/24 horas",
+    "valoresReferencia": "HOMBRE 1.1 -  2.0\nMUJER     0.01 - 1.33",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA URINARIA",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7ss0007l7049jb32lhw",
+    "codigo": "QU-CREA24H",
+    "nombre": "CREATININA EN ORINA 24 HORAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/24 horas",
+    "valoresReferencia": "Hombres  1.1 - 2.0\nMujeres    0.01 - 1.33",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq45r8gr0005kz04bocpwzyp",
+    "codigo": "QU-CREA",
+    "nombre": "CREATININA EN ORINA PARCIAL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "30 - 125",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000s3shgm34fa11d",
+    "codigo": "OR-MICCRIS",
+    "nombre": "CRISTALES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Acido Urico,Oxalato de Calcio,Uratos amorfos,Fosfatos amorfos,Fosfatos triple,Ausentes",
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0015l4046q656gkk",
+    "codigo": "OR-MICCRIS",
+    "nombre": "CRISTALES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Acido Urico,Oxalate de Calcio,Uratos amorfos,Fosfatos amorfos,Fosfatos triple,Ausentes",
+    "activa": true,
+    "ordenVisual": 44,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000n3shg0xkyos6e",
+    "codigo": "OR-CE",
+    "nombre": "CUERPOS CETONICOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Trazas,Positivo",
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0010l404hu0a55qm",
+    "codigo": "OR-CE",
+    "nombre": "CUERPOS CETONICOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,TRAZAS,POSITIVO",
+    "activa": true,
+    "ordenVisual": 35,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000jjy04z1ovqzra",
+    "codigo": "IN-DENGUEG",
+    "nombre": "DENGUE IGG",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 18,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq86ksp00072jp046i2p3ywe",
+    "codigo": "IN-DENGUEM",
+    "nombre": "DENGUE IGM",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,POSITIVO",
+    "activa": true,
+    "ordenVisual": 21,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq86m00o0073jp04kzn8nqxq",
+    "codigo": "IN-DENGUENS1",
+    "nombre": "DENGUE NS1",
+    "precioUSD": 6,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 22,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgl000i3shgtb0nb9nw",
+    "codigo": "OR-MADE",
+    "nombre": "DENSIDAD",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "1.010,1.025,1.030,1.020,1.000,1.005,1.015",
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000vl404t8j39n07",
+    "codigo": "OR-MADE",
+    "nombre": "DENSIDAD",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "1.010,1.025,1.030,1.020,1.000,1.005,1.015",
+    "activa": true,
+    "ordenVisual": 30,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7ss0008l704sfxv6sip",
+    "codigo": "QU-DEPU",
+    "nombre": "DEPURACION DE CREATININA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mL/min",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmrkyr8un0000ih04xujovjv9",
+    "codigo": "QS-DIME",
+    "nombre": "DIMERO D",
+    "precioUSD": 15,
+    "margenGanancia": null,
+    "unidades": "ng/ml",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 34,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmretwrjr0002l80404n5xluf",
+    "codigo": "QS-DIMERO ",
+    "nombre": "DIMERO D",
+    "precioUSD": 15,
+    "margenGanancia": null,
+    "unidades": "ng/ml",
+    "valoresReferencia": "Menor de 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmretwrjr0001l804tzsxxvpi",
+    "subcategoria": {
+      "id": "cmretwrjr0001l804tzsxxvpi",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000cjy04y7lmts3a",
+    "codigo": "IN-EPBG",
+    "nombre": "EPSTEIN BARR IGG (ELISA)",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "Menor de 0.9",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000djy04k6kgve3r",
+    "codigo": "IN-EPBM",
+    "nombre": "EPSTEIN BARR IGM (ELISA)",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "Menor de 1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt7hb00133s8wac2rq6cu",
+    "codigo": "QS-FIB",
+    "nombre": "FIBRINOGENO",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "200 - 450",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt8jf00173s8wqo6fxutf",
+    "codigo": "QS-FA",
+    "nombre": "FOSFATASAS ALCALINAS",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "UI/L",
+    "valoresReferencia": "Hombres 40 - 120 Mujeres 35-105 Ninos 81.9-445.9",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt80c00153s8we420sads",
+    "codigo": "QS-FOS",
+    "nombre": "FOSFORO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Adultos 2.5 - 4.8 Niños 4.0 - 7.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0002l7047wkk8uy8",
+    "codigo": "QU-FOS24H",
+    "nombre": "FOSFORO EN ORINA DE 24 HORAS",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/24 horas",
+    "valoresReferencia": "0.3 - 1.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq45knhv0003kz04moffud1h",
+    "codigo": "QU-FOS",
+    "nombre": "FOSFORO EN ORINA PARCIAL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "20 - 60",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtb6n001h3s8wz7hxlggj",
+    "codigo": "QS-GGT",
+    "nombre": "GGT (GAMMA GLUTAMIL TRANSFERASA)",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "5 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000el404sk8cb5nn",
+    "codigo": "QS-GLOB",
+    "nombre": "GLOBULINAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "2.0 - 4.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtmf7002j3s8wja31xzav",
+    "codigo": "QS-GLOB",
+    "nombre": "GLOBULINAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "2.0 - 4.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmq3vtku2002d3s8wdunm8mfe",
+    "subcategoria": {
+      "id": "cmq3vtku2002d3s8wdunm8mfe",
+      "nombre": "Proteínas Totales y Fraccionadas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000pl204fd05239j",
+    "codigo": "QS-GLOB",
+    "nombre": "GLOBULINAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "2.0 - 4.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48p8p50009l404qsbjpkmk",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq48p8p40006l404asnvhzg8",
+    "subcategoria": {
+      "id": "cmq48p8p40006l404asnvhzg8",
+      "nombre": "Hematologia Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0004l704s992geco",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5.000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48bhdq0004l204rxi4xvge",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq4923qs000jl404b9vixko4",
+    "codigo": "HE-SERIE BLANCA",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Descripcion de frotis de sangre periferica",
+    "subcategoriaId": "cmq4923qs000hl4046r8jqh7d",
+    "subcategoria": {
+      "id": "cmq4923qs000hl4046r8jqh7d",
+      "nombre": "Descripcion de frotis de sangre periferica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 5,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90005lb04y5qg9mr3",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5.000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0004l404b2uju7jf",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5.000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8inm610004jj04ckyquvnc",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5.000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000cl2046b9mvp53",
+    "codigo": "HE-3",
+    "nombre": "GLOBULOS BLANCOS",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "5.000 - 10.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48l6fm0000l404vwfuyo2q",
+    "codigo": "HE-6",
+    "nombre": "GLOBULOS ROJOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "millones /mm3",
+    "valoresReferencia": "Hombres 4.7 - 6.1\nMujeres   4.2 - 5.4",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq4923qs000il404wnv0u06n",
+    "codigo": "HE-SERIE ROJA",
+    "nombre": "GLOBULOS ROJOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Descripcion de frotis de sangre periferica",
+    "subcategoriaId": "cmq4923qs000hl4046r8jqh7d",
+    "subcategoria": {
+      "id": "cmq4923qs000hl4046r8jqh7d",
+      "nombre": "Descripcion de frotis de sangre periferica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 5,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000yl404puaqtpni",
+    "codigo": "OR-GLUC",
+    "nombre": "GLUCOSA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,TRAZAS,POSITIVO",
+    "activa": true,
+    "ordenVisual": 33,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000l3shgn9r4nvyg",
+    "codigo": "OR-GLUC",
+    "nombre": "GLUCOSA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Trazas,Positivo",
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqcrecd90002l704si2y5agg",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmqcrecd80001l704fks5z2mj",
+    "subcategoria": {
+      "id": "cmqcrecd80001l704fks5z2mj",
+      "nombre": "Glucosa basal y posprandial (2 horas)",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000fl2043w0h5pho",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqzo0nz700013sa87it7elcz",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt92j00193s8wloa4esdf",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0007l7040ts1d42h",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqcro3y60004ju04li094iue",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmqcro3y60003ju04qs3z6cee",
+    "subcategoria": {
+      "id": "cmqcro3y60003ju04qs3z6cee",
+      "nombre": "Curva de Tolerancia a la Glucosa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000al404aq0gf9hs",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90008lb044plxiw1i",
+    "codigo": "QS-GLU",
+    "nombre": "GLUCOSA BASAL (AYUNO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmrb08xuq0002jx04fdj0paag",
+    "codigo": "QS-GLUPOS",
+    "nombre": "GLUCOSA POSPRANDIAL",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "",
+    "subcategoriaVisual": "",
+    "subcategoriaId": "cmrb08xuq0001jx04jdacl89f",
+    "subcategoria": {
+      "id": "cmrb08xuq0001jx04jdacl89f",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqcr6yfn00awk104afkz4bkg",
+    "codigo": "QS-GLUCOSA P",
+    "nombre": "GLUCOSA POSPRANDIAL",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 32,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqcrecd90003l704z08fifb6",
+    "codigo": "QS-GLUCOSA P",
+    "nombre": "GLUCOSA POSPRANDIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "70 - 110",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmqcrecd80001l704fks5z2mj",
+    "subcategoria": {
+      "id": "cmqcrecd80001l704fks5z2mj",
+      "nombre": "Glucosa basal y posprandial (2 horas)",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmreu484a0000jo040ic2b35a",
+    "codigo": "QS-GPOS",
+    "nombre": "GLUCOSA POSPRANDRIAL ",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 33,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtann001f3s8wn7a0u5rf",
+    "codigo": "QS-GPC120",
+    "nombre": "GLUCOSA POST CARGA 120 MIN",
+    "precioUSD": 1.99,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqcro3y60007ju04rojjsf9w",
+    "codigo": "QS-GPC120",
+    "nombre": "GLUCOSA POST CARGA 120 MIN",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqcro3y60003ju04qs3z6cee",
+    "subcategoria": {
+      "id": "cmqcro3y60003ju04qs3z6cee",
+      "nombre": "Curva de Tolerancia a la Glucosa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vt9ln001b3s8w29mdgd1i",
+    "codigo": "QS-GPC30",
+    "nombre": "GLUCOSA POST CARGA 30 MIN",
+    "precioUSD": 7.5,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqcro3y60005ju04vjp5hm0x",
+    "codigo": "QS-GPC30",
+    "nombre": "GLUCOSA POST CARGA 30 MIN",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqcro3y60003ju04qs3z6cee",
+    "subcategoria": {
+      "id": "cmqcro3y60003ju04qs3z6cee",
+      "nombre": "Curva de Tolerancia a la Glucosa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqcro3y60006ju04v8matygq",
+    "codigo": "QS-GPC60",
+    "nombre": "GLUCOSA POST CARGA 60 MIN",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqcro3y60003ju04qs3z6cee",
+    "subcategoria": {
+      "id": "cmqcro3y60003ju04qs3z6cee",
+      "nombre": "Curva de Tolerancia a la Glucosa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vta4l001d3s8wmt9owxbp",
+    "codigo": "QS-GPC60",
+    "nombre": "GLUCOSA POST CARGA 60 MIN",
+    "precioUSD": 1.99,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq49a5ew0002ju04nwzp05rm",
+    "codigo": "HE-GRUPO SANGUINEO",
+    "nombre": "GRUPO SANGUINEO",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": "O Rh POSITIVO,A Rh POSITIVO,B Rh POSITIVO,AB Rh POSITIVO,O Rh NEGATIVO,A Rh NEGATIVO,B Rh NEGATIVO,AB Rh NEGATIVO",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Grupo Sanguineo",
+    "subcategoriaId": "cmq49a5ew0001ju04arehdhrt",
+    "subcategoria": {
+      "id": "cmq49a5ew0001ju04arehdhrt",
+      "nombre": "Grupo Sanguineo",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmr0xkx3e000elb04lvow46sq",
+    "codigo": "HO-HCG",
+    "nombre": "HCG (HORMONA GONADOTROFINA CORIONICA)",
+    "precioUSD": 3.3,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmr0xkx3e000dlb0475bqnc8m",
+    "subcategoria": {
+      "id": "cmr0xkx3e000dlb0475bqnc8m",
+      "nombre": "Prueba de Embarazo (sangre)",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq48l6fm0002l4047nk6pxpq",
+    "codigo": "HE-8",
+    "nombre": "HCM (HEMOGLOBINA CORPUSCULAR MEDIA)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "pg",
+    "valoresReferencia": "27 - 32",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqyhysev000djv0418sinfze",
+    "codigo": "HE-HP",
+    "nombre": "HELICOBACTER PYLORI EN HECES (ANTIGENO)",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,POSITIVO",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmqyhysev000cjv04ryfkm7s0",
+    "subcategoria": {
+      "id": "cmqyhysev000cjv04ryfkm7s0",
+      "nombre": "Helicobacter pylori",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmqyi63bh0001la04g3hcioyj",
+    "codigo": "IN-HP SANGRE",
+    "nombre": "HELICOBACTER PYLORI EN SANGRE (ANTICUERPO)",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 24,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr3r4ove000ujp0403cg6j8e",
+    "codigo": "0R-HE",
+    "nombre": "HEMATIES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausentes,Isomorficos,Dismorficos,Microciticos",
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5y0018l404fi8s5yro",
+    "codigo": "OR-MICHE",
+    "nombre": "HEMATIES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausentes",
+    "activa": true,
+    "ordenVisual": 41,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0003l704xqcv44xp",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8inm610003jj04yai4tr9s",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48p8p40008l404hwewmg1j",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq48p8p40006l404asnvhzg8",
+    "subcategoria": {
+      "id": "cmq48p8p40006l404asnvhzg8",
+      "nombre": "Hematologia Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0003l404mm9i2r5d",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90004lb04n64prep2",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000bl204mk2ixyly",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48bhdq0003l2048tc1qqdj",
+    "codigo": "HE-2",
+    "nombre": "HEMATOCRITO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Hombres 40 - 54\nMujeres   36 -48",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0002l40468aqk8f7",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000al204portrh8b",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90003lb044gls4w06",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48bhdq0002l20417cy63mf",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq48p8p40007l404sf61vqfq",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq48p8p40006l404asnvhzg8",
+    "subcategoria": {
+      "id": "cmq48p8p40006l404asnvhzg8",
+      "nombre": "Hematologia Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0002l704bu8ye4m7",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8inm610002jj045l6zvd11",
+    "codigo": "HE-1",
+    "nombre": "HEMOGLOBINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "Hombres  13.5 - 17.5\nMujeres    12.0 - 16.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtbpq001j3s8w2bjc9fym",
+    "codigo": "QS-HBA1C",
+    "nombre": "HEMOGLOBINA GLICADA (HBA1C)",
+    "precioUSD": 12,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Normal menor a 5.7",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0005jy04if2t65m4",
+    "codigo": "IN-HEPAAG",
+    "nombre": "HEPATITIS A  IGG",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": "REACTIVO",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0006jy04i27qqz5l",
+    "codigo": "IN-HEPAAM",
+    "nombre": "HEPATITIS A IGM/IGG",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0003jy044bui8yjb",
+    "codigo": "IN-HEPABC",
+    "nombre": "HEPATITIS B (ANTI CORE)",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "REACTIVO,NO REACTIVO",
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0004jy04qbr0txl5",
+    "codigo": "IN-HEPABA",
+    "nombre": "HEPATITIS B (ANTIGENO AUSTRALIA)",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "REACTIVO,NO REACTIVO",
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0007jy04jfta7xi1",
+    "codigo": "IN-HEPAC",
+    "nombre": "HEPATITIS C",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "REACTIVO,NO REACTIVO",
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtc8p001l3s8wvyxnvxxv",
+    "codigo": "QS-FE",
+    "nombre": "HIERRO SERICO",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Hombres 65 - 175 Mujeres 50 - 175",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq86bh8j0071jp041m713nsf",
+    "codigo": "IN-HIV",
+    "nombre": "HIV 1/2",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NO REACTIVO,REACTIVO",
+    "activa": true,
+    "ordenVisual": 20,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq5gk2c40004jo04vuy7nx7r",
+    "codigo": "CO-INR",
+    "nombre": "INR (INDICE INTERNACIONAL NORMALIZADO)",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": null,
+    "valoresReferencia": "0.8 - 1.2",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "COAGULACION",
+    "subcategoriaVisual": "Tiempos",
+    "subcategoriaId": "cmq5gk2c40001jo049ue1cid9",
+    "subcategoria": {
+      "id": "cmq5gk2c40001jo049ue1cid9",
+      "nombre": "Tiempos",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 7,
+      "categoria": {
+        "id": 7,
+        "nombre": "COAGULACION"
+      }
+    }
+  },
+  {
+    "id": "cmq4aeq2a0002ld04vd1278k7",
+    "codigo": "HOR-INSB",
+    "nombre": "INSULINA BASAL (AYUNAS)",
+    "precioUSD": 6.5,
+    "margenGanancia": null,
+    "unidades": "uUI/mL",
+    "valoresReferencia": "5 - 2.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Insulina",
+    "subcategoriaId": "cmq4aeq2a0001ld04z03cv0ia",
+    "subcategoria": {
+      "id": "cmq4aeq2a0001ld04z03cv0ia",
+      "nombre": "Insulina",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtcrr001n3s8wrpvsw38h",
+    "codigo": "QS-INS",
+    "nombre": "INSULINA BASAL (AYUNAS)",
+    "precioUSD": 6.5,
+    "margenGanancia": null,
+    "unidades": "mg/mL",
+    "valoresReferencia": "2 - 25",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 18,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtdas001p3s8wzhzi3kb6",
+    "codigo": "QS-INSP",
+    "nombre": "INSULINA POSPRANDIAL (2 HORAS)",
+    "precioUSD": 6.5,
+    "margenGanancia": null,
+    "unidades": "mg/mL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 19,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4aeq2a0003ld04nvozhgg8",
+    "codigo": "HOR-INSP",
+    "nombre": "INSULINA POSPRANDIAL (2HORAS)",
+    "precioUSD": 6.5,
+    "margenGanancia": null,
+    "unidades": "uUI/mL",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Insulina",
+    "subcategoriaId": "cmq4aeq2a0001ld04z03cv0ia",
+    "subcategoria": {
+      "id": "cmq4aeq2a0001ld04z03cv0ia",
+      "nombre": "Insulina",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq5gk2c40005jo04vun87oxs",
+    "codigo": "CO-ISI",
+    "nombre": "ISI (INDICE DE SENSIBILIDAD INTERNACIONAL)",
+    "precioUSD": 0.1,
+    "margenGanancia": null,
+    "unidades": null,
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "COAGULACION",
+    "subcategoriaVisual": "Tiempos",
+    "subcategoriaId": "cmq5gk2c40001jo049ue1cid9",
+    "subcategoria": {
+      "id": "cmq5gk2c40001jo049ue1cid9",
+      "nombre": "Tiempos",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 7,
+      "categoria": {
+        "id": 7,
+        "nombre": "COAGULACION"
+      }
+    }
+  },
+  {
+    "id": "cmrnl6p6l0002k404070ffema",
+    "codigo": "PE-KOH",
+    "nombre": "KOH LESION EN PIEL",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmrnl6p6l0001k404w6vtj3eg",
+    "subcategoria": {
+      "id": "cmrnl6p6l0001k404w6vtj3eg",
+      "nombre": "KOH",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 14,
+      "categoria": {
+        "id": 14,
+        "nombre": "PRUEBAS ESPECIALES"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtdtt001r3s8wjylgoxyf",
+    "codigo": "QS-LDH",
+    "nombre": "LDH (LACTATO DESHIDROGENASA) ",
+    "precioUSD": 3.5,
+    "margenGanancia": null,
+    "unidades": "UI/L",
+    "valoresReferencia": "105 - 333",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 20,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000r3shgrdmsrd2y",
+    "codigo": "OR-MILEU",
+    "nombre": "LEUCOCITOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0014l404lyzc2dld",
+    "codigo": "OR-MILEU",
+    "nombre": "LEUCOCITOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 39,
+    "categoriaVisual": "ORINA COMPLETA ",
+    "subcategoriaVisual": "ANALISIS MICROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq453p5b0000l804nggznche",
+    "codigo": "QS-LIP]",
+    "nombre": "LIPASA",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "Hasta 160",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 31,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtecv001t3s8w06kr3sfj",
+    "codigo": "QS-MG",
+    "nombre": "MAGNESIO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mEq/dL",
+    "valoresReferencia": "1.7 - 2.2",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 21,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46t7gx0008l704ppp1h82e",
+    "codigo": "QU-MG24H",
+    "nombre": "MAGNESIO EN ORINA DE 24 HORAS",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "mEq/24 horas",
+    "valoresReferencia": "50 - 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0005lf04zjnby68a",
+    "codigo": "HEC-MAM",
+    "nombre": "MOCO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausente,Presente",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000ql404ya4w4bar",
+    "codigo": "HEC-MAM",
+    "nombre": "MOCO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausente,Presente",
+    "activa": true,
+    "ordenVisual": 25,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmrr7335s0000lj04xcjcplay",
+    "codigo": "OR-MUCINA",
+    "nombre": "MUCINA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausente,Escasa,Moderada,Abundante",
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Microscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000zl404eenj9d1h",
+    "codigo": "OIR-NI",
+    "nombre": "NITRITOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,TRAZAS,POSITIVO",
+    "activa": true,
+    "ordenVisual": 34,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000m3shgywlud5dx",
+    "codigo": "OIR-NI",
+    "nombre": "NITRITOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Trazas,Positivo",
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtoo5002p3s8w891ya2ef",
+    "codigo": "QS-AST",
+    "nombre": "OXALOACETICA (AST)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "8 - 33 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vtnh7002l3s8wbijg5rmh",
+    "subcategoria": {
+      "id": "cmq3vtnh7002l3s8wbijg5rmh",
+      "nombre": "Transaminasas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 4,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000ml204c4eftybb",
+    "codigo": "QS-AST",
+    "nombre": "OXALOACETICA (AST)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "8 - 33 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Transaminasas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000hl404oc07638h",
+    "codigo": "QS-AST",
+    "nombre": "OXALOACETICA (AST)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "8 - 33 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 16,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Transaminasas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtg1y001z3s8w467rwwnq",
+    "codigo": "QS-PCR",
+    "nombre": "PCR (PROTEINA C REACTIVA)",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor 6",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 24,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqbewtsb0002le04wkntkrax",
+    "codigo": "QS-PRPBNP",
+    "nombre": "PEPTIDO NATRIURETICO (NT-PRO BNP)",
+    "precioUSD": 20,
+    "margenGanancia": null,
+    "unidades": "pg/mL",
+    "valoresReferencia": "0 - 300 Menores de  75 anos\n0 - 450 Mayores  de 75 anos ",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "",
+    "subcategoriaVisual": "",
+    "subcategoriaId": "cmqbewtsb0001le042jgqlzxy",
+    "subcategoria": {
+      "id": "cmqbewtsb0001le042jgqlzxy",
+      "nombre": "Peptido ",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtezr001v3s8w3shvxii8",
+    "codigo": "QS-NTBNP",
+    "nombre": "PEPTIDO NAUTRIURETICO (NT-PRO BNP)",
+    "precioUSD": 18,
+    "margenGanancia": null,
+    "unidades": "pg/mL",
+    "valoresReferencia": "MENOR 75 ANOS   0 -300",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 22,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7sr0002l704ns2ftuy8",
+    "codigo": "QU-PESO",
+    "nombre": "PESO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "kg",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000wl404n580zkox",
+    "codigo": "OR-MAPH",
+    "nombre": "PH",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "6.5,7.0,5.0,7.5",
+    "activa": true,
+    "ordenVisual": 31,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgl000j3shgofg4uegy",
+    "codigo": "OR-MAPH",
+    "nombre": "PH",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "6.5,7.0,5.0,7.5,6.0",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000ll204d9gvtjfs",
+    "codigo": "QS-ALT",
+    "nombre": "PIRUVICA (ALT)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "4 - 36 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Transaminasas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000gl4044fr9y6z4",
+    "codigo": "QS-ALT",
+    "nombre": "PIRUVICA (ALT)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "4 - 36 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 15,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Transaminasas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vto53002n3s8wl8afys0e",
+    "codigo": "QS-ALT",
+    "nombre": "PIRUVICA (ALT)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "U/L",
+    "valoresReferencia": "4 - 36 U/L",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vtnh7002l3s8wbijg5rmh",
+    "subcategoria": {
+      "id": "cmq3vtnh7002l3s8wbijg5rmh",
+      "nombre": "Transaminasas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 4,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq48bhdq0005l204iama09cr",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0006l404t61f9bjy",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8inm610006jj04gsqa6z3w",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90007lb04k8ac2cz6",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0006l7040idnmcsc",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000el204qhiqnnvy",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4923qs000kl404yhtp7736",
+    "codigo": "HE-PLAQUETAS",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Descripcion de frotis de sangre periferica",
+    "subcategoriaId": "cmq4923qs000hl4046r8jqh7d",
+    "subcategoria": {
+      "id": "cmq4923qs000hl4046r8jqh7d",
+      "nombre": "Descripcion de frotis de sangre periferica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 5,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq48p8p5000bl404dhqgvkwn",
+    "codigo": "HE-4",
+    "nombre": "PLAQUETAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cel/mm3",
+    "valoresReferencia": "150.000 -400.000",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq48p8p40006l404asnvhzg8",
+    "subcategoria": {
+      "id": "cmq48p8p40006l404asnvhzg8",
+      "nombre": "Hematologia Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtfit001x3s8wasfvlbyh",
+    "codigo": "QS-K",
+    "nombre": "POTASIO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mEq/dL",
+    "valoresReferencia": "3.5 - 5.2",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 23,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46t7gx0006l704tia59rmh",
+    "codigo": "QU-K24H",
+    "nombre": "POTASIO EN ORINA DE 24 HORAS",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "mEq/24hrs",
+    "valoresReferencia": "25 - 125",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq45r8gr0007kz04ls7jivso",
+    "codigo": "QU-K",
+    "nombre": "POTASIO EN ORINA PARCIAL",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "mEq/L",
+    "valoresReferencia": "20 - 80",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000p3shgphjuu4xa",
+    "codigo": "OR-PROT",
+    "nombre": "PROTEINAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Positivo,Trazas",
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0012l4042hkjbiip",
+    "codigo": "OR-PROT",
+    "nombre": "PROTEINAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,POSITIVO,TRAZAS",
+    "activa": true,
+    "ordenVisual": 37,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4769540004jr04raxuyhj7",
+    "codigo": "QU-PCUANTI",
+    "nombre": "PROTEINAS CUANTITATIVAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/24 horas",
+    "valoresReferencia": "Hasta 100",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA URINARIA",
+    "subcategoriaVisual": "Proteinuria",
+    "subcategoriaId": "cmq4769540001jr04b9sfnn9r",
+    "subcategoria": {
+      "id": "cmq4769540001jr04b9sfnn9r",
+      "nombre": "Proteinuria",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq45u3hn0000la04ljxj9735",
+    "codigo": "QU-PT",
+    "nombre": "PROTEINAS EN ORINA PARCIAL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 25",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtld3002f3s8wyp3esjaq",
+    "codigo": "QS-PROT",
+    "nombre": "PROTEINAS TOTALES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "6.0 - 8.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmq3vtku2002d3s8wdunm8mfe",
+    "subcategoria": {
+      "id": "cmq3vtku2002d3s8wdunm8mfe",
+      "nombre": "Proteínas Totales y Fraccionadas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000cl4042dm5xnbv",
+    "codigo": "QS-PROT",
+    "nombre": "PROTEINAS TOTALES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "6.0 - 8.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000nl204eb2ta2dh",
+    "codigo": "QS-PROT",
+    "nombre": "PROTEINAS TOTALES",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "g/dL",
+    "valoresReferencia": "6.0 - 8.0 g/dL",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4769540002jr04jsofhkdj",
+    "codigo": "QU-PTC",
+    "nombre": "PROTEINAS TOTALES CUALITATIVAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": "TRAZAS,POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA URINARIA",
+    "subcategoriaVisual": "Proteinuria",
+    "subcategoriaId": "cmq4769540001jr04b9sfnn9r",
+    "subcategoria": {
+      "id": "cmq4769540001jr04b9sfnn9r",
+      "nombre": "Proteinuria",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq4b1gtj0003l804qgwk7o9x",
+    "codigo": "PER-PROL",
+    "nombre": "PSA LIBRE (ANTIGENO PROSTATICO ESECIFICO LIBRE)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "ng/mL",
+    "valoresReferencia": "0.0 - 0.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Prostatico",
+    "subcategoriaId": "cmq4b1gtj0001l804ykoa7qn7",
+    "subcategoria": {
+      "id": "cmq4b1gtj0001l804ykoa7qn7",
+      "nombre": "Perfil Prostatico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 20,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4b1gtj0002l80438djnlmn",
+    "codigo": "PER-PROS",
+    "nombre": "PSA TOTAL  (ANTIGENO PROSTATICO ESPECIFICO TOTAL)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "ng/mL",
+    "valoresReferencia": "0.2 - 4.0",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Prostatico",
+    "subcategoriaId": "cmq4b1gtj0001l804ykoa7qn7",
+    "subcategoria": {
+      "id": "cmq4b1gtj0001l804ykoa7qn7",
+      "nombre": "Perfil Prostatico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 20,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmraqomqc0002la04keeesuw1",
+    "codigo": "IN-RATEST",
+    "nombre": "RA TEST (FACTOR REUMATOIDEO  IGG)",
+    "precioUSD": 4.5,
+    "margenGanancia": null,
+    "unidades": "UI/mL",
+    "valoresReferencia": "Menor a 8",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmraqomqc0001la0478oxcwns",
+    "subcategoria": {
+      "id": "cmraqomqc0001la0478oxcwns",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq5gk2c40006jo0416vzfe6z",
+    "codigo": "CO-RAZON",
+    "nombre": "RAZON",
+    "precioUSD": 0.1,
+    "margenGanancia": null,
+    "unidades": null,
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "COAGULACION",
+    "subcategoriaVisual": "Tiempos",
+    "subcategoriaId": "cmq5gk2c40001jo049ue1cid9",
+    "subcategoria": {
+      "id": "cmq5gk2c40001jo049ue1cid9",
+      "nombre": "Tiempos",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 7,
+      "categoria": {
+        "id": 7,
+        "nombre": "COAGULACION"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000xl404vi0j7mef",
+    "codigo": "OR-MAREA",
+    "nombre": "REACCION",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "ACIDA,ALCALINA,NEUTRA",
+    "activa": true,
+    "ordenVisual": 32,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000k3shgyhiu15dq",
+    "codigo": "OR-MAREA",
+    "nombre": "REACCION",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Acida,Alcalina,Neutra",
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90006lb04dwwtn188",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr0kwk6j0005l704hxh8mro1",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8inm610005jj04cjh4mfg6",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": 0,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70  Segmentados Eosinofilos 1 - 4Segmentados Basofilos     0 - 1 Linfocitos 20 - 40Monocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48p8p5000al404efgn9bkz",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq48p8p40006l404asnvhzg8",
+    "subcategoria": {
+      "id": "cmq48p8p40006l404asnvhzg8",
+      "nombre": "Hematologia Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmr4afxhn000dl204u7zgf6nb",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq48bhdq0006l204m4ot1ntp",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0005l404x31nss13",
+    "codigo": "HE-5",
+    "nombre": "RECUENTO DIFERENCIAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Segmentados Neutrofilos 50 -70\nSegmentados Eosinofilos 1 - 4\nSegmentados Basofilos     0 - 1 \nLinfocitos 20 - 40\nMonocitos   2 - 8",
+    "opcionesPredefinidas": "Seg Neutrofilos,Seg Eosinofilos,Linfocitos,Monocitos,Seg Basofilos",
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Hematologia Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000fl404b18sl9sn",
+    "codigo": "QS-RE",
+    "nombre": "RELACION A/G",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 14,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqsktls0001glb04w0sl925g",
+    "codigo": "QS-RE",
+    "nombre": "RELACION A/G",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq3vtku2002d3s8wdunm8mfe",
+    "subcategoria": {
+      "id": "cmq3vtku2002d3s8wdunm8mfe",
+      "nombre": "Proteínas Totales y Fraccionadas",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 3.5,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000ql204wtygzsj7",
+    "codigo": "QS-RE",
+    "nombre": "RELACION A/G",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Proteínas Totales y Fraccionadas",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq4b1gtj0004l804vfi3mjas",
+    "codigo": "PERF-PROSR",
+    "nombre": "RELACION PSA LIBRE/PSA TOTAL",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "%",
+    "valoresReferencia": "Menor a 25",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Prostatico",
+    "subcategoriaId": "cmq4b1gtj0001l804ykoa7qn7",
+    "subcategoria": {
+      "id": "cmq4b1gtj0001l804ykoa7qn7",
+      "nombre": "Perfil Prostatico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 20,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq48l6fm0004l4044a1k2fkv",
+    "codigo": "HE-10",
+    "nombre": "RETICULOCITOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "5",
+    "valoresReferencia": "0.5 - 2",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0013l404s9pgy9ql",
+    "codigo": "OR-SANGREMO",
+    "nombre": "SANGRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,TRAZAS,POSITIVO",
+    "activa": true,
+    "ordenVisual": 38,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq8ebwqq0006lf04b45e1tdd",
+    "codigo": "HEC-MAS",
+    "nombre": "SANGRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausente,Presente",
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq8ebwqq0001lf04rzr07gqq",
+    "subcategoria": {
+      "id": "cmq8ebwqq0001lf04rzr07gqq",
+      "nombre": "Heces Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000q3shgwtoqs7c0",
+    "codigo": "OR-SANGREMO",
+    "nombre": "SANGRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Trazas,Positivo",
+    "activa": true,
+    "ordenVisual": 11,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000rl404u176l5fl",
+    "codigo": "HEC-MAS",
+    "nombre": "SANGRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Ausente,Presente",
+    "activa": true,
+    "ordenVisual": 26,
+    "categoriaVisual": "HECES",
+    "subcategoriaVisual": "Heces Completa",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqyigrok0004la04lf7alqez",
+    "codigo": "HE-SANGRE OCULTA",
+    "nombre": "SANGRE OCULTA EN HECES",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmqyigrok0003la04slzhffbj",
+    "subcategoria": {
+      "id": "cmqyigrok0003la04slzhffbj",
+      "nombre": "Sangre Oculta",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 10,
+      "categoria": {
+        "id": 10,
+        "nombre": "HECES"
+      }
+    }
+  },
+  {
+    "id": "cmq41shdn0000ld04u1nlicgd",
+    "codigo": "QS-NA",
+    "nombre": "SODIO",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mEq/L",
+    "valoresReferencia": "135 -  155",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 27,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0005l7047wo2ln0w",
+    "codigo": "QU-NA24H",
+    "nombre": "SODIO EN ORINA DE 24 HORAS",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "mEq/24 horas",
+    "valoresReferencia": "75 - 200",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 13,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq45r8gr0006kz04zs0m7sik",
+    "codigo": "QU-NA",
+    "nombre": "SODIO EN ORINA PARCIAL",
+    "precioUSD": 4,
+    "margenGanancia": null,
+    "unidades": "mEq/L",
+    "valoresReferencia": "54 - 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7sr0006l704hieqjxdg",
+    "codigo": "QU-SC",
+    "nombre": "SUPERFICIE CORPORAL CORREGIDA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq49xx90000bl704bdtjxz9u",
+    "codigo": "T3-L",
+    "nombre": "T3 (TRIYODOTIRONINA) LIBRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "pmol/L",
+    "valoresReferencia": "2.8 - 7.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Perfil tiroideo",
+    "subcategoriaId": "cmq49xx900009l704tdj4p3vw",
+    "subcategoria": {
+      "id": "cmq49xx900009l704tdj4p3vw",
+      "nombre": "Perfil tiroideo",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 21,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq49pfqx0002l7044jxzp6gi",
+    "codigo": "HOR-T3L",
+    "nombre": "T3 (TRIYODOTIRONINA) LIBRE",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "pmol/L",
+    "valoresReferencia": "2.8 -  7.1",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Tiroideas",
+    "subcategoriaId": "cmq49pfqx0001l704jgwc8z3i",
+    "subcategoria": {
+      "id": "cmq49pfqx0001l704jgwc8z3i",
+      "nombre": "Tiroideas",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq49pfqx0003l704urylsutr",
+    "codigo": "HOR-T4L",
+    "nombre": "T4 (TIROXINA) LIBRE",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "pmol/L",
+    "valoresReferencia": "12.0 - 22.0 ",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Tiroideas",
+    "subcategoriaId": "cmq49pfqx0001l704jgwc8z3i",
+    "subcategoria": {
+      "id": "cmq49pfqx0001l704jgwc8z3i",
+      "nombre": "Tiroideas",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq49xx90000cl704h7rxy362",
+    "codigo": "T4-L",
+    "nombre": "T4 (TIROXINA) LIBRE",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "pmol/L",
+    "valoresReferencia": "12.0 - 22.0 ",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Perfil tiroideo",
+    "subcategoriaId": "cmq49xx900009l704tdj4p3vw",
+    "subcategoria": {
+      "id": "cmq49xx900009l704tdj4p3vw",
+      "nombre": "Perfil tiroideo",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 21,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7sr0003l704fiic52z8",
+    "codigo": "QU-TALLA",
+    "nombre": "TALLA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "cm",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq8f9y4l00003sakd56wqycg",
+    "codigo": "IN-ASLO",
+    "nombre": "TITULO ANTIESTREPTOLISINA O (ASLO)",
+    "precioUSD": 5,
+    "margenGanancia": null,
+    "unidades": "m/g",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 23,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0008jy04sq7onyan",
+    "codigo": "IN-TOX",
+    "nombre": "TOXOPLASMOSIS IGG/IGM",
+    "precioUSD": 5.5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic000kjy04238588ky",
+    "codigo": "IN-TOXOM",
+    "nombre": "TOXOPLASMOSIS IGM",
+    "precioUSD": 8,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": "POSITIVO,NEGATIVO",
+    "activa": true,
+    "ordenVisual": 19,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq5gk2c40003jo04uanvo5z4",
+    "codigo": "CO-TP",
+    "nombre": "TP (TIEMPO DE PROTROMBINA)",
+    "precioUSD": 3.5,
+    "margenGanancia": null,
+    "unidades": "seg",
+    "valoresReferencia": "11 - 13.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "COAGULACION",
+    "subcategoriaVisual": "Tiempos",
+    "subcategoriaId": "cmq5gk2c40001jo049ue1cid9",
+    "subcategoria": {
+      "id": "cmq5gk2c40001jo049ue1cid9",
+      "nombre": "Tiempos",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 7,
+      "categoria": {
+        "id": 7,
+        "nombre": "COAGULACION"
+      }
+    }
+  },
+  {
+    "id": "cmq5gk2c40002jo0461k13ma5",
+    "codigo": "CO-TPT",
+    "nombre": "TPT (TIEMPO PARCIAL DE TROMBOPLASTINA)",
+    "precioUSD": 3.5,
+    "margenGanancia": null,
+    "unidades": "seg",
+    "valoresReferencia": "25 - 35",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "COAGULACION",
+    "subcategoriaVisual": "Tiempos",
+    "subcategoriaId": "cmq5gk2c40001jo049ue1cid9",
+    "subcategoria": {
+      "id": "cmq5gk2c40001jo049ue1cid9",
+      "nombre": "Tiempos",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 7,
+      "categoria": {
+        "id": 7,
+        "nombre": "COAGULACION"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000ml404l4vzqhml",
+    "codigo": "TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 21,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr0l00010009l704fhnn9ypb",
+    "codigo": "TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 8,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmr0kwk6j0001l7046en4o5da",
+    "subcategoria": {
+      "id": "cmr0kwk6j0001l7046en4o5da",
+      "nombre": "Perfil Basico 2",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m9000clb04caf9axqf",
+    "codigo": "TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq41dr2w0006ky04yd4w8q2q",
+    "codigo": "TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 5,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Perfil Lipidico",
+    "subcategoriaId": "cmq415fcs0001ky04fyupwk7z",
+    "subcategoria": {
+      "id": "cmq415fcs0001ky04fyupwk7z",
+      "nombre": "Perfil Lipidico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 10,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000jl2043oduuiux",
+    "codigo": "TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor de 150",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vtgl900213s8wixv0jrbm",
+    "codigo": "QS-TG",
+    "nombre": "TRIGLICERIDOS",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "Menor a 136",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 25,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmrmu6gwf0000la0436mfywjd",
+    "codigo": "QS-TRO",
+    "nombre": "TROPONINA I (CTNI)",
+    "precioUSD": 10,
+    "margenGanancia": null,
+    "unidades": "ng/ml",
+    "valoresReferencia": "0 - 0.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 35,
+    "categoriaVisual": "",
+    "subcategoriaVisual": "",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq49vqjf0007l70410mscdhe",
+    "codigo": "HOR-TSH",
+    "nombre": "TSH (HORMONA ESTIMULANTE DE LA TIROIDES)",
+    "precioUSD": 7,
+    "margenGanancia": null,
+    "unidades": "mUI/L",
+    "valoresReferencia": "0.4 - 4.5",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Tiroideas",
+    "subcategoriaId": "cmq49pfqx0001l704jgwc8z3i",
+    "subcategoria": {
+      "id": "cmq49pfqx0001l704jgwc8z3i",
+      "nombre": "Tiroideas",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmq49xx90000dl704t3imw4pd",
+    "codigo": "TSH-1",
+    "nombre": "TSH (HORMONA ESTIMULANTE DE LA TIROIDES)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mUI/L",
+    "valoresReferencia": "0.3 - 4.2",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": "HORMONAS",
+    "subcategoriaVisual": "Perfil tiroideo",
+    "subcategoriaId": "cmq49xx900009l704tdj4p3vw",
+    "subcategoria": {
+      "id": "cmq49xx900009l704tdj4p3vw",
+      "nombre": "Perfil tiroideo",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 21,
+      "categoriaId": 5,
+      "categoria": {
+        "id": 5,
+        "nombre": "HORMONAS"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x000bl404q0ruaupu",
+    "codigo": "QS-URE",
+    "nombre": "UREA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "10 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 10,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr4alksi000gl204kcu3ozft",
+    "codigo": "QS-URE",
+    "nombre": "UREA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "10 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA",
+    "subcategoriaId": "cmr4afxhn0009l204xxcwz86l",
+    "subcategoria": {
+      "id": "cmr4afxhn0009l204xxcwz86l",
+      "nombre": "Perfil -20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 23,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmqzo0nz100003sa8m5elr2pr",
+    "codigo": "QS-URE",
+    "nombre": "UREA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "10 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 6,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "QUIMICA SANGUINEA",
+    "subcategoriaId": "cmq8inm610001jj04qlkoalz5",
+    "subcategoria": {
+      "id": "cmq8inm610001jj04qlkoalz5",
+      "nombre": "Perfil Basico",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 9,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmr3f68m90009lb045uu3dkun",
+    "codigo": "QS-URE",
+    "nombre": "UREA",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "10 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmr3f68m90001lb04esdf2k9w",
+    "subcategoria": {
+      "id": "cmr3f68m90001lb04esdf2k9w",
+      "nombre": "Perfil basico 3",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 14,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq3vth4f00233s8w2329di74",
+    "codigo": "QS-URE",
+    "nombre": "UREA",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mg/dL",
+    "valoresReferencia": "10 - 40",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 26,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46oxib0004l7042axx0qp6",
+    "codigo": "QU-U24H",
+    "nombre": "UREA EN ORINA DE 24 HORAS",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "mg/24 horas",
+    "valoresReferencia": "3 - 20",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 12,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmqylda5x0011l404djjhztmb",
+    "codigo": "OR-URO",
+    "nombre": "UROBILINOGENO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NEGATIVO,TRAZAS,POSITIVO",
+    "activa": true,
+    "ordenVisual": 36,
+    "categoriaVisual": "ORINA COMPLETA",
+    "subcategoriaVisual": "ANALISIS  MACROSCOPICO",
+    "subcategoriaId": "cmqylda5w0001l404chleuhvs",
+    "subcategoria": {
+      "id": "cmqylda5w0001l404chleuhvs",
+      "nombre": "Perfil 20",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 28,
+      "categoriaId": 11,
+      "categoria": {
+        "id": 11,
+        "nombre": "PERFIL"
+      }
+    }
+  },
+  {
+    "id": "cmq877lgm000o3shgwga3vabz",
+    "codigo": "OR-URO",
+    "nombre": "UROBILINOGENO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "Negativo,Trazas,Positivo",
+    "activa": true,
+    "ordenVisual": 9,
+    "categoriaVisual": "ORINA",
+    "subcategoriaVisual": "Analisis Macroscopico",
+    "subcategoriaId": "cmq877lgl000f3shgwoq5m6s7",
+    "subcategoria": {
+      "id": "cmq877lgl000f3shgwoq5m6s7",
+      "nombre": "Orina Completa",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 2.5,
+      "categoriaId": 8,
+      "categoria": {
+        "id": 8,
+        "nombre": "ORINA"
+      }
+    }
+  },
+  {
+    "id": "cmq48l6fm0001l404lkrh8wu2",
+    "codigo": "HE-7",
+    "nombre": "VCM (VOLUMEN CORPUSCULAR MEDIO)",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "fl",
+    "valoresReferencia": "80 - 100",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 7,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Biometria Hematica",
+    "subcategoriaId": "cmq48bhdq0001l204trmuj5tr",
+    "subcategoria": {
+      "id": "cmq48bhdq0001l204trmuj5tr",
+      "nombre": "Biometria Hematica",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  },
+  {
+    "id": "cmq43e9k70003kw04tr1octue",
+    "codigo": "QS-VDRL",
+    "nombre": "VDRL",
+    "precioUSD": 3,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 28,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Química Sanguínea",
+    "subcategoriaId": "cmq3vszy2000b3s8wmpuireuz",
+    "subcategoria": {
+      "id": "cmq3vszy2000b3s8wmpuireuz",
+      "nombre": "Química Sanguínea",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq4ccoic0002jy04ivwasqbx",
+    "codigo": "IN-VDRL",
+    "nombre": "VDRL",
+    "precioUSD": 2.5,
+    "margenGanancia": null,
+    "unidades": "-",
+    "valoresReferencia": "-",
+    "opcionesPredefinidas": "NO REACTIVO,REACTIVO 1 dil,REACTIVO 2 dil",
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Inmunologia",
+    "subcategoriaId": "cmq4ccoib0001jy04u3qcftsj",
+    "subcategoria": {
+      "id": "cmq4ccoib0001jy04u3qcftsj",
+      "nombre": "Inmunologia",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7sr0005l704x50lqr2s",
+    "codigo": "QU-VMC",
+    "nombre": "VOLUMEN MINUTO CORREGIDO",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 4,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq4769540003jr049t1emg9e",
+    "codigo": "QU-VT",
+    "nombre": "VOLUMEN TOTAL 24 HORAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "ml",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 2,
+    "categoriaVisual": "QUIMICA URINARIA",
+    "subcategoriaVisual": "Proteinuria",
+    "subcategoriaId": "cmq4769540001jr04b9sfnn9r",
+    "subcategoria": {
+      "id": "cmq4769540001jr04b9sfnn9r",
+      "nombre": "Proteinuria",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 6,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq46a7sr0004l704puwj248c",
+    "codigo": "QU-VT",
+    "nombre": "VOLUMEN TOTAL 24 HORAS",
+    "precioUSD": null,
+    "margenGanancia": null,
+    "unidades": "ml",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 3,
+    "categoriaVisual": null,
+    "subcategoriaVisual": null,
+    "subcategoriaId": "cmq46a7sr0001l7044au5kz8o",
+    "subcategoria": {
+      "id": "cmq46a7sr0001l7044au5kz8o",
+      "nombre": "Depuracion de Creatinina",
+      "activa": true,
+      "esPaquete": true,
+      "precioUSD": 7,
+      "categoriaId": 3,
+      "categoria": {
+        "id": 3,
+        "nombre": "QUIMICA URINARIA"
+      }
+    }
+  },
+  {
+    "id": "cmq470gcl0000jx04th2gwumc",
+    "codigo": "QU-VT24H",
+    "nombre": "VOLUMEN TOTAL 24 HORAS",
+    "precioUSD": 0.1,
+    "margenGanancia": null,
+    "unidades": "ml",
+    "valoresReferencia": null,
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 17,
+    "categoriaVisual": "QUIMICA",
+    "subcategoriaVisual": "Quimica Urinaria",
+    "subcategoriaId": "cmq45knhv0001kz04wcoyyare",
+    "subcategoria": {
+      "id": "cmq45knhv0001kz04wcoyyare",
+      "nombre": "Quimica Urinaria",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 2,
+      "categoria": {
+        "id": 2,
+        "nombre": "QUIMICA"
+      }
+    }
+  },
+  {
+    "id": "cmq48xw5k000fl404xkgab59m",
+    "codigo": "HE-VSG",
+    "nombre": "VSG (1 H)",
+    "precioUSD": 2,
+    "margenGanancia": null,
+    "unidades": "mm/h",
+    "valoresReferencia": "0 - 20",
+    "opcionesPredefinidas": null,
+    "activa": true,
+    "ordenVisual": 1,
+    "categoriaVisual": "HEMATOLOGIA",
+    "subcategoriaVisual": "Velocidad de Sedimentacion Globular",
+    "subcategoriaId": "cmq48xw5k000el404ibw8et6n",
+    "subcategoria": {
+      "id": "cmq48xw5k000el404ibw8et6n",
+      "nombre": "Velocidad de Sedimentacion Globular",
+      "activa": true,
+      "esPaquete": false,
+      "precioUSD": null,
+      "categoriaId": 1,
+      "categoria": {
+        "id": 1,
+        "nombre": "HEMATOLOGIA"
+      }
+    }
+  }
+]

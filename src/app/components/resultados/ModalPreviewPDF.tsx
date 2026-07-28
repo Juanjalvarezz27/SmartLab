@@ -18,6 +18,7 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
   const [isMounted, setIsMounted] = useState(false);
   const [fechaImpresa, setFechaImpresa] = useState("");
   const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [formatoImpresion, setFormatoImpresion] = useState<"LETTER" | "A5">("LETTER");
   
   // Estados para el asistente de WhatsApp
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
@@ -50,7 +51,7 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
 
   // Abre el PDF del servidor en nueva pestaña — el navegador lo muestra nativamente
   const handleVerPDF = () => {
-    window.open(`/api/resultados/pdf/${orden.id}`, "_blank");
+    window.open(`/api/resultados/pdf/${orden.id}?formato=${formatoImpresion}`, "_blank");
   };
 
   // Impresión: usa blob local solo para el iframe (solo desktop)
@@ -58,7 +59,7 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
     const toastId = toast.loading("Preparando impresión...");
     try {
       const blob = await pdf(
-        <ReporteDocument orden={orden} fechaImpresa={fechaImpresa} qrCodeUrl={qrCodeUrl} />
+        <ReporteDocument orden={orden} fechaImpresa={fechaImpresa} qrCodeUrl={qrCodeUrl} formato={formatoImpresion} />
       ).toBlob();
       const url = URL.createObjectURL(blob);
       const iframe = document.createElement("iframe");
@@ -92,7 +93,27 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
     <div className="fixed inset-0 z-[200] flex flex-col items-center p-4 sm:p-8 bg-[#1D1D1F]/95">
       {/* BARRA DE HERRAMIENTAS */}
       <div className="w-full max-w-[850px] flex justify-between items-center bg-[#2D2D2F] p-4 rounded-2xl mb-6 shrink-0 shadow-lg border border-white/10">
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-center">
+          {/* SELECTOR DE FORMATO */}
+          <div className="flex bg-[#1D1D1F] p-1 rounded-xl border border-white/10 mr-2">
+            <button
+              onClick={() => setFormatoImpresion("LETTER")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${
+                formatoImpresion === "LETTER" ? "bg-white text-black" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              CARTA
+            </button>
+            <button
+              onClick={() => setFormatoImpresion("A5")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${
+                formatoImpresion === "A5" ? "bg-white text-black" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              A5
+            </button>
+          </div>
+          
           <button
             onClick={handlePrint}
             className="flex items-center gap-2 bg-white text-[#1D1D1F] hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-bold transition-colors"
@@ -124,7 +145,7 @@ export default function ModalPreviewPDF({ orden, onClose }: ModalPreviewPDFProps
       {/* VISOR PDF (solo funciona bien en desktop/Chrome) */}
       <div className="w-full max-w-[850px] flex-1 bg-white rounded-xl overflow-hidden shadow-2xl">
         <PDFViewer width="100%" height="100%" showToolbar={false}>
-          <ReporteDocument orden={orden} fechaImpresa={fechaImpresa} qrCodeUrl={qrCodeUrl} />
+          <ReporteDocument orden={orden} fechaImpresa={fechaImpresa} qrCodeUrl={qrCodeUrl} formato={formatoImpresion} />
         </PDFViewer>
       </div>
 

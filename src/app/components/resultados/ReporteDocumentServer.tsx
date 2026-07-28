@@ -28,7 +28,7 @@ Font.register({
 // Desactivar hyphenation para evitar errores de cálculo de altura en page-breaks
 Font.registerHyphenationCallback(word => [word]);
 
-const pdfStyles = StyleSheet.create({
+const baseStyles = {
   page: {
     paddingTop: 20,
     paddingBottom: 50,
@@ -62,6 +62,10 @@ const pdfStyles = StyleSheet.create({
   },
   topContactText: { fontSize: 7, color: "#000000", fontWeight: 700 },
   topContactRight: { flexDirection: "row", gap: 4 },
+  qrCodeImage: { width: 35, height: 35 },
+  qrTextContainer: { flexDirection: "column", justifyContent: "center" },
+  qrTextTitle: { fontSize: 7.5, fontWeight: 700, color: "#1D1D1F" },
+  qrTextDesc: { fontSize: 7, color: "#000000", marginTop: 1, maxWidth: 150 },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -114,8 +118,19 @@ const pdfStyles = StyleSheet.create({
     fontWeight: 700,
     textTransform: "uppercase",
   },
+  catTitleTextSmall: {
+    fontSize: 10,
+    fontWeight: 700,
+    textTransform: "uppercase",
+  },
   catBioanalistaText: {
-    fontSize: 12,
+    fontSize: 9.5,
+    fontWeight: 700,
+    color: "#000",
+    letterSpacing: 0.5,
+  },
+  catBioanalistaTextSmall: {
+    fontSize: 8.5,
     fontWeight: 700,
     color: "#000",
     letterSpacing: 0.5,
@@ -171,6 +186,8 @@ const pdfStyles = StyleSheet.create({
   },
   obsLabel: { fontSize: 8, fontWeight: 700, color: "#4B5563" },
   obsText: { fontSize: 8, fontWeight: 400, color: "#4B5563", flex: 1 },
+  subcatNoteView: { marginTop: 4, paddingLeft: 8, paddingRight: 8, marginBottom: 8 },
+  subcatNoteText: { fontSize: 8, color: '#475569' },
   footerSignaturesContainer: {
     marginTop: 30,
     paddingBottom: 0,
@@ -210,7 +227,27 @@ const pdfStyles = StyleSheet.create({
     marginTop: 2,
     textAlign: "center",
   },
-});
+};
+
+const scaleStyles = (styles: any, factor: number): any => {
+  const skipKeys = ['fontWeight', 'flex', 'zIndex', 'opacity'];
+  const newStyles = {} as any;
+  for (const key in styles) {
+    if (typeof styles[key] === 'object' && styles[key] !== null) {
+      newStyles[key] = scaleStyles(styles[key], factor);
+    } else if (typeof styles[key] === 'number' && !skipKeys.includes(key)) {
+      newStyles[key] = styles[key] * factor;
+    } else {
+      newStyles[key] = styles[key];
+    }
+  }
+  return newStyles;
+};
+
+export const getPdfStyles = (formato: "LETTER" | "A5" = "LETTER") => {
+  const factor = formato === "A5" ? 0.70 : 1;
+  return StyleSheet.create(scaleStyles(baseStyles, factor));
+};
 
 // Helpers
 function formatFechaHora(dateString: string): string {
@@ -245,6 +282,7 @@ interface ReporteDocumentServerProps {
   fechaImpresa: string;
   qrCodeUrl: string;
   logoBase64?: string;
+  formato?: "LETTER" | "A5";
 }
 
 const ReporteDocumentServer = ({
@@ -252,7 +290,9 @@ const ReporteDocumentServer = ({
   fechaImpresa,
   qrCodeUrl,
   logoBase64,
+  formato = "LETTER",
 }: ReporteDocumentServerProps) => {
+  const pdfStyles = getPdfStyles(formato);
   const allSigners = new Map();
   const groupedByCategory = orden.detalles.reduce((acc: any, det: any) => {
     let catNombreOriginal = (
@@ -361,17 +401,19 @@ const ReporteDocumentServer = ({
 
   return (
     <Document>
-      <Page size="LETTER" style={pdfStyles.page}>
+      <Page size={formato} style={pdfStyles.page}>
 
         {/* INFO CONTACTO SUPERIOR Y QR */}
         <View style={pdfStyles.topContact}>
           <View style={pdfStyles.topContactLeft}>
             {qrCodeUrl ? (
-              <Image src={qrCodeUrl} style={{ width: 35, height: 35 }} />
-            ) : <View style={{ width: 35, height: 35 }} />}
-            <View style={{ flexDirection: "column", justifyContent: "center" }}>
-              <Text style={{ fontSize: 7.5, fontWeight: 700, color: "#1D1D1F" }}>DOC. VERIFICADO</Text>
-              <Text style={{ fontSize: 7, color: "#000000", marginTop: 1, maxWidth: 150 }}>
+              <Image src={qrCodeUrl} style={pdfStyles.qrCodeImage} />
+            ) : (
+              <View style={pdfStyles.qrCodeImage} />
+            )}
+            <View style={pdfStyles.qrTextContainer}>
+              <Text style={pdfStyles.qrTextTitle}>DOC. VERIFICADO</Text>
+              <Text style={pdfStyles.qrTextDesc}>
                 Escanee para validar la{"\n"}autenticidad de resultados.
               </Text>
             </View>
@@ -488,13 +530,13 @@ const ReporteDocumentServer = ({
                       {/* Título de categoría */}
                       {index === 0 && (
                         <View style={pdfStyles.catTitleView} minPresenceAhead={20}>
-                          <Text style={[pdfStyles.catTitleText, isLongTitle ? { fontSize: 11 } : {}]}>
-                            {catNombre}
-                            {bioanalistasText && (
-                              <Text style={[pdfStyles.catBioanalistaText, isLongTitle ? { fontSize: 11 } : {}]}>{bioanalistasText}</Text>
-                            )}
-                          </Text>
-                        </View>
+                        <Text style={isLongTitle ? pdfStyles.catTitleTextSmall : pdfStyles.catTitleText}>
+                          {catNombre}
+                          {bioanalistasText && (
+                            <Text style={isLongTitle ? pdfStyles.catBioanalistaTextSmall : pdfStyles.catBioanalistaText}>{bioanalistasText}</Text>
+                          )}
+                        </Text>
+                      </View>
                       )}
 
                       {index === 0 && subCatNombre === "PRUEBAS INDIVIDUALES" && (
@@ -532,8 +574,8 @@ const ReporteDocumentServer = ({
                         );
                         if (notaObj && notaObj.nota) {
                           return (
-                            <View style={{ marginTop: 4, paddingLeft: 8, paddingRight: 8, marginBottom: 8 }}>
-                              <Text style={{ fontSize: 9, color: "#475569" }}>
+                            <View style={pdfStyles.subcatNoteView}>
+                              <Text style={pdfStyles.subcatNoteText}>
                                 Nota: {notaObj.nota}
                               </Text>
                             </View>
