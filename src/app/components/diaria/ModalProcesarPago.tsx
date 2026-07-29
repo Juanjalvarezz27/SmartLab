@@ -69,7 +69,10 @@ export default function ModalProcesarPago({ orden, onClose, onSuccess }: ModalPr
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pagos: pagosValidos, tasaBCV: orden.tasaBCV })
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Error desconocido del servidor");
+      }
       toast.success("¡Orden cerrada con éxito!");
       onSuccess(); 
     } catch (error: any) {
@@ -187,9 +190,9 @@ export default function ModalProcesarPago({ orden, onClose, onSuccess }: ModalPr
                     <ChevronDown size={18} className="text-slate-400" />
                   </button>
 
-                  {/* Cambiado a top-full mt-2 (hacia abajo) para evitar cortes con el scroll interno del contenedor superior */}
+                  {/* Cambiado a bottom-full mb-2 (hacia arriba) para evitar cortes con el borde inferior del modal */}
                   {dropdownAbierto === idx && (
-                    <div className="absolute top-full left-0 mt-2 w-full bg-white border border-slate-200 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] overflow-hidden z-[110] py-1 animate-in slide-in-from-top-2 duration-200">
+                    <div className="absolute bottom-full left-0 mb-2 w-full bg-white border border-slate-200 rounded-2xl shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.2)] max-h-[240px] overflow-y-auto custom-scrollbar z-[110] py-1 animate-in slide-in-from-bottom-2 duration-200">
                       {metodosBD.map((m) => (
                         <button 
                           key={m.id} 

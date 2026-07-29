@@ -29,6 +29,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       select: {
         id: true,
         totalUSD: true,
+        tasaBCV: true,
         laboratorioId: true,
         pagos: { select: { montoUSD: true } }
       }
@@ -42,8 +43,9 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     if (!estadoCerrada) return NextResponse.json({ error: "Estado CERRADA no configurado" }, { status: 500 });
 
     const pagosData = body.pagos.map((p: any) => {
-      const montoEnUSD = p.moneda === "USD" ? p.monto : (p.monto / body.tasaBCV);
-      const montoEnBS = p.moneda === "BS" ? p.monto : (p.monto * body.tasaBCV);
+      const tasa = ordenActual.tasaBCV || 1;
+      const montoEnUSD = p.moneda === "USD" ? p.monto : (p.monto / tasa);
+      const montoEnBS = p.moneda === "BS" ? p.monto : (p.monto * tasa);
 
       return {
         metodoId: parseId(p.metodoId), // <-- CORREGIDO
