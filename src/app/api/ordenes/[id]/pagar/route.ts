@@ -51,8 +51,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
         metodoId: parseId(p.metodoId), // <-- CORREGIDO
         montoUSD: parseFloat(montoEnUSD.toFixed(2)),
         montoBS: parseFloat(montoEnBS.toFixed(2)),
-        referencia: p.referencia || null,
-        laboratorioId: labId
+        referencia: p.referencia || null
       };
     });
 
